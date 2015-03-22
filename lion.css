@@ -16,6 +16,11 @@ body {
 #column-one h2{ 
 	display:none;
 }
+
+#column-content {
+	margin-bottom:50px;
+}
+
 h1,h2 {
 	font-family:"Pathway Gothic One";
 	border-bottom: 1px solid #eee;
@@ -83,30 +88,49 @@ h2 {
 	padding:0px 3px;
 }
 
-.portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a {
+.portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a , .portlet#p-cactions #ca-nstab-special a {
 	background-color:#ddd;
 		padding: 0px 6px;
 }
-.portlet#p-cactions .selected#ca-nstab-main a, .portlet#p-cactions .selected#ca-talk a {
+.portlet#p-cactions .selected#ca-nstab-main a, .portlet#p-cactions .selected#ca-talk a , .portlet#p-cactions .selected#ca-nstab-special a {
 	background-color:#fff;
 }
-.portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover {
+.portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover, .portlet#p-cactions #ca-nstab-special a:hover {
 	background-color:#eee;
 }
-.portlet#p-cactions .selected#ca-nstab-main a:hover, .portlet#p-cactions .selected#ca-talk a:hover {
+.portlet#p-cactions .selected#ca-nstab-main a:hover, .portlet#p-cactions .selected#ca-talk a:hover, .portlet#p-cactions .selected#ca-nstab-special a:hover {
 	background-color:#fff;
+}
+.portlet#p-search h3{
+ display:none;
+}
+.portlet#p-search {
+ position:absolute;right:20px;top:-40px;
 }
 
 .portlet#p-tb {
 	position:absolute;
-	bottom:20px;right:20px;
+	bottom:28px;right:20px;
 	text-align:right;
+	font-size:14px;
 }
 .portlet#p-tb h3 {
 	display:none;
 }
-.portlet#p-tb ul,li {
+.portlet#p-tb ul, .portlet#p-tb li {
 	margin:0;padding:0;list-style:none;display:inline;
+}
+
+.portlet#p-tb li:after {
+	content:" - ";
+}
+
+.portlet#p-tb li:last-child:after {
+	content:"";
+}
+
+.portlet#p-tb a{
+	text-decoration:none;
 }
 
 #footer {
