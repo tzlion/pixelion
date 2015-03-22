@@ -10,6 +10,7 @@ body {
 	padding:20px;
 	margin-top:80px;
 	position:relative;
+	zzzbox-shadow:0px 2px 4px 1px rgba(0,0,0,0.3);
 }
 
 #column-one h2{ 
@@ -105,11 +106,25 @@ h2 {
 	display:none;
 }
 .portlet#p-tb ul,li {
-	margin:0;padding:0;list-style:none;
+	margin:0;padding:0;list-style:none;display:inline;
 }
 
+#footer {
+	position:absolute; left:0;right:0; bottom:-80px; color:white; text-align:center;
+}
 #footer * {
-	display:inline;font-size:13px;
+	display:inline;font-size:13px;padding:0;margin:0;list-style:none;
+}
+#footer li#lastmod {
+	position:absolute;
+	right:20px; top:-70px;;
+	color:grey;
+}
+#footer li#copyright {
+	display:block;
+}
+#footer a {
+	color:white;
 }
 #footer img,#footer #viewcount {
 	display:none;
