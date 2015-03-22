@@ -1,0 +1,94 @@
+@import url("http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Roboto:400,400italic,500italic,500,700,700italic,900italic,900,300italic,300,100italic,100&subset=latin,latin-ext");
+
+body {
+	background-color:#ff4080;
+	margin:20px;
+	font-family:Roboto;
+}
+#globalWrapper {
+	background-color:white;
+	padding:20px;
+	position:relative;
+}
+
+#column-one h2{ 
+	display:none;
+}
+h1,h2 {
+	font-family:"Pathway Gothic One";
+	border-bottom: 1px solid #eee;
+	font-weight:normal;
+}
+h1 {
+	font-size:40px;
+}
+h2 {
+	font-size:30px;
+}
+
+.portlet#p-personal {
+	position:absolute;
+	top:-20px;left:-20px;right:-20px;
+	wxidth:100%;
+	background-color:black;
+	color:white;
+	text-align:right;
+}
+.portlet#p-personal ul,.portlet#p-personal li,.portlet#p-personal div {
+	display:inline;padding:0;margin:0;list-style:none;
+}
+.portlet#p-personal h3 {
+	display:none;
+}
+
+.portlet#p-personal a {
+	color:white;text-decoration:none;padding:2px 2px 2px 0;
+}
+
+.portlet#p-navigation {
+	position:absolute;
+	top:-20px;left:-20px;
+	background-color:black;
+	color:white;
+}
+.portlet#p-navigation ul,.portlet#p-navigation li,.portlet#p-navigation div {
+	display:inline;padding:0;margin:0;list-style:none;
+}
+.portlet#p-navigation h3 {
+	display:none;
+}
+
+
+.portlet#p-navigation a {
+	color:white;text-decoration:none;padding:2px 2px 2px 0;
+}
+
+.portlet#p-cactions{
+	position:absolute;
+	top:20px;left:20px;
+}
+.portlet#p-cactions ul,.portlet#p-cactions li,.portlet#p-cactions div {
+	display:inline;padding:0;margin:0;list-style:none;
+}
+.portlet#p-cactions h3 {
+	display:none;
+}
+
+.portlet#p-tb {
+	position:absolute;
+	bottom:20px;right:20px;
+	text-align:right;
+}
+.portlet#p-tb h3 {
+	display:none;
+}
+.portlet#p-tb ul,li {
+	margin:0;padding:0;list-style:none;
+}
+
+#footer * {
+	display:inline;font-size:13px;
+}
+#footer img,#footer #viewcount {
+	display:none;
+}
