@@ -32,6 +32,47 @@ h2 {
 	font-size:30px;
 }
 
+#toolbox {
+    position:absolute;
+    top:2px;
+    right:2px;
+    display:block;
+    width:30px;height:30px;
+    text-align:center;
+    line-height:30px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    background-color:rgb(100,200,255);
+    color:white;
+    oxpacity:0.5;
+    z-index:420;
+}
+
+#tools {
+    display:none;
+    position:absolute;
+    right:2px;
+    top:-14px;
+    border-right:30px solid rgba(100,200,255,0.5);
+    white-space:nowrap;
+    padding-right:5px;
+    background-color:rgba(100,200,255,0.8);
+    text-align:right;
+}
+
+#tools ul, #tools li {
+    padding:0;margin:0;list-style:none;
+}
+#tools a {
+    font-size:14px;
+    color:white;
+    text-decoration:none;
+}
+#toolbox:hover~#tools,#tools:hover{
+    display: block;
+}
+
 .portlet#p-personal {
 	position:absolute;
 	top:-80px;left:-20px;right:-20px;
