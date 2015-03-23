@@ -44,107 +44,66 @@ class LionBookTemplate extends BaseTemplate {
         $this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 
 		$this->html( 'headelement' );
-		?><div id="globalWrapper">
-		<div id="column-content">
-			<div id="content" class="mw-body" role="main">
-				<a id="top"></a>
-				<?php if ( $this->data['sitenotice'] ) { ?>
-					<div id="siteNotice">
-                        <?php $this->html( 'sitenotice' ) ?>
-                    </div>
-                <?php } ?>
-
-				<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>">
-                    <span dir="auto"><?php $this->html( 'title' ) ?></span>
-                </h1>
-
-				<div id="bodyContent" class="mw-body-content">
-					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-					<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
-                        <?php $this->html( 'subtitle' )?>
-                    </div>
-					<?php if ( $this->data['undelete'] ) { ?>
-						<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-					<?php } ?>
-                    <?php if ( $this->data['newtalk'] ) { ?>
-						<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-					<?php } ?>
-					<div id="jump-to-nav" class="mw-jump">
-                        <?php $this->msg( 'jumpto' )?>
-                        <a href="#column-one"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' )?><a href="#searchInput"><?php $this->msg( 'jumptosearch' ) ?></a>
-                    </div>
-
-					<!-- start content -->
-					<?php $this->html( 'bodytext' ) ?>
-					<?php
-					if ( $this->data['catlinks'] ) {
-						$this->html( 'catlinks' );
-					}
-					?>
-					<!-- end content -->
-					<?php
-					if ( $this->data['dataAfterContent'] ) {
-						$this->html( 'dataAfterContent' );
-					}
-					?>
-					<div class="visualClear"></div>
-				</div>
-			</div>
-		</div>
-		<div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
-			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-			<?php $this->cactions(); ?>
-			<?php $this->portletPersonal() ?>
-			<?php $this->portletLogo() ?>
-            <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
-            <?php $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
-            <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); ?>
-            <?php $this->renderCustomPortals(); ?>
-        </div><!-- end of the left (by default at least) column -->
-		<div class="visualClear"></div>
-		<?php
-		$validFooterIcons = $this->getFooterIcons( "icononly" );
-		$validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
-
-		if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) {
-			?>
-			<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
-			<?php
-			$footerEnd = '</div>';
-		} else {
-			$footerEnd = '';
-		}
-
-		foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-			?>
-			<div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico">
-				<?php foreach ( $footerIcons as $icon ) { ?>
-					<?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
-
-				<?php
-}
-				?>
-			</div>
-		<?php
-		}
-
-		if ( count( $validFooterLinks ) > 0 ) {
-			?>
-			<ul id="f-list">
-				<?php
-				foreach ( $validFooterLinks as $aLink ) {
-					?>
-					<li id="<?php echo $aLink ?>"><?php $this->html( $aLink ) ?></li>
-				<?php
-				}
-				?>
-			</ul>
-		<?php
-		}
-
-		echo $footerEnd;
 		?>
+        <div id="globalWrapper">
+            <div id="column-content">
+                <div id="content" class="mw-body" role="main">
+                    <a id="top"></a>
+                    <?php if ( $this->data['sitenotice'] ) { ?>
+                        <div id="siteNotice">
+                            <?php $this->html( 'sitenotice' ) ?>
+                        </div>
+                    <?php } ?>
 
+                    <h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>">
+                        <span dir="auto"><?php $this->html( 'title' ) ?></span>
+                    </h1>
+
+                    <div id="bodyContent" class="mw-body-content">
+                        <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+                        <div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
+                            <?php $this->html( 'subtitle' )?>
+                        </div>
+                        <?php if ( $this->data['undelete'] ) { ?>
+                            <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
+                        <?php } ?>
+                        <?php if ( $this->data['newtalk'] ) { ?>
+                            <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
+                        <?php } ?>
+                        <div id="jump-to-nav" class="mw-jump">
+                            <?php $this->msg( 'jumpto' )?>
+                            <a href="#column-one"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' )?><a href="#searchInput"><?php $this->msg( 'jumptosearch' ) ?></a>
+                        </div>
+
+                        <!-- start content -->
+                        <?php $this->html( 'bodytext' ) ?>
+                        <?php
+                        if ( $this->data['catlinks'] ) {
+                            $this->html( 'catlinks' );
+                        }
+                        ?>
+                        <!-- end content -->
+                        <?php
+                        if ( $this->data['dataAfterContent'] ) {
+                            $this->html( 'dataAfterContent' );
+                        }
+                        ?>
+                        <div class="visualClear"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
+                <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
+                <?php $this->cactions(); ?>
+                <?php $this->portletPersonal() ?>
+                <?php $this->portletLogo() ?>
+                <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+                <?php $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
+                <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); ?>
+                <?php $this->renderCustomPortals(); ?>
+            </div><!-- end of the left (by default at least) column -->
+            <div class="visualClear"></div>
+            <?php $this->outputFooter() ?>
 		</div>
 		<?php
 		$this->printTrail();
@@ -154,6 +113,50 @@ class LionBookTemplate extends BaseTemplate {
 	} // end of execute() method
 
 	/*************************************************************************************************/
+
+    protected function outputFooter()
+    {
+        $validFooterIcons = $this->getFooterIcons( "icononly" );
+        $validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
+
+        if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) {
+            ?>
+            <div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
+            <?php
+            $footerEnd = '</div>';
+        } else {
+            $footerEnd = '';
+        }
+
+        foreach ( $validFooterIcons as $blockName => $footerIcons ) {
+            ?>
+            <div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico">
+                <?php foreach ( $footerIcons as $icon ) { ?>
+                    <?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
+
+                <?php
+                }
+                ?>
+            </div>
+        <?php
+        }
+
+        if ( count( $validFooterLinks ) > 0 ) {
+            ?>
+            <ul id="f-list">
+                <?php
+                foreach ( $validFooterLinks as $aLink ) {
+                    ?>
+                    <li id="<?php echo $aLink ?>"><?php $this->html( $aLink ) ?></li>
+                <?php
+                }
+                ?>
+            </ul>
+        <?php
+        }
+
+        echo $footerEnd;
+    }
 
     protected function portletPersonal()
     {
