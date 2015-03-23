@@ -119,43 +119,40 @@ class LionBookTemplate extends BaseTemplate {
         $validFooterIcons = $this->getFooterIcons( "icononly" );
         $validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
 
-        if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) {
-            ?>
-            <div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
+        if ( !$validFooterIcons && !$validFooterLinks ) {
+            return;
+        }
+
+        ?>
+        <div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
+        <?php
+
+            foreach ( $validFooterIcons as $blockName => $footerIcons ) {
+                ?>
+                <div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico">
+                    <?php foreach ( $footerIcons as $icon ) { ?>
+                        <?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
+                    <?php } ?>
+                </div>
             <?php
-            $footerEnd = '</div>';
-        } else {
-            $footerEnd = '';
-        }
+            }
 
-        foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-            ?>
-            <div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico">
-                <?php foreach ( $footerIcons as $icon ) { ?>
-                    <?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
-
-                <?php
-                }
+            if ( count( $validFooterLinks ) > 0 ) {
+                // todo: these should be separated depending on name,
+                // maybe have a method that can be called to output a specific one if it exists a la the portlets
+                // because eg i wanna have last update time within the main content and copyright/other shit outside of it
                 ?>
-            </div>
-        <?php
-        }
+                <ul id="f-list">
+                    <?php foreach ( $validFooterLinks as $aLink ) { ?>
+                        <li id="<?php echo $aLink ?>"><?php $this->html( $aLink ) ?></li>
+                    <?php } ?>
+                </ul>
+            <?php
+            }
 
-        if ( count( $validFooterLinks ) > 0 ) {
-            ?>
-            <ul id="f-list">
-                <?php
-                foreach ( $validFooterLinks as $aLink ) {
-                    ?>
-                    <li id="<?php echo $aLink ?>"><?php $this->html( $aLink ) ?></li>
-                <?php
-                }
-                ?>
-            </ul>
+        ?>
+        </div>
         <?php
-        }
-
-        echo $footerEnd;
     }
 
     protected function portletPersonal()
