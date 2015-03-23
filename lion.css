@@ -130,21 +130,31 @@ h2 {
 	display:none;
 }
 .portlet#p-cactions a {
+    color:rgba(255,255,255,0.7);
 	height:25px;line-height:25px;
 	display:inline-block;
 	text-decoration:none;
 	padding:0px 3px;
 }
+.portlet#p-cactions a:hover {
+    color:rgba(255,255,255,0.9);
+}
+.portlet#p-cactions .selected a {
+    color:rgba(255,255,255,1);
+}
 
 .portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a , .portlet#p-cactions #ca-nstab-special a {
 	background-color:#ddd;
-		padding: 0px 6px;
+    padding: 0px 6px;
+    color:rgba(0,0,0,0.8);
 }
 .portlet#p-cactions .selected#ca-nstab-main a, .portlet#p-cactions .selected#ca-talk a , .portlet#p-cactions .selected#ca-nstab-special a {
 	background-color:#fff;
+    color:rgba(0,0,0,1);
 }
 .portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover, .portlet#p-cactions #ca-nstab-special a:hover {
 	background-color:#eee;
+    color:rgba(0,0,0,0.9);
 }
 .portlet#p-cactions .selected#ca-nstab-main a:hover, .portlet#p-cactions .selected#ca-talk a:hover, .portlet#p-cactions .selected#ca-nstab-special a:hover {
 	background-color:#fff;
@@ -182,7 +192,9 @@ h2 {
 }
 
 #footer {
-	position:absolute; left:0;right:0; bottom:-80px; color:white; text-align:center;
+	position:absolute; left:0;right:0; bottom:-80px;
+    color:rgba(255,255,255,0.7);
+    text-align:center;
 }
 #footer * {
 	display:inline;font-size:13px;padding:0;margin:0;list-style:none;
@@ -197,7 +209,11 @@ h2 {
 	display:block;
 }
 #footer a {
-	color:white;
+	color:rgba(255,255,255,0.9);
+    text-decoration:none;
+}
+#footer a:hover {
+	color:rgba(255,255,255,1);
 }
 #footer img,#footer #viewcount {
 	display:none;
