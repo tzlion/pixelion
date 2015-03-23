@@ -29,8 +29,8 @@ $wgExtensionCredits['skin'][] = array(
 	'name' => 'LionBook',
 	'namemsg' => 'skinname-lionbook',
 	'descriptionmsg' => 'lionbook-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Skin:LionBook',
-	'author' => array( 'Gabriel Wicke', '...' ),
+	'url' => 'http://lion.li',
+	'author' => array( 'a lion', '...' ),
 	'license-name' => 'GPLv2+',
 );
 
