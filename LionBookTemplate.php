@@ -110,8 +110,11 @@ class LionBookTemplate extends BaseTemplate {
 			<?php $this->cactions(); ?>
 			<?php $this->portletPersonal() ?>
 			<?php $this->portletLogo() ?>
-			<?php $this->renderPortals( $this->data['sidebar'] ); ?>
-		</div><!-- end of the left (by default at least) column -->
+            <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+            <?php $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
+            <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); ?>
+            <?php $this->renderCustomPortals(); ?>
+        </div><!-- end of the left (by default at least) column -->
 		<div class="visualClear"></div>
 		<?php
 		$validFooterIcons = $this->getFooterIcons( "icononly" );
@@ -166,7 +169,7 @@ class LionBookTemplate extends BaseTemplate {
 
 	/*************************************************************************************************/
 
-    private function portletPersonal()
+    protected function portletPersonal()
     {
         ?>
         <div class="portlet" id="p-personal" role="navigation">
@@ -186,7 +189,7 @@ class LionBookTemplate extends BaseTemplate {
     <?php
     }
 
-    private function portletLogo()
+    protected function portletLogo()
     {
         ?>
         <div class="portlet" id="p-logo" role="banner">
@@ -203,33 +206,37 @@ class LionBookTemplate extends BaseTemplate {
 	/**
 	 * @param array $sidebar
 	 */
-	protected function renderPortals( $sidebar ) {
-		if ( !isset( $sidebar['SEARCH'] ) ) {
-			$sidebar['SEARCH'] = true;
-		}
-		if ( !isset( $sidebar['TOOLBOX'] ) ) {
-			$sidebar['TOOLBOX'] = true;
-		}
-		if ( !isset( $sidebar['LANGUAGES'] ) ) {
-			$sidebar['LANGUAGES'] = true;
-		}
+	protected function renderCustomPortals() {
 
-		foreach ( $sidebar as $boxName => $content ) {
-			if ( $content === false ) {
-				continue;
-			}
+		foreach ( $this->data['sidebar'] as $boxName => $content ) {
 
-			if ( $boxName == 'SEARCH' ) {
-				$this->searchBox();
-			} elseif ( $boxName == 'TOOLBOX' ) {
-				$this->toolbox();
-			} elseif ( $boxName == 'LANGUAGES' ) {
-				$this->languageBox();
-			} else {
-				$this->customBox( $boxName, $content );
-			}
+            // search, toolbox, languages = presets, being output elsewhere
+            if ( $content === false || in_array( $boxName, [ "SEARCH", "TOOLBOX", "LANGUAGES" ] ) ) {
+                continue;
+            }
+
+			$this->customBox( $boxName, $content );
+
 		}
 	}
+
+    protected function conditionalRenderSidebarPart($boxName)
+    {
+        if ( !isset( $this->data['sidebar'][$boxName] ) || $this->data['sidebar'][$boxName]  !== false ) {
+
+            if ( $boxName == 'SEARCH' ) {
+                $this->searchBox();
+            } elseif ( $boxName == 'TOOLBOX' ) {
+                $this->toolbox();
+            } elseif ( $boxName == 'LANGUAGES' ) {
+                $this->languageBox();
+            } else {
+                $this->customBox( $boxName, $this->data['sidebar'][$boxName] );
+            }
+
+        }
+    }
+
 
 	function searchBox() {
 		?>
