@@ -187,10 +187,11 @@ h2 {
 #footer * {
 	display:inline;font-size:13px;padding:0;margin:0;list-style:none;
 }
-#footer li#lastmod {
+#lastmod {
 	position:absolute;
 	right:20px; top:-70px;;
-	color:grey;
+	color:#ccc;
+    font-style:italic;
 }
 #footer li#copyright {
 	display:block;

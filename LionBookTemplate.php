@@ -118,7 +118,7 @@ class LionBookTemplate extends BaseTemplate {
             </div>
             <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
                 <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-                <?php $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
+                <?php// $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
                 <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); ?>
                 <?php $this->renderCustomPortals(); ?>
             </div><!-- end of the left (by default at least) column -->
