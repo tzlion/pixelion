@@ -51,6 +51,10 @@ class LionBookTemplate extends BaseTemplate {
 		?>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700,700italic,500italic,500,400italic,300italic,300,100italic,100|Pathway+Gothic+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <div id="globalWrapper">
+            <?php $this->portletPersonal() ?>
+            <?php $this->portletLogo() ?>
+            <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+            <?php $this->cactions(); ?>
             <div id="column-content">
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
@@ -100,10 +104,6 @@ class LionBookTemplate extends BaseTemplate {
             </div>
             <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
                 <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-                <?php $this->cactions(); ?>
-                <?php $this->portletPersonal() ?>
-                <?php $this->portletLogo() ?>
-                <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
                 <?php $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
                 <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); ?>
                 <?php $this->renderCustomPortals(); ?>
