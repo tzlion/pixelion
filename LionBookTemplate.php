@@ -29,6 +29,8 @@
  */
 class LionBookTemplate extends BaseTemplate {
 
+    protected $remainingFooterLinks = array();
+
 	/**
 	 * Template filter callback for LionBook skin.
 	 * Takes an associative array of data set from a SkinTemplate-based
@@ -40,6 +42,8 @@ class LionBookTemplate extends BaseTemplate {
 	function execute() {
 		// Suppress warnings to prevent notices about missing indexes in $this->data
 		wfSuppressWarnings();
+
+        $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
 
         $this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 
@@ -89,6 +93,7 @@ class LionBookTemplate extends BaseTemplate {
                             $this->html( 'dataAfterContent' );
                         }
                         ?>
+                        <? // $this->popFooterLink( "lastmod" ) ?>
                         <div class="visualClear"></div>
                     </div>
                 </div>
@@ -115,10 +120,22 @@ class LionBookTemplate extends BaseTemplate {
 
 	/*************************************************************************************************/
 
+    protected function popFooterLink( $name, $wrapper = "span" )
+    {
+        $key = array_search( $name, $this->remainingFooterLinks );
+        if ( $key !== false ) {
+            echo "<$wrapper id='$name'>";
+            $this->html( $name );
+            echo "</$wrapper>";
+            unset( $this->remainingFooterLinks[$key] );
+        }
+        // name can be: lastmod,viewcount,copyright,privacy,about,disclaimer
+    }
+
     protected function outputFooter()
     {
         $validFooterIcons = $this->getFooterIcons( "icononly" );
-        $validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
+        $validFooterLinks = $this->remainingFooterLinks;  // Additional footer links
 
         if ( !$validFooterIcons && !$validFooterLinks ) {
             return;
@@ -145,7 +162,7 @@ class LionBookTemplate extends BaseTemplate {
                 ?>
                 <ul id="f-list">
                     <?php foreach ( $validFooterLinks as $aLink ) { ?>
-                        <li id="<?php echo $aLink ?>"><?php $this->html( $aLink ) ?></li>
+                        <? $this->popFooterLink( $aLink, "li" ) ?>
                     <?php } ?>
                 </ul>
             <?php
