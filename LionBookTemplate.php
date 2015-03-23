@@ -41,51 +41,38 @@ class LionBookTemplate extends BaseTemplate {
 		// Suppress warnings to prevent notices about missing indexes in $this->data
 		wfSuppressWarnings();
 
+        $this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
+
 		$this->html( 'headelement' );
 		?><div id="globalWrapper">
 		<div id="column-content">
 			<div id="content" class="mw-body" role="main">
 				<a id="top"></a>
-				<?php
-				if ( $this->data['sitenotice'] ) {
-					?>
-					<div id="siteNotice"><?php
-					$this->html( 'sitenotice' )
-					?></div><?php
-				}
-				?>
+				<?php if ( $this->data['sitenotice'] ) { ?>
+					<div id="siteNotice">
+                        <?php $this->html( 'sitenotice' ) ?>
+                    </div>
+                <?php } ?>
 
-				<h1 id="firstHeading" class="firstHeading" lang="<?php
-				$this->data['pageLanguage'] =
-					$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
-				$this->text( 'pageLanguage' );
-				?>"><span dir="auto"><?php $this->html( 'title' ) ?></span></h1>
+				<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>">
+                    <span dir="auto"><?php $this->html( 'title' ) ?></span>
+                </h1>
 
 				<div id="bodyContent" class="mw-body-content">
 					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-					<div id="contentSub"<?php
-					$this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' )
-						?></div>
+					<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
+                        <?php $this->html( 'subtitle' )?>
+                    </div>
 					<?php if ( $this->data['undelete'] ) { ?>
 						<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-					<?php
-}
-					?><?php
-					if ( $this->data['newtalk'] ) {
-						?>
+					<?php } ?>
+                    <?php if ( $this->data['newtalk'] ) { ?>
 						<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-					<?php
-					}
-					?>
-					<div id="jump-to-nav" class="mw-jump"><?php
-						$this->msg( 'jumpto' )
-						?> <a href="#column-one"><?php
-							$this->msg( 'jumptonavigation' )
-							?></a><?php
-						$this->msg( 'comma-separator' )
-						?><a href="#searchInput"><?php
-							$this->msg( 'jumptosearch' )
-							?></a></div>
+					<?php } ?>
+					<div id="jump-to-nav" class="mw-jump">
+                        <?php $this->msg( 'jumpto' )?>
+                        <a href="#column-one"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' )?><a href="#searchInput"><?php $this->msg( 'jumptosearch' ) ?></a>
+                    </div>
 
 					<!-- start content -->
 					<?php $this->html( 'bodytext' ) ?>
@@ -97,8 +84,7 @@ class LionBookTemplate extends BaseTemplate {
 					<!-- end content -->
 					<?php
 					if ( $this->data['dataAfterContent'] ) {
-						$this->html( 'dataAfterContent'
-						);
+						$this->html( 'dataAfterContent' );
 					}
 					?>
 					<div class="visualClear"></div>
