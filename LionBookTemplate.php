@@ -108,31 +108,9 @@ class LionBookTemplate extends BaseTemplate {
 		<div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 			<?php $this->cactions(); ?>
-			<div class="portlet" id="p-personal" role="navigation">
-				<h3><?php $this->msg( 'personaltools' ) ?></h3>
-
-				<div class="pBody">
-					<ul<?php $this->html( 'userlangattributes' ) ?>>
-						<?php foreach ( $this->getPersonalTools() as $key => $item ) { ?>
-							<?php echo $this->makeListItem( $key, $item ); ?>
-
-						<?php
-}
-						?>
-					</ul>
-				</div>
-			</div>
-			<div class="portlet" id="p-logo" role="banner">
-				<?php
-				echo Html::element( 'a', array(
-						'href' => $this->data['nav_urls']['mainpage']['href'],
-						'style' => "background-image: url({$this->data['logopath']});" )
-					+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ); ?>
-
-			</div>
-			<?php
-			$this->renderPortals( $this->data['sidebar'] );
-			?>
+			<?php $this->portletPersonal() ?>
+			<?php $this->portletLogo() ?>
+			<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 		</div><!-- end of the left (by default at least) column -->
 		<div class="visualClear"></div>
 		<?php
@@ -187,6 +165,40 @@ class LionBookTemplate extends BaseTemplate {
 	} // end of execute() method
 
 	/*************************************************************************************************/
+
+    private function portletPersonal()
+    {
+        ?>
+        <div class="portlet" id="p-personal" role="navigation">
+            <h3><?php $this->msg( 'personaltools' ) ?></h3>
+
+            <div class="pBody">
+                <ul<?php $this->html( 'userlangattributes' ) ?>>
+                    <?php foreach ( $this->getPersonalTools() as $key => $item ) { ?>
+                        <?php echo $this->makeListItem( $key, $item ); ?>
+
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    <?php
+    }
+
+    private function portletLogo()
+    {
+        ?>
+        <div class="portlet" id="p-logo" role="banner">
+            <?php
+            echo Html::element( 'a', array(
+                    'href' => $this->data['nav_urls']['mainpage']['href'],
+                    'style' => "background-image: url({$this->data['logopath']});" )
+                + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ); ?>
+
+        </div>
+    <?
+    }
 
 	/**
 	 * @param array $sidebar
