@@ -1,7 +1,7 @@
 
 body {
 	background-color:#ff4080;
-    background-image:url("ob1.jpg");
+    background-image:url("obp.png");
     background-size:100% auto;
     background-attachment: fixed;
     background-position:center;
@@ -31,16 +31,33 @@ body {
 	margin-bottom:50px;
 }
 
-h1,h2 {
-	font-family:"Pathway Gothic One";
+h1,h2{
+	font-family:"Ranga";
 	border-bottom: 1px solid #eee;
-	font-weight:normal;
+	font-weight:700;
+}
+h3 {
+    font-family:"Ranga";
+    font-weight:700;
+}
+h4 {
+    font-family:"Ranga";
+    font-weight:400;
 }
 h1 {
-	font-size:40px;
+	font-size:50px;
 }
 h2 {
+	font-size:40px;
+}
+
+h3 {
 	font-size:30px;
+    margin:20px 0 5px 0;
+}
+h4 {
+	font-size:25px;
+    margin:20px 0 5px 0;
 }
 
 #toolbox {
@@ -92,10 +109,12 @@ h2 {
 }
 
 .portlet#p-personal {
+    font-family:Ranga;
+    font-size:20px;
 	position:absolute;
 	top:-80px;left:-20px;right:-20px;
 	wxidth:100%;
-	background-color:black;
+	background-color:rgba(0,0,0,0.8);
 	color:white;
 	text-align:right;
 }
@@ -107,13 +126,15 @@ h2 {
 }
 
 .portlet#p-personal a {
-	color:white;text-decoration:none;padding:2px 2px 2px 0;
+	color:white;text-decoration:none;padding:2px 5px 2px 0;
 }
 
 .portlet#p-navigation {
-	position:absolute;
+    font-family:Ranga;
+    font-size:20px;
+    position:absolute;
 	top:-80px;left:-20px;
-	background-color:black;
+	background-color:transparent;
 	color:white;
 }
 .portlet#p-navigation ul,.portlet#p-navigation li,.portlet#p-navigation div {
@@ -125,12 +146,15 @@ h2 {
 
 
 .portlet#p-navigation a {
-	color:white;text-decoration:none;padding:2px 2px 2px 0;
+	color:white;text-decoration:none;padding:2px 0 2px 5px;
 }
 
 .portlet#p-cactions{
+    font-family:Ranga;
+    font-size:25px;
+    line-height:30px;
 	position:absolute;
-	top:-25px;left:0px;
+	top:-30px;left:4px;
 	white-space:nowrap;
 }
 .portlet#p-cactions ul,.portlet#p-cactions li,.portlet#p-cactions div {
@@ -141,7 +165,7 @@ h2 {
 }
 .portlet#p-cactions a {
     color:rgba(255,255,255,0.7);
-	height:25px;line-height:25px;
+	height:30px;line-height:30px;
 	display:inline-block;
 	text-decoration:none;
 	padding:0px 3px;
@@ -151,6 +175,7 @@ h2 {
 }
 .portlet#p-cactions .selected a {
     color:rgba(255,255,255,1);
+    font-weight:700;
 }
 
 .portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a , .portlet#p-cactions #ca-nstab-special a {
