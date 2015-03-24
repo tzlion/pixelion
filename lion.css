@@ -31,33 +31,25 @@ body {
   margin-bottom: 50px;
 }
 
-h1, h2 {
-  font-family: "Ranga";
-  border-bottom: 1px solid #eee;
-  font-weight: 700;
-}
-
-h3 {
+h1, h2, h3, h4 {
   font-family: "Ranga";
   font-weight: 700;
-}
-
-h4 {
-  font-family: "Ranga";
-  font-weight: 400;
 }
 
 h1 {
+  border-bottom: 1px solid #eee;
   font-size: 50px;
 }
 
 h2 {
+  border-bottom: 1px solid #eee;
   font-size: 40px;
 }
 
 h3 {
   font-size: 30px;
   margin: 20px 0 5px 0;
+  font-weight: 400;
 }
 
 h4 {
@@ -79,7 +71,6 @@ h4 {
   text-decoration: none;
   background-color: #28a0ff;
   color: white;
-  oxpacity: 0.5;
   z-index: 420;
 }
 
@@ -90,18 +81,18 @@ h4 {
   top: 2px;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
   white-space: nowrap;
-  padding-right: 5px;
   background-color: rgba(40, 160, 255, 0.8);
   text-align: right;
   box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
-}
-
-#tools, #tools ul, #tools li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
+#tools ul, #tools li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 #tools a {
   font-size: 14px;
   color: white;
@@ -110,7 +101,6 @@ h4 {
   line-height: 30px;
   text-decoration: none;
 }
-
 #tools a:hover {
   background-color: rgba(40, 160, 255, 0.5);
 }
@@ -120,29 +110,25 @@ h4 {
 }
 
 .portlet#p-personal {
-  font-family: Ranga;
+  font-family: "Ranga";
   font-size: 20px;
   position: absolute;
   top: -80px;
   left: -20px;
   right: -20px;
-  wxidth: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: right;
 }
-
 .portlet#p-personal ul, .portlet#p-personal li, .portlet#p-personal div {
   display: inline;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
 .portlet#p-personal h3 {
   display: none;
 }
-
 .portlet#p-personal a {
   color: white;
   text-decoration: none;
@@ -150,7 +136,7 @@ h4 {
 }
 
 .portlet#p-navigation {
-  font-family: Ranga;
+  font-family: "Ranga";
   font-size: 20px;
   position: absolute;
   top: -80px;
@@ -158,18 +144,15 @@ h4 {
   background-color: transparent;
   color: white;
 }
-
 .portlet#p-navigation ul, .portlet#p-navigation li, .portlet#p-navigation div {
   display: inline;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
 .portlet#p-navigation h3 {
   display: none;
 }
-
 .portlet#p-navigation a {
   color: white;
   text-decoration: none;
@@ -177,7 +160,7 @@ h4 {
 }
 
 .portlet#p-cactions {
-  font-family: Ranga;
+  font-family: "Ranga";
   font-size: 25px;
   line-height: 30px;
   position: absolute;
@@ -185,18 +168,15 @@ h4 {
   left: 4px;
   white-space: nowrap;
 }
-
 .portlet#p-cactions ul, .portlet#p-cactions li, .portlet#p-cactions div {
   display: inline;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
 .portlet#p-cactions h3 {
   display: none;
 }
-
 .portlet#p-cactions a {
   color: rgba(255, 255, 255, 0.7);
   height: 30px;
@@ -205,44 +185,37 @@ h4 {
   text-decoration: none;
   padding: 0px 3px;
 }
-
 .portlet#p-cactions a:hover {
   color: rgba(255, 255, 255, 0.9);
 }
-
 .portlet#p-cactions .selected a {
   color: white;
   font-weight: 700;
 }
-
 .portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a, .portlet#p-cactions #ca-nstab-special a {
   background-color: rgba(221, 221, 221, 0.9);
   padding: 0px 6px;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .portlet#p-cactions .selected#ca-nstab-main a, .portlet#p-cactions .selected#ca-talk a, .portlet#p-cactions .selected#ca-nstab-special a {
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
 }
-
 .portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover, .portlet#p-cactions #ca-nstab-special a:hover {
   background-color: rgba(238, 238, 238, 0.9);
   color: rgba(0, 0, 0, 0.9);
 }
-
 .portlet#p-cactions .selected#ca-nstab-main a:hover, .portlet#p-cactions .selected#ca-talk a:hover, .portlet#p-cactions .selected#ca-nstab-special a:hover {
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-.portlet#p-search h3 {
-  display: none;
 }
 
 .portlet#p-search {
   position: absolute;
   right: 20px;
   top: -40px;
+}
+.portlet#p-search h3 {
+  display: none;
 }
 
 .portlet#p-tb {
@@ -252,26 +225,21 @@ h4 {
   text-align: right;
   font-size: 14px;
 }
-
 .portlet#p-tb h3 {
   display: none;
 }
-
 .portlet#p-tb ul, .portlet#p-tb li {
   margin: 0;
   padding: 0;
   list-style: none;
   display: inline;
 }
-
 .portlet#p-tb li:after {
   content: " - ";
 }
-
 .portlet#p-tb li:last-child:after {
   content: "";
 }
-
 .portlet#p-tb a {
   text-decoration: none;
 }
@@ -284,13 +252,25 @@ h4 {
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
-
 #footer * {
   display: inline;
   font-size: 13px;
   padding: 0;
   margin: 0;
   list-style: none;
+}
+#footer li#copyright {
+  display: block;
+}
+#footer a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+#footer a:hover {
+  color: white;
+}
+#footer img, #footer #viewcount {
+  display: none;
 }
 
 #lastmod {
@@ -299,21 +279,4 @@ h4 {
   top: -70px;
   color: #aaa;
   font-style: italic;
-}
-
-#footer li#copyright {
-  display: block;
-}
-
-#footer a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-}
-
-#footer a:hover {
-  color: white;
-}
-
-#footer img, #footer #viewcount {
-  display: none;
 }
