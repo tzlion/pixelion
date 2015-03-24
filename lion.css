@@ -1,11 +1,21 @@
 
 body {
 	background-color:#ff4080;
+    background-image:url("ob1.jpg");
+    background-size:100% auto;
+    background-attachment: fixed;
+    background-position:center;
 	margin:20px;
 	font-family:Roboto;
+    height:100%;
+}
+@media (max-aspect-ratio:5184/3456) {
+    body {
+        background-size:auto 100%;
+    }
 }
 #globalWrapper {
-	background-color:white;
+	background-color:rgba(255,255,255,1);
 	padding:20px;
 	margin-top:80px;
 	position:relative;
@@ -144,20 +154,20 @@ h2 {
 }
 
 .portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a , .portlet#p-cactions #ca-nstab-special a {
-	background-color:#ddd;
+	background-color:rgba(221,221,221,0.9);
     padding: 0px 6px;
     color:rgba(0,0,0,0.8);
 }
 .portlet#p-cactions .selected#ca-nstab-main a, .portlet#p-cactions .selected#ca-talk a , .portlet#p-cactions .selected#ca-nstab-special a {
-	background-color:#fff;
+	background-color:rgba(255,255,255,0.9);
     color:rgba(0,0,0,1);
 }
 .portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover, .portlet#p-cactions #ca-nstab-special a:hover {
-	background-color:#eee;
+	background-color:rgba(238,238,238,0.9);
     color:rgba(0,0,0,0.9);
 }
 .portlet#p-cactions .selected#ca-nstab-main a:hover, .portlet#p-cactions .selected#ca-talk a:hover, .portlet#p-cactions .selected#ca-nstab-special a:hover {
-	background-color:#fff;
+	background-color:rgba(255,255,255,0.9);
 }
 .portlet#p-search h3{
  display:none;
@@ -202,7 +212,7 @@ h2 {
 #lastmod {
 	position:absolute;
 	right:20px; top:-70px;;
-	color:#ccc;
+	color:#aaa;
     font-style:italic;
 }
 #footer li#copyright {
