@@ -1,6 +1,6 @@
 body {
   background-color: #ff4080;
-  background-image: url("obp.png");
+  background-image: url("ob1.jpg");
   background-size: 100% auto;
   background-attachment: fixed;
   background-position: center;
@@ -79,7 +79,7 @@ a:hover {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Archivo Black";
+  font-family: "Jockey One";
   font-weight: 700;
 }
 
@@ -163,7 +163,7 @@ h4 {
 }
 
 .portlet#p-personal {
-  font-family: "Archivo Narrow";
+  font-family: "Jockey One";
   font-size: 16px;
   line-height: 26px;
   position: absolute;
@@ -190,7 +190,7 @@ h4 {
 }
 
 .portlet#p-navigation {
-  font-family: "Archivo Narrow";
+  font-family: "Jockey One";
   font-size: 16px;
   line-height: 26px;
   position: absolute;

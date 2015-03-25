@@ -1,4 +1,5 @@
-$titlefont: "Archivo Black";
+$titlefont: "Jockey One";
+//$titlefont: "Archivo Black";
 $regularfont: "Archivo Narrow";
 $mainbgcolour: rgba(255,255,255,0.95);
 $linecolour: rgba(1,1,1,0.05);
@@ -6,7 +7,7 @@ $segmentbg: rgba(1,1,1,0.02);
 
 body {
 	background-color:#ff4080;
-    background-image:url("obp.png");
+    background-image:url("ob1.jpg");
     background-size:100% auto;
     background-attachment: fixed;
     background-position:center;
@@ -156,7 +157,7 @@ h4 {
     display: block;
 }
 
-$topmenufont: $regularfont;
+$topmenufont: $titlefont;
 $topmenufontsize:16px;
 $topmenuheight: $topmenufontsize + 10px;
 
