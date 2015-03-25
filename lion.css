@@ -30,6 +30,53 @@ body {
   margin-bottom: 50px;
 }
 
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+#toc {
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  min-xwidth: 200px;
+  wxidth: 33%;
+  display: table;
+  padding: 10px;
+  position: relative;
+  margin-top: 20px;
+}
+#toc .toctoggle {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+}
+#toc .toctoggle a {
+  text-decoration: none;
+}
+#toc h2 {
+  font-family: "Archivo Narrow";
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  padding-right: 60px;
+}
+#toc ul {
+  margin-left: 25px;
+}
+
+#bodyContent {
+  margin-bottom: 20px;
+}
+
+#catlinks {
+  padding: 10px;
+  margin-top: 30px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+}
+
 h1, h2, h3, h4 {
   font-family: "Archivo Black";
   font-weight: 700;
@@ -53,6 +100,13 @@ h3 {
 h4 {
   font-size: 20px;
   xxxmargin: 20px 0 5px 0;
+}
+
+.mw-editsection {
+  font-family: "Archivo Narrow";
+}
+.mw-editsection a {
+  text-decoration: none;
 }
 
 #toolbox {
@@ -276,7 +330,7 @@ h4 {
 #lastmod {
   position: absolute;
   right: 20px;
-  top: -70px;
+  top: -85px;
   color: #aaa;
   font-style: italic;
 }

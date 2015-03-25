@@ -31,6 +31,51 @@ body {
 #column-content {
 	margin-bottom:50px;
 }
+a{
+    text-decoration:none;
+    &:hover{
+        text-decoration:underline;
+    }
+}
+
+#toc {
+    border:1px solid #eee;
+    background-color:#fafafa;
+    min-xwidth:200px;
+    wxidth:33%;
+    display:table;
+    padding:10px;
+    position:relative;
+    margin-top:20px;
+    .toctoggle {
+        position:absolute;
+        top:12px;
+        right:8px;
+        a {
+            text-decoration:none;
+        }
+    }
+    h2 {
+        font-family:$regularfont;
+        margin:0;border:0;font-size:18px;
+        padding-right:60px; // to account for the hide link
+    }
+    ul {
+        margin-left:25px;
+    }
+}
+
+
+#bodyContent {
+    margin-bottom:20px;
+}
+
+#catlinks { //meow
+    padding:10px;
+    margin-top:30px;
+    border:1px solid #eee;
+    background-color:#fafafa;
+}
 
 h1,h2,h3,h4 {
     font-family:$titlefont;
@@ -51,6 +96,13 @@ h3 {
 h4 {
 	font-size:20px;
     xxxmargin:20px 0 5px 0;
+}
+
+.mw-editsection {
+    font-family:$regularfont;
+    a {
+        text-decoration:none;
+    }
 }
 
 #toolbox {
@@ -248,7 +300,7 @@ $pageactionheight: $pageactionfontsize + 10px;
 
 #lastmod {
 	position:absolute;
-	right:20px; top:-70px;;
+	right:20px; top:-85px;;
 	color:#aaa;
     font-style:italic;
 }
