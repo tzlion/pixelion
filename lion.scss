@@ -41,15 +41,13 @@ a{
 #toc {
     border:1px solid #eee;
     background-color:#fafafa;
-    min-xwidth:200px;
-    wxidth:33%;
     display:table;
     padding:10px;
     position:relative;
     margin-top:20px;
     .toctoggle {
         position:absolute;
-        top:12px;
+        top:11px;
         right:8px;
         a {
             text-decoration:none;

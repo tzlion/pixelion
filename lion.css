@@ -40,8 +40,6 @@ a:hover {
 #toc {
   border: 1px solid #eee;
   background-color: #fafafa;
-  min-xwidth: 200px;
-  wxidth: 33%;
   display: table;
   padding: 10px;
   position: relative;
@@ -49,7 +47,7 @@ a:hover {
 }
 #toc .toctoggle {
   position: absolute;
-  top: 12px;
+  top: 11px;
   right: 8px;
 }
 #toc .toctoggle a {
