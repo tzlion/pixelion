@@ -87,8 +87,9 @@ h1,h2,h3,h4 {
     font-weight:700;
 }
 h1 {
-    border-bottom: 1px solid $linecolour;
-	font-size:40px;
+    //border-bottom: 1px solid $linecolour;
+	font-size:50px;
+    text-align:center;
 }
 h2 {
     border-bottom: 1px solid $linecolour;
