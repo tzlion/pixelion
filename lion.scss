@@ -1,5 +1,5 @@
-$titlefont: "Ranga";
-$regularfont: "Roboto";
+$titlefont: "Archivo Black";
+$regularfont: "Archivo Narrow";
 
 body {
 	background-color:#ff4080;
@@ -8,7 +8,7 @@ body {
     background-attachment: fixed;
     background-position:center;
 	margin:20px;
-	font-family:Roboto;
+	font-family:$regularfont;
     height:100%;
 }
 @media (max-aspect-ratio:5184/3456) {
@@ -38,20 +38,19 @@ h1,h2,h3,h4 {
 }
 h1 {
     border-bottom: 1px solid #eee;
-	font-size:50px;
+	font-size:40px;
 }
 h2 {
     border-bottom: 1px solid #eee;
-	font-size:40px;
+	font-size:30px;
 }
 h3 {
-	font-size:30px;
-    margin:20px 0 5px 0;
-    font-weight:400;
+	font-size:25px;
+    xxxmargin:20px 0 5px 0;
 }
 h4 {
-	font-size:25px;
-    margin:20px 0 5px 0;
+	font-size:20px;
+    xxxmargin:20px 0 5px 0;
 }
 
 #toolbox {
@@ -101,9 +100,14 @@ h4 {
     display: block;
 }
 
+$topmenufont: $regularfont;
+$topmenufontsize:16px;
+$topmenuheight: $topmenufontsize + 10px;
+
 .portlet#p-personal {
-    font-family:$titlefont;
-    font-size:20px;
+    font-family:$topmenufont;
+    font-size:$topmenufontsize;
+    line-height:$topmenuheight;
 	position:absolute;
 	top:-80px;left:-20px;right:-20px;
 	background-color:rgba(0,0,0,0.8);
@@ -121,8 +125,9 @@ h4 {
 }
 
 .portlet#p-navigation {
-    font-family:$titlefont;
-    font-size:20px;
+    font-family:$topmenufont;
+    font-size:$topmenufontsize;
+    line-height:$topmenuheight;
     position:absolute;
 	top:-80px;left:-20px;
 	background-color:transparent;
@@ -138,12 +143,15 @@ h4 {
     }
 }
 
+$pageactionfont: $regularfont;
+$pageactionfontsize: 20px;
+$pageactionheight: $pageactionfontsize + 10px;
 .portlet#p-cactions{
-    font-family:$titlefont;
-    font-size:25px;
-    line-height:30px;
+    font-family:$pageactionfont;
+    font-size:$pageactionfontsize;
+    line-height:$pageactionheight;
 	position:absolute;
-	top:-30px;left:4px;
+	top:-$pageactionheight;left:4px;
 	white-space:nowrap;
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
@@ -153,7 +161,7 @@ h4 {
     }
     a {
         color:rgba(255,255,255,0.7);
-        height:30px;line-height:30px;
+        height:$pageactionheight;line-height:$pageactionheight;
         display:inline-block;
         text-decoration:none;
         padding:0px 3px;

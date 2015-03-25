@@ -5,7 +5,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   margin: 20px;
-  font-family: Roboto;
+  font-family: "Archivo Narrow";
   height: 100%;
 }
 
@@ -31,29 +31,28 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Ranga";
+  font-family: "Archivo Black";
   font-weight: 700;
 }
 
 h1 {
   border-bottom: 1px solid #eee;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 h2 {
   border-bottom: 1px solid #eee;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 30px;
-  margin: 20px 0 5px 0;
-  font-weight: 400;
+  font-size: 25px;
+  xxxmargin: 20px 0 5px 0;
 }
 
 h4 {
-  font-size: 25px;
-  margin: 20px 0 5px 0;
+  font-size: 20px;
+  xxxmargin: 20px 0 5px 0;
 }
 
 #toolbox {
@@ -109,8 +108,9 @@ h4 {
 }
 
 .portlet#p-personal {
-  font-family: "Ranga";
-  font-size: 20px;
+  font-family: "Archivo Narrow";
+  font-size: 16px;
+  line-height: 26px;
   position: absolute;
   top: -80px;
   left: -20px;
@@ -135,8 +135,9 @@ h4 {
 }
 
 .portlet#p-navigation {
-  font-family: "Ranga";
-  font-size: 20px;
+  font-family: "Archivo Narrow";
+  font-size: 16px;
+  line-height: 26px;
   position: absolute;
   top: -80px;
   left: -20px;
@@ -159,8 +160,8 @@ h4 {
 }
 
 .portlet#p-cactions {
-  font-family: "Ranga";
-  font-size: 25px;
+  font-family: "Archivo Narrow";
+  font-size: 20px;
   line-height: 30px;
   position: absolute;
   top: -30px;
