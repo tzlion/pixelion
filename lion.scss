@@ -1,6 +1,6 @@
 $titlefont: "Archivo Black";
 $regularfont: "Archivo Narrow";
-$mainbgcolour: rgba(255,255,255,1);
+$mainbgcolour: rgba(255,255,255,0.95);
 $linecolour: rgba(1,1,1,0.05);
 $segmentbg: rgba(1,1,1,0.02);
 
@@ -20,6 +20,9 @@ body {
     }
 }
 #globalWrapper {
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
 	background-color: $mainbgcolour;
 	padding:20px;
 	margin-top:80px;
