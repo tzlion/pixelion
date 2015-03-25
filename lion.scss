@@ -21,7 +21,6 @@ body {
 	padding:20px;
 	margin-top:80px;
 	position:relative;
-	zzzbox-shadow:0px 2px 4px 1px rgba(0,0,0,0.3);
     box-shadow:0px 1px 3px -1px rgba(0,0,0,0.4);
 }
 
@@ -166,22 +165,25 @@ h4 {
         color:rgba(255,255,255,1);
         font-weight:700;
     }
-    #ca-nstab-main a, #ca-talk a , #ca-nstab-special a {
-        background-color:rgba(221,221,221,0.9);
-        padding: 0px 6px;
-        color:rgba(0,0,0,0.8);
+    #ca-nstab-main, #ca-talk, #ca-nstab-special {
+        a {
+            background-color:rgba(221,221,221,0.9);
+            padding: 0px 6px;
+            color:rgba(0,0,0,0.8);
+            &:hover {
+                background-color:rgba(238,238,238,0.9);
+                color:rgba(0,0,0,0.9);
+            }
+        }
+        &.selected a {
+            background-color:rgba(255,255,255,0.9);
+            color:rgba(0,0,0,1);
+            &:hover {
+                background-color:rgba(255,255,255,0.9);
+            }
+        }
     }
-    .selected#ca-nstab-main a, .selected#ca-talk a, .selected#ca-nstab-special a {
-        background-color:rgba(255,255,255,0.9);
-        color:rgba(0,0,0,1);
-    }
-    #ca-nstab-main a:hover, #ca-talk a:hover, #ca-nstab-special a:hover {
-        background-color:rgba(238,238,238,0.9);
-        color:rgba(0,0,0,0.9);
-    }
-    .selected#ca-nstab-main a:hover, .selected#ca-talk a:hover, .selected#ca-nstab-special a:hover {
-        background-color:rgba(255,255,255,0.9);
-    }
+
 }
 
 .portlet#p-search {

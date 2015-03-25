@@ -19,7 +19,6 @@ body {
   padding: 20px;
   margin-top: 80px;
   position: relative;
-  zzzbox-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
 }
 
@@ -197,15 +196,15 @@ h4 {
   padding: 0px 6px;
   color: rgba(0, 0, 0, 0.8);
 }
-.portlet#p-cactions .selected#ca-nstab-main a, .portlet#p-cactions .selected#ca-talk a, .portlet#p-cactions .selected#ca-nstab-special a {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: black;
-}
 .portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover, .portlet#p-cactions #ca-nstab-special a:hover {
   background-color: rgba(238, 238, 238, 0.9);
   color: rgba(0, 0, 0, 0.9);
 }
-.portlet#p-cactions .selected#ca-nstab-main a:hover, .portlet#p-cactions .selected#ca-talk a:hover, .portlet#p-cactions .selected#ca-nstab-special a:hover {
+.portlet#p-cactions #ca-nstab-main.selected a, .portlet#p-cactions #ca-talk.selected a, .portlet#p-cactions #ca-nstab-special.selected a {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+}
+.portlet#p-cactions #ca-nstab-main.selected a:hover, .portlet#p-cactions #ca-talk.selected a:hover, .portlet#p-cactions #ca-nstab-special.selected a:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
