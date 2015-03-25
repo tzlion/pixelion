@@ -38,8 +38,8 @@ a:hover {
 }
 
 #toc {
-  border: 1px solid #eee;
-  background-color: #fafafa;
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  background-color: rgba(1, 1, 1, 0.02);
   display: table;
   padding: 10px;
   position: relative;
@@ -71,8 +71,8 @@ a:hover {
 #catlinks {
   padding: 10px;
   margin-top: 30px;
-  border: 1px solid #eee;
-  background-color: #fafafa;
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  background-color: rgba(1, 1, 1, 0.02);
 }
 
 h1, h2, h3, h4 {
@@ -81,12 +81,12 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.05);
   font-size: 40px;
 }
 
 h2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.05);
   font-size: 30px;
 }
 

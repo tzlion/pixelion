@@ -1,5 +1,8 @@
 $titlefont: "Archivo Black";
 $regularfont: "Archivo Narrow";
+$mainbgcolour: rgba(255,255,255,1);
+$linecolour: rgba(1,1,1,0.05);
+$segmentbg: rgba(1,1,1,0.02);
 
 body {
 	background-color:#ff4080;
@@ -17,7 +20,7 @@ body {
     }
 }
 #globalWrapper {
-	background-color:rgba(255,255,255,1);
+	background-color: $mainbgcolour;
 	padding:20px;
 	margin-top:80px;
 	position:relative;
@@ -39,8 +42,8 @@ a{
 }
 
 #toc {
-    border:1px solid #eee;
-    background-color:#fafafa;
+    border:1px solid $linecolour;
+    background-color:$segmentbg;
     display:table;
     padding:10px;
     position:relative;
@@ -71,8 +74,8 @@ a{
 #catlinks { //meow
     padding:10px;
     margin-top:30px;
-    border:1px solid #eee;
-    background-color:#fafafa;
+    border:1px solid $linecolour;
+    background-color:$segmentbg;
 }
 
 h1,h2,h3,h4 {
@@ -80,11 +83,11 @@ h1,h2,h3,h4 {
     font-weight:700;
 }
 h1 {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $linecolour;
 	font-size:40px;
 }
 h2 {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $linecolour;
 	font-size:30px;
 }
 h3 {
