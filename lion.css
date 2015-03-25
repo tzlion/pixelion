@@ -1,6 +1,6 @@
 body {
   background-color: #ff4080;
-  background-image: url("ob1.jpg");
+  background-image: url("li-sqr2bv.png");
   background-size: 100% auto;
   background-attachment: fixed;
   background-position: center;
@@ -9,7 +9,7 @@ body {
   height: 100%;
 }
 
-@media (max-aspect-ratio: 5184 / 3456) {
+@media (max-aspect-ratio: 4608 / 3702) {
   body {
     background-size: auto 100%;
   }
@@ -334,4 +334,5 @@ h4 {
   top: -85px;
   color: #aaa;
   font-style: italic;
+  text-shadow: none;
 }
