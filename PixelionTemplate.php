@@ -74,7 +74,6 @@ class PixelionTemplate extends BaseTemplate {
                     <?php
                     }
                     // haha i have no idea if these will still work
-                    wfRunHooks( 'PixelionTemplateToolboxEnd', array( &$this ) );
                     wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
                     ?>
                 </ul>
@@ -341,7 +340,6 @@ class PixelionTemplate extends BaseTemplate {
 
 					<?php
 					}
-					wfRunHooks( 'PixelionTemplateToolboxEnd', array( &$this ) );
 					wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
 					?>
 				</ul>
