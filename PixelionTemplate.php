@@ -35,7 +35,7 @@ class PixelionTemplate extends BaseTemplate
             </div><!-- end of the left (by default at least) column -->
 
             <div id="column-content">
-                <? $this->toolbox(); ?>
+                <? $this->portletToolbox(); ?>
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
                     <?php if ( $this->data('sitenotice') ) { ?>
@@ -140,41 +140,6 @@ class PixelionTemplate extends BaseTemplate
 	}
 
 
-
-
-	/*************************************************************************************************/
-	function toolbox() {
-
-        if ( $this->data( 'sidebar', "TOOLBOX" ) === false ) {
-            return;
-        }
-
-        ob_start();
-		?>
-                <a id="toolboxbutton" href="#" title="Toolbox">T</a>
-				<ul id="tools">
-					<?php
-					foreach ( $this->getToolbox() as $key => $tbitem ) {
-						?>
-						<?php echo $this->makeListItem( $key, $tbitem ); ?>
-
-					<?php
-					}
-					wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
-					?>
-				</ul>
-				<?php $this->renderAfterPortlet( 'tb' ); ?>
-	<?php
-        $header = $this->getMsg( "toolbox" )->escaped();
-        $this->renderPortlet( "p-tb", "navigation", $header, ob_get_clean() );
-	}
-
-	/*************************************************************************************************/
-
-
-
-
-
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
 
     // <editor-fold desc="Portlets">
@@ -222,6 +187,28 @@ class PixelionTemplate extends BaseTemplate
 
         $header = $this->getMsg( "views" )->escaped();
         $this->renderPortlet( "p-cactions", "navigation", $header, $content );
+    }
+
+    /**
+     * Render a bunch of random ass tools, most of which are related to the current page but some of which are not
+     * (argh)
+     */
+    public function portletToolbox()
+    {
+        if ( $this->data( 'sidebar', "TOOLBOX" ) === false ) {
+            return;
+        }
+
+        ob_start();
+        wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+        $postHookContent = ob_get_clean();
+
+        $content = '<a id="toolboxbutton" href="#" title="Toolbox">T</a>';
+        $content .= $this->makeGenericList( $this->getToolbox(), "id='tools'", $postHookContent );
+        $content .= $this->getPostPortletStuff( "tb" );
+
+        $header = $this->getMsg( "toolbox" )->escaped();
+        $this->renderPortlet( "p-tb", "navigation", $header, $content );
     }
 
     /**
@@ -411,9 +398,10 @@ class PixelionTemplate extends BaseTemplate
      *
      * @param $items
      * @param string|null $ulAttrs
+     * @param string $postListContent
      * @return string
      */
-    protected function makeGenericList( $items, $ulAttrs = null )
+    protected function makeGenericList( $items, $ulAttrs = null, $postListContent = "" )
     {
         ob_start();
         ?>
@@ -425,6 +413,7 @@ class PixelionTemplate extends BaseTemplate
                     echo $item;
                 }
             } ?>
+            <?= $postListContent ?>
         </ul>
         <?
         return ob_get_clean();
