@@ -37,10 +37,6 @@ body {
   padding-bottom: 30px;
 }
 
-.sigh {
-  clear: both;
-}
-
 a {
   text-decoration: none;
 }
@@ -382,8 +378,7 @@ button, input[type=submit] {
 
 .portlet#p-lang {
   float: left;
-  padding-top: 0px;
-  padding-bottom: 10px;
+  padding: 0;
 }
 .portlet#p-lang h3, .portlet#p-lang li, .portlet#p-lang ul, .portlet#p-lang div {
   display: inline;
@@ -406,8 +401,17 @@ button, input[type=submit] {
   color: #aaa;
   font-style: italic;
   text-shadow: none;
+  padding: 0;
+}
+
+#post-body-stuff {
+  clear: both;
   padding-bottom: 10px;
-  padding-top: 0px;
+}
+#post-body-stuff:after {
+  clear: both;
+  content: "";
+  display: block;
 }
 
 #footer {
