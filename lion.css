@@ -342,6 +342,9 @@ button, input[type=submit] {
   margin: 0;
   list-style: none;
 }
+.portlet#p-cactions li {
+  margin-right: 4px;
+}
 .portlet#p-cactions h3 {
   display: none;
 }

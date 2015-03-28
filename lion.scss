@@ -342,6 +342,9 @@ $pageactionheight: $pageactionfontsize + 10px;
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
     }
+    li {
+        margin-right:4px;
+    }
     h3 {
         display:none;
     }

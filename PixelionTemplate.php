@@ -96,23 +96,10 @@ class PixelionTemplate extends BaseTemplate
 
 	/*************************************************************************************************/
 
-
     protected function portletPersonal()
     {
-        ob_start();
-        ?>
-
-            <ul<?php $this->html( 'userlangattributes' ) ?>>
-                <?php foreach ( $this->getPersonalTools() as $key => $item ) { ?>
-                    <?php echo $this->makeListItem( $key, $item ); ?>
-
-                <?php
-                }
-                ?>
-            </ul>
-
-    <?php
-        $this->renderPortlet( "p-personal", "navigation", $this->getMsg("personaltools")->escaped(), ob_get_clean() );
+        $content = $this->makeGenericList( $this->getPersonalTools(), $this->data( "userlangattributes" ) );
+        $this->renderPortlet( "p-personal", "navigation", $this->getMsg("personaltools")->escaped(), $content );
     }
 
     protected function portletLogo()
@@ -214,14 +201,8 @@ class PixelionTemplate extends BaseTemplate
 	 */
 	function cactions() {
         ob_start();
+        echo $this->makeGenericList( $this->data('content_actions') );
 		?>
-				<ul><?php
-					foreach ( $this->data('content_actions') as $key => $tab ) {
-						echo '
-				' . $this->makeListItem( $key, $tab );
-					} ?>
-
-				</ul>
 				<?php $this->renderAfterPortlet( 'cactions' ); ?>
 
 	<?php
@@ -258,16 +239,8 @@ class PixelionTemplate extends BaseTemplate
 
         $langurls = $this->data('language_urls');
 		if ( $langurls !== false ) {
+            echo $this->makeGenericList( $langurls );
 			?>
-
-					<ul>
-						<?php foreach ( $langurls as $key => $langlink ) { ?>
-							<?php echo $this->makeListItem( $key, $langlink ); ?>
-
-						<?php
-}
-						?>
-					</ul>
 
 					<?php $this->renderAfterPortlet( 'lang' ); ?>
 
@@ -300,18 +273,7 @@ class PixelionTemplate extends BaseTemplate
         ?>
         <?php
             if ( is_array( $cont ) ) {
-                ?>
-                <ul>
-                    <?php
-                    foreach ( $cont as $key => $val ) {
-                        ?>
-                        <?php echo $this->makeListItem( $key, $val ); ?>
-
-                    <?php
-                    }
-                    ?>
-                </ul>
-            <?php
+                echo $this->makeGenericList( $cont );
             } else {
                 # allow raw HTML block to be defined by extensions
                 print $cont;
@@ -444,6 +406,31 @@ class PixelionTemplate extends BaseTemplate
     // *****************************************************************************************************************
     //  UTILITY STUFF ETC
     // *****************************************************************************************************************
+
+    /**
+     * Return html for an unordered list of the sort of items that could be passed into makeListItem
+     * Or just strings, whatev
+     *
+     * @param $items
+     * @param string|null $ulAttrs
+     * @return string
+     */
+    protected function makeGenericList( $items, $ulAttrs = null )
+    {
+        ob_start();
+        ?>
+        <ul <?=$ulAttrs?>>
+            <? foreach ( $items as $key => $item ) {
+                if ( is_array( $item ) ) {
+                    echo $this->makeListItem( $key, $item );
+                } else {
+                    echo $item;
+                }
+            } ?>
+        </ul>
+        <?
+        return ob_get_clean();
+    }
 
     /**
      * Get a value or subvalue from the data array if set
