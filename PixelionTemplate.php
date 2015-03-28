@@ -12,8 +12,6 @@ class PixelionTemplate extends BaseTemplate
 	 * @access private
 	 */
 	function execute() {
-		// Suppress warnings to prevent notices about missing indexes in $this->data
-		wfSuppressWarnings();
 
         $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
 
@@ -40,7 +38,7 @@ class PixelionTemplate extends BaseTemplate
                 <? $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
-                    <?php if ( $this->data['sitenotice'] ) { ?>
+                    <?php if ( $this->data('sitenotice') ) { ?>
                         <div id="siteNotice">
                             <?php $this->html( 'sitenotice' ) ?>
                         </div>
@@ -55,10 +53,10 @@ class PixelionTemplate extends BaseTemplate
                         <div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
                             <?php $this->html( 'subtitle' )?>
                         </div>
-                        <?php if ( $this->data['undelete'] ) { ?>
+                        <?php if ( $this->data('undelete') ) { ?>
                             <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
                         <?php } ?>
-                        <?php if ( $this->data['newtalk'] ) { ?>
+                        <?php if ( $this->data('newtalk') ) { ?>
                             <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
                         <?php } ?>
                         <div id="jump-to-nav" class="mw-jump">
@@ -69,13 +67,13 @@ class PixelionTemplate extends BaseTemplate
                         <!-- start content -->
                         <?php $this->html( 'bodytext' ) ?>
                         <?php
-                        if ( $this->data['catlinks'] ) {
+                        if ( $this->data('catlinks') ) {
                             $this->html( 'catlinks' );
                         }
                         ?>
                         <!-- end content -->
                         <?php
-                        if ( $this->data['dataAfterContent'] ) {
+                        if ( $this->data('dataAfterContent') ) {
                             $this->html( 'dataAfterContent' );
                         }
                         ?>
@@ -84,16 +82,16 @@ class PixelionTemplate extends BaseTemplate
                 </div>
                 <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); // todo: deal ?>
                 <? $this->popFooterLink( "lastmod" ) ?>
-                <div class="visualClear"></div>
+                <div class="sigh"></div>
             </div>
-            <div class="visualClear"></div>
+            <div class="sigh"></div>
             <?php $this->renderFooter() ?>
 		</div>
 		<?php
 		$this->printTrail();
 		echo Html::closeElement( 'body' );
 		echo Html::closeElement( 'html' );
-		wfRestoreWarnings();
+
 	} // end of execute() method
 
 	/*************************************************************************************************/
@@ -125,13 +123,13 @@ class PixelionTemplate extends BaseTemplate
         <div class="portlet" id="p-logo" role="banner">
             <?php
             echo Html::openElement( 'a', array(
-                    'href' => $this->data['nav_urls']['mainpage']['href'],
+                    'href' => $this->data( 'nav_urls', 'mainpage', 'href' ),
                      )
                 + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ); ?>
-            <? if ( $this->data['logopath'] ): ?>
-                <img src="<?=$this->data['logopath']?>" alt="<?=$this->data['sitename']?>">
+            <? if ( $this->data('logopath') ): ?>
+                <img src="<?=$this->data('logopath')?>" alt="<?=$this->data('sitename')?>">
             <? else: ?>
-                <?=$this->data['sitename']?>
+                <?=$this->data('sitename')?>
             <? endif ?>
             <? echo Html::closeElement( 'a' ) ?>
         </div>
@@ -143,11 +141,9 @@ class PixelionTemplate extends BaseTemplate
 	 */
 	protected function renderCustomPortals() {
 
-        //var_dump($this->data['sidebar']);
-
         // Currently the only custom one seems to be "navigation"
 
-		foreach ( $this->data['sidebar'] as $boxName => $content ) {
+		foreach ( $this->data('sidebar') as $boxName => $content ) {
 
             // search, toolbox, languages = presets, being output elsewhere
             if ( $content === false || in_array( $boxName, [ "SEARCH", "TOOLBOX", "LANGUAGES" ] ) ) {
@@ -161,7 +157,7 @@ class PixelionTemplate extends BaseTemplate
 
     protected function conditionalRenderSidebarPart($boxName)
     {
-        if ( !isset( $this->data['sidebar'][$boxName] ) || $this->data['sidebar'][$boxName]  !== false ) {
+        if ( $this->data( 'sidebar', $boxName ) !== false ) {
 
             if ( $boxName == 'SEARCH' ) {
                 $this->searchBox();
@@ -170,7 +166,7 @@ class PixelionTemplate extends BaseTemplate
             } elseif ( $boxName == 'LANGUAGES' ) {
                 $this->languageBox();
             } else {
-                $this->customBox( $boxName, $this->data['sidebar'][$boxName] );
+                $this->customBox( $boxName, $this->data( 'sidebar', $boxName ) );
             }
 
         }
@@ -226,7 +222,7 @@ class PixelionTemplate extends BaseTemplate
 
 			<div class="pBody">
 				<ul><?php
-					foreach ( $this->data['content_actions'] as $key => $tab ) {
+					foreach ( $this->data('content_actions') as $key => $tab ) {
 						echo '
 				' . $this->makeListItem( $key, $tab );
 					} ?>
@@ -266,7 +262,7 @@ class PixelionTemplate extends BaseTemplate
 
 	/*************************************************************************************************/
 	function languageBox() {
-        $langurls = $this->data['language_urls'];
+        $langurls = $this->data('language_urls');
 		if ( $langurls !== false ) {
 			?>
 			<div id="p-lang" class="portlet" role="navigation">
@@ -339,8 +335,12 @@ class PixelionTemplate extends BaseTemplate
 
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
 
+
+
+    // <editor-fold desc="Footer">
+
     // *****************************************************************************************************************
-    //  FOOTER START
+    //  FOOTER
     // *****************************************************************************************************************
 
     protected $remainingFooterLinks = array();
@@ -398,4 +398,36 @@ class PixelionTemplate extends BaseTemplate
     <?
     }
 
+    // </editor-fold>
+
+    // <editor-fold desc="Misc">
+
+    // *****************************************************************************************************************
+    //  UTILITY STUFF ETC
+    // *****************************************************************************************************************
+
+    /**
+     * Get a value or subvalue from the data array if set
+     *
+     * @param string $keys,... Array keys and subkeys
+     *
+     * @return mixed The value if found, NULL if not
+     */
+    private function data( $keys )
+    {
+        $arg_list = func_get_args();
+        $val = $this->data;
+        for ($i = 0; $i < func_num_args(); $i++) {
+            $arg = $arg_list[$i];
+            if ( isset( $val[$arg])) {
+                $val = $val[$arg];
+            } else {
+                return null;
+            }
+        }
+
+        return $val;
+    }
+
+    // </editor-fold>
 }
