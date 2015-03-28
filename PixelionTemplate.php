@@ -25,17 +25,17 @@ class PixelionTemplate extends BaseTemplate
                 <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
                 <div id="topbar">
                     <?php $this->portletPersonal() ?>
-                    <?php $this->renderCustomPortals(); ?>
+                    <?php $this->portletsCustomSidebar(); ?>
                 </div>
                 <div id="headbar">
                     <?php $this->portletLogo() ?>
-                    <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+                    <?php $this->searchBox();  ?>
                 </div>
                 <?php $this->portletContentActions(); ?>
             </div><!-- end of the left (by default at least) column -->
 
             <div id="column-content">
-                <? $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
+                <? $this->toolbox(); ?>
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
                     <?php if ( $this->data('sitenotice') ) { ?>
@@ -80,7 +80,7 @@ class PixelionTemplate extends BaseTemplate
 
                     </div>
                 </div>
-                <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); // todo: deal ?>
+                <?php $this->portletLanguages(); // todo: deal ?>
                 <? $this->popFooterLink( "lastmod" ) ?>
                 <div class="sigh"></div>
             </div>
@@ -97,45 +97,12 @@ class PixelionTemplate extends BaseTemplate
 	/*************************************************************************************************/
 
 
-
-	/**
-	 * @param array $sidebar
-	 */
-	protected function renderCustomPortals() {
-
-        // Currently the only custom one seems to be "navigation"
-
-		foreach ( $this->data('sidebar') as $boxName => $content ) {
-
-            // search, toolbox, languages = presets, being output elsewhere
-            if ( $content === false || in_array( $boxName, [ "SEARCH", "TOOLBOX", "LANGUAGES" ] ) ) {
-                continue;
-            }
-
-			$this->customBox( $boxName, $content );
-
-		}
-	}
-
-    protected function conditionalRenderSidebarPart($boxName)
-    {
-        if ( $this->data( 'sidebar', $boxName ) !== false ) {
-
-            if ( $boxName == 'SEARCH' ) {
-                $this->searchBox();
-            } elseif ( $boxName == 'TOOLBOX' ) {
-                $this->toolbox();
-            } elseif ( $boxName == 'LANGUAGES' ) {
-                $this->languageBox();
-            } else {
-                $this->customBox( $boxName, $this->data( 'sidebar', $boxName ) );
-            }
-
-        }
-    }
-
-
 	function searchBox() {
+
+        if ( $this->data( 'sidebar', "SEARCH" ) === false ) {
+            return;
+        }
+
         ob_start();
 		?>
 
@@ -177,6 +144,11 @@ class PixelionTemplate extends BaseTemplate
 
 	/*************************************************************************************************/
 	function toolbox() {
+
+        if ( $this->data( 'sidebar', "TOOLBOX" ) === false ) {
+            return;
+        }
+
         ob_start();
 		?>
                 <a id="toolboxbutton" href="#" title="Toolbox">T</a>
@@ -198,58 +170,10 @@ class PixelionTemplate extends BaseTemplate
 	}
 
 	/*************************************************************************************************/
-	function languageBox() {
 
-        ob_start();
 
-        $langurls = $this->data('language_urls');
-		if ( $langurls !== false ) {
-            echo $this->makeGenericList( $langurls );
-			?>
 
-					<?php $this->renderAfterPortlet( 'lang' ); ?>
 
-		<?php
-		}
-
-        $header = [ "content" => $this->getMsg("otherlanguages")->escaped(), "attrs" => $this->data( 'userlangattributes' ) ];
-        $this->renderPortlet( "p-lang", "navigation", $header, ob_get_clean() );
-
-    }
-
-	/*************************************************************************************************/
-	/**
-	 * @param string $bar
-	 * @param array|string $cont
-	 */
-	function customBox( $bar, $cont ) {
-
-		$tooltip = Linker::titleAttrib( "p-$bar" );
-		if ( $tooltip !== false ) {
-			$titleattr = $tooltip;
-		} else {
-            $titleattr=null;
-        }
-
-		$msgObj = wfMessage( $bar );
-
-        $header = htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $bar );
-        ob_start();
-        ?>
-        <?php
-            if ( is_array( $cont ) ) {
-                echo $this->makeGenericList( $cont );
-            } else {
-                # allow raw HTML block to be defined by extensions
-                print $cont;
-            }
-
-            $this->renderAfterPortlet( $bar );
-        ?>
-        <?
-        $body = ob_get_clean();
-        $this->renderPortlet( Sanitizer::escapeId( "p-$bar" ), "navigation", $header, $body, "generated-sidebar", $titleattr );
-	}
 
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
 
@@ -259,10 +183,14 @@ class PixelionTemplate extends BaseTemplate
     //  PORTLETS
     // *****************************************************************************************************************
 
+    /**
+     * Render the wiki's logo or a text only link to the mainpage if none is defined
+     */
     protected function portletLogo()
     {
         $linkAttrs = Linker::tooltipAndAccesskeyAttribs( 'p-logo' );
         $linkAttrs["href"] = $this->data( 'nav_urls', 'mainpage', 'href' );
+
         $content = Html::openElement( "a", $linkAttrs );
         if ( $this->data( "logopath" ) ) {
             $content .= '<img src="' . $this->data('logopath') . '" alt="' . $this->data('sitename') . '">';
@@ -270,23 +198,86 @@ class PixelionTemplate extends BaseTemplate
             $content .= $this->data('sitename');
         }
         $content .= Html::closeElement( "a" );
+
         $this->renderPortlet( "p-logo", "banner", null, [ "content" => $content, "no-tags" => true ] );
     }
 
+    /**
+     * Render the user's personal tools
+     */
     protected function portletPersonal()
     {
         $content = $this->makeGenericList( $this->getPersonalTools(), $this->data( "userlangattributes" ) );
+
         $this->renderPortlet( "p-personal", "navigation", $this->getMsg( "personaltools" )->escaped(), $content );
     }
 
+    /**
+     * Render the content actions aka cactions aka usually tabs at the top of the page (page,discussion,edit..)
+     */
     protected function portletContentActions()
     {
         $content = $this->makeGenericList( $this->data('content_actions') );
         $content .= $this->getPostPortletStuff( "cactions" );
+
         $header = $this->getMsg( "views" )->escaped();
         $this->renderPortlet( "p-cactions", "navigation", $header, $content );
     }
 
+    /**
+     * Render alt languages if any are defined
+     */
+    public function portletLanguages()
+    {
+        if ( $this->data( 'sidebar', "LANGUAGES" ) === false || !$this->data('language_urls') ) {
+            return;
+        }
+
+        $content = $this->makeGenericList( $this->data('language_urls') );
+        $content .= $this->getPostPortletStuff( "lang" );
+
+        $header = [ "content" => $this->getMsg( "otherlanguages" )->escaped(), "attrs" => $this->data( 'userlangattributes' ) ];
+        $this->renderPortlet( "p-lang", "navigation", $header, $content );
+    }
+
+    /**
+     * Render any custom "sidebar" sections as defined in MediaWiki:Sidebar
+     */
+    protected function portletsCustomSidebar()
+    {
+        foreach ( $this->data('sidebar') as $boxName => $content ) {
+
+            // search, toolbox, languages = presets, being output elsewhere
+            if ( $content === false || in_array( $boxName, [ "SEARCH", "TOOLBOX", "LANGUAGES" ] ) ) {
+                continue;
+            }
+
+            if ( is_array( $content ) ) {
+                $content = $this->makeGenericList( $content );
+            }
+            $content .= $this->getPostPortletStuff( $boxName );
+
+            $nameMessage = wfMessage( $boxName );
+            $header = htmlspecialchars( $nameMessage->exists() ? $nameMessage->text() : $boxName );
+
+            $this->renderPortlet( Sanitizer::escapeId( "p-$boxName" ), "navigation", $header, $content, "generated-sidebar", Linker::titleAttrib( "p-$boxName" ) );
+
+        }
+    }
+
+    /**
+     * Render a portlet!
+     *
+     * @param string $id ID attribute
+     * @param string $role Role attribute
+     * @param string|array $header Header content. Can be a string of text/html or an array like this:
+     *                             "content" => text/html content, "attrs" => additional attributes for the header tag
+     * @param string|array $body Body content. Can be a string of html content or an array like this:
+     *                           "content" => html content, "no-tags" => omits containing div if true,
+     *                           "attrs" => additional attributes for the containing div
+     * @param string|null $additionalClasses Any additional classes for the portlet's containing div
+     * @param string|null $tooltip Something to go in the title tag
+     */
     protected function renderPortlet( $id, $role, $header, $body, $additionalClasses = null, $tooltip = null )
     {
         if ( is_array( $body ) ) {
@@ -329,6 +320,12 @@ class PixelionTemplate extends BaseTemplate
         <?
     }
 
+    /**
+     * Get anything hooked in after the given portlet
+     *
+     * @param $name
+     * @return string
+     */
     protected function getPostPortletStuff( $name )
     {
         ob_start();
@@ -344,6 +341,7 @@ class PixelionTemplate extends BaseTemplate
     //  FOOTER
     // *****************************************************************************************************************
 
+    /** @var array Should contain all the footer links that haven't been output yet */
     protected $remainingFooterLinks = array();
 
     /**
