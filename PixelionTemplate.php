@@ -2,89 +2,49 @@
 
 class PixelionTemplate extends BaseTemplate
 {
-
-    function oldExecute() {
-
-        $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
-
+    protected function renderMainContent()
+    {
+        // is there a reason this is only applied to the first H1?
         $pageLanguage = htmlspecialchars ( $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode() );
-
-        $this->html( 'headelement' );
         ?>
-        <link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Black|Archivo+Narrow:400,900italic,900,700,700italic,500italic,500,400italic,300italic,300,100italic,100|Skranji:400,700|Bowlby+One|Sarina|Emblema+One|Ranga:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <div id="globalWrapper">
-            <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
-                <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-                <div id="topbar">
-                    <?php $this->portletPersonal() ?>
-                    <?php $this->portletsCustomSidebar(); ?>
+        <div id="content" class="mw-body" role="main">
+            <a id="top"></a>
+            <?php if ( $this->data('sitenotice') ) { ?>
+                <div id="siteNotice">
+                    <?php $this->html( 'sitenotice' ) ?>
                 </div>
-                <div id="headbar">
-                    <?php $this->portletLogo() ?>
-                    <?php $this->portletSearch();  ?>
+            <?php } ?>
+
+            <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
+                <span dir="auto"><?php $this->html( 'title' ) ?></span>
+            </h1>
+
+            <div id="bodyContent" class="mw-body-content">
+                <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+                <div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
+                    <?php $this->html( 'subtitle' )?>
                 </div>
-                <?php $this->portletContentActions(); ?>
-            </div><!-- end of the left (by default at least) column -->
-
-            <div id="column-content">
-                <? $this->portletToolbox(); ?>
-                <div id="content" class="mw-body" role="main">
-                    <a id="top"></a>
-                    <?php if ( $this->data('sitenotice') ) { ?>
-                        <div id="siteNotice">
-                            <?php $this->html( 'sitenotice' ) ?>
-                        </div>
-                    <?php } ?>
-
-                    <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
-                        <span dir="auto"><?php $this->html( 'title' ) ?></span>
-                    </h1>
-
-                    <div id="bodyContent" class="mw-body-content">
-                        <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-                        <div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
-                            <?php $this->html( 'subtitle' )?>
-                        </div>
-                        <?php if ( $this->data('undelete') ) { ?>
-                            <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-                        <?php } ?>
-                        <?php if ( $this->data('newtalk') ) { ?>
-                            <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-                        <?php } ?>
-                        <div id="jump-to-nav" class="mw-jump">
-                            <?php $this->msg( 'jumpto' )?>
-                            <a href="#column-one"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' )?><a href="#searchInput"><?php $this->msg( 'jumptosearch' ) ?></a>
-                        </div>
-
-                        <!-- start content -->
-                        <?php $this->html( 'bodytext' ) ?>
-                        <?php
-                        if ( $this->data('catlinks') ) {
-                            $this->html( 'catlinks' );
-                        }
-                        ?>
-                        <!-- end content -->
-                        <?php
-                        if ( $this->data('dataAfterContent') ) {
-                            $this->html( 'dataAfterContent' );
-                        }
-                        ?>
-
-                    </div>
+                <?php if ( $this->data('undelete') ) { ?>
+                    <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
+                <?php } ?>
+                <?php if ( $this->data('newtalk') ) { ?>
+                    <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
+                <?php } ?>
+                <div id="jump-to-nav" class="mw-jump">
+                    <?php $this->msg( 'jumpto' )?>
+                    <a href="#column-one"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' )?><a href="#searchInput"><?php $this->msg( 'jumptosearch' ) ?></a>
                 </div>
-                <div id="post-body-stuff">
-                    <?php $this->portletLanguages(); ?>
-                    <? $this->popFooterLink( "lastmod" ) ?>
-                </div>
+
+                <?php $this->html( 'bodytext' ); ?>
+                <?php $this->html( 'catlinks' ); // meow ?>
+
+                <?php $this->html( 'dataAfterContent' ); ?>
+
             </div>
-            <?php $this->renderFooter() ?>
         </div>
-        <?php
-        $this->printTrail();
-        echo Html::closeElement( 'body' );
-        echo Html::closeElement( 'html' );
+        <?
+    }
 
-    } // end of execute() method
 
     /*************************************************************************************************/
 
@@ -95,12 +55,80 @@ class PixelionTemplate extends BaseTemplate
     // <editor-fold desc="Main">
 
     // *****************************************************************************************************************
-    //  MAIN EXECUTE METHOD
+    //  MAIN EXECUTE METHOD and SOME OF ITS FRIENDS
     // *****************************************************************************************************************
 
     public function execute()
     {
-        $this->oldExecute();
+        $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
+
+        $this->renderStart();
+            echo Html::openElement( "div", [ "id" => "globalWrapper" ] );
+                $this->renderTopStuff();
+                $this->renderContentStuff();
+                $this->renderFooter();
+            echo Html::closeElement( "div" );
+            $this->printTrail();
+        $this->renderEnd();
+
+    }
+
+    protected function renderStart()
+    {
+        $head = $this->data( "headelement" );
+        $extraHeadStuff = "<link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Narrow:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>";
+        // awful
+        // i assume theres a way to do this properly but i dunno what it is
+        $head = str_replace( "</head>", $extraHeadStuff . "\n</head>", $head );
+        echo $head;
+    }
+
+    /**
+     * Render what was formerly the sidebar.. which is not at the side in this theme (at least not with its default CSS)
+     */
+    protected function renderTopStuff()
+    {
+        ?>
+        <div id="column-one" <?php $this->html( 'userlangattributes' ); ?>>
+            <h2><?php $this->msg( 'navigation-heading' ); ?></h2>
+            <div id="topbar">
+                <?php $this->portletPersonal(); ?>
+                <?php $this->portletsCustomSidebar(); ?>
+            </div>
+            <div id="headbar">
+                <?php $this->portletLogo(); ?>
+                <?php $this->portletSearch(); ?>
+            </div>
+            <?php $this->portletContentActions(); ?>
+        </div>
+    <?
+    }
+
+    protected function renderContentStuff()
+    {
+        ?>
+        <div id="column-content">
+            <? $this->portletToolbox(); ?>
+            <? $this->renderMainContent(); ?>
+            <? $this->renderPostContentStuff(); ?>
+        </div>
+    <?php
+    }
+
+    protected function renderPostContentStuff()
+    {
+        ?>
+        <div id="post-body-stuff">
+            <?php $this->portletLanguages(); ?>
+            <? $this->popFooterLink( "lastmod" ) ?>
+        </div>
+    <?
+    }
+
+    protected function renderEnd()
+    {
+        echo Html::closeElement( 'body' );
+        echo Html::closeElement( 'html' );
     }
 
     // </editor-fold>
@@ -155,7 +183,7 @@ class PixelionTemplate extends BaseTemplate
     /**
      * whack out a search box like
      */
-    public function portletSearch()
+    protected function portletSearch()
     {
         if ( $this->data( 'sidebar', "SEARCH" ) === false ) {
             return;
@@ -186,7 +214,7 @@ class PixelionTemplate extends BaseTemplate
      * Render a bunch of random ass tools, most of which are related to the current page but some of which are not
      * (argh)
      */
-    public function portletToolbox()
+    protected function portletToolbox()
     {
         if ( $this->data( 'sidebar', "TOOLBOX" ) === false ) {
             return;
@@ -207,7 +235,7 @@ class PixelionTemplate extends BaseTemplate
     /**
      * Render alt languages if any are defined
      */
-    public function portletLanguages()
+    protected function portletLanguages()
     {
         if ( $this->data( 'sidebar', "LANGUAGES" ) === false || !$this->data('language_urls') ) {
             return;
