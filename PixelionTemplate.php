@@ -57,8 +57,10 @@ class PixelionTemplate extends BaseTemplate {
                     <?php $this->portletPersonal() ?>
                     <?php $this->renderCustomPortals(); ?>
                 </div>
-                <?php $this->portletLogo() ?>
-                <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+                <div id="headbar">
+                    <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+                    <?php $this->portletLogo() ?>
+                </div>
                 <?php $this->cactions(); ?>
             </div><!-- end of the left (by default at least) column -->
 

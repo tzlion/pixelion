@@ -253,6 +253,20 @@ button, input[type=submit] {
   display: block;
 }
 
+#headbar {
+  position: relative;
+}
+
+.portlet#p-search {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -10px;
+}
+.portlet#p-search h3 {
+  display: none;
+}
+
 .portlet#p-logo {
   font-family: "Jockey One";
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -352,14 +366,6 @@ button, input[type=submit] {
 }
 .portlet#p-cactions [id^=ca-nstab].selected a:hover, .portlet#p-cactions #ca-talk.selected a:hover {
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-.portlet#p-search {
-  float: right;
-  margin-top: -50px;
-}
-.portlet#p-search h3 {
-  display: none;
 }
 
 .portlet#p-lang {

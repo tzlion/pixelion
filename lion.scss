@@ -253,6 +253,22 @@ $topmenuheight: $topmenufontsize + 10px;
     }
 }
 
+#headbar{
+    position:relative;
+}
+
+.portlet#p-search {
+    position:absolute;
+    right:0;
+    top:50%;
+    margin-top:-10px;
+    //position:absolute;right:20px;top:-10px;
+    h3{
+        display:none;
+    }
+
+}
+
 .portlet#p-logo {
     font-family: $titlefont;
     //text-align:center;
@@ -352,15 +368,6 @@ $pageactionheight: $pageactionfontsize + 10px;
 
 }
 
-.portlet#p-search {
-    float:right;
-    margin-top:-50px;
-    //position:absolute;right:20px;top:-10px;
-    h3{
-        display:none;
-    }
-
-}
 
 .portlet#p-lang {
     float:left;
