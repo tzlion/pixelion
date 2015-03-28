@@ -29,7 +29,7 @@ class PixelionTemplate extends BaseTemplate
                 </div>
                 <div id="headbar">
                     <?php $this->portletLogo() ?>
-                    <?php $this->searchBox();  ?>
+                    <?php $this->portletSearch();  ?>
                 </div>
                 <?php $this->portletContentActions(); ?>
             </div><!-- end of the left (by default at least) column -->
@@ -97,49 +97,6 @@ class PixelionTemplate extends BaseTemplate
     /*************************************************************************************************/
 
 
-    function searchBox() {
-
-        if ( $this->data( 'sidebar', "SEARCH" ) === false ) {
-            return;
-        }
-
-        ob_start();
-        ?>
-
-                <form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-                    <input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-                    <?php echo $this->makeSearchInput( array( "id" => "searchInput" ) ); ?>
-
-                    <?php
-                    echo $this->makeSearchButton(
-                        "go",
-                        array( "id" => "searchGoButton", "class" => "searchButton" )
-                    );
-
-                    if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
-                        ?>&#160;
-                        <?php echo $this->makeSearchButton(
-                            "fulltext",
-                            array( "id" => "mw-searchButton", "class" => "searchButton" )
-                        );
-                    } else {
-                        ?>
-
-                        <div><a href="<?php
-                        $this->text( 'searchaction' )
-                        ?>" rel="search"><?php $this->msg( 'powersearch-legend' ) ?></a></div><?php
-                    } ?>
-
-                </form>
-
-                <?php $this->renderAfterPortlet( 'search' ); ?>
-
-    <?php
-        $header = '<label for="searchInput">' . $this->getMsg("personaltools")->escaped() . '</label>';
-        $this->renderPortlet( "p-search", "search", $header, [ "attrs" => "id='searchBody'", "content" => ob_get_clean() ] );
-    }
-
-
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
 
     // <editor-fold desc="Portlets">
@@ -187,6 +144,36 @@ class PixelionTemplate extends BaseTemplate
 
         $header = $this->getMsg( "views" )->escaped();
         $this->renderPortlet( "p-cactions", "navigation", $header, $content );
+    }
+
+    /**
+     * whack out a search box like
+     */
+    public function portletSearch()
+    {
+        if ( $this->data( 'sidebar', "SEARCH" ) === false ) {
+            return;
+        }
+
+        ob_start();
+        ?>
+        <form id="searchform" action="<? $this->text( 'wgScript' ) ?>">
+            <input type="hidden" name="title" value="<? $this->text( 'searchtitle' ) ?>"/>
+            <?= $this->makeSearchInput( array( "id" => "searchInput" ) ) ?>
+            <?= $this->makeSearchButton( "go", array( "id" => "searchGoButton", "class" => "searchButton" ) ) ?>
+            <? if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) { ?>
+                <?= $this->makeSearchButton( "fulltext", array( "id" => "mw-searchButton", "class" => "searchButton" ) ) ?>
+            <? } else { ?>
+                <a id="power-search-densetsu" href="<? $this->text( 'searchaction' ) ?>" rel="search"><? $this->msg( 'powersearch-legend' ) // The Legend of Power Search(tm) Coming Summer 1989 ?></a>
+            <? } ?>
+        </form>
+
+        <?
+        $content = ob_get_clean();
+        $content .= $this->getPostPortletStuff( "search" );
+
+        $header = '<label for="searchInput">' . $this->getMsg("personaltools")->escaped() . '</label>';
+        $this->renderPortlet( "p-search", "search", $header, [ "attrs" => "id='searchBody'", "content" => $content ] );
     }
 
     /**
