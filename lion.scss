@@ -258,18 +258,25 @@ $topmenuheight: $topmenufontsize + 10px;
 }
 
 .portlet#p-search {
-    position:absolute;
-    right:0;
-    top:50%;
-    margin-top:-10px;
+    float:right;
+    margin-top:35px;
+    margin-bottom:10px;
+   // margin-top:50%;
+   // position:relative;
+   // top:50%;
+   // margin-top:-10px;
     //position:absolute;right:20px;top:-10px;
     h3{
         display:none;
     }
-
+    input{
+        /*height:30px;
+        font-size:20px;*/
+    }
 }
 
 .portlet#p-logo {
+    float:left;
     font-family: $titlefont;
     //text-align:center;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
@@ -319,6 +326,7 @@ $pageactionfont: $regularfont;
 $pageactionfontsize: 20px;
 $pageactionheight: $pageactionfontsize + 10px;
 .portlet#p-cactions{
+    clear:both;
     font-family:$pageactionfont;
     font-size:$pageactionfontsize;
     line-height:$pageactionheight;

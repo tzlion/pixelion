@@ -1,35 +1,7 @@
 <?php
-/**
- * Pixelion nouveau.
- *
- * Translated from gwicke's previous TAL template version to remove
- * dependency on PHPTAL.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- * http://www.gnu.org/copyleft/gpl.html
- *
- * @file
- * @ingroup Skins
- */
 
-/**
- * @ingroup Skins
- */
-class PixelionTemplate extends BaseTemplate {
-
-    protected $remainingFooterLinks = array();
+class PixelionTemplate extends BaseTemplate
+{
 
 	/**
 	 * Template filter callback for Pixelion skin.
@@ -58,8 +30,8 @@ class PixelionTemplate extends BaseTemplate {
                     <?php $this->renderCustomPortals(); ?>
                 </div>
                 <div id="headbar">
-                    <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
                     <?php $this->portletLogo() ?>
+                    <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
                 </div>
                 <?php $this->cactions(); ?>
             </div><!-- end of the left (by default at least) column -->
@@ -115,7 +87,7 @@ class PixelionTemplate extends BaseTemplate {
                 <div class="visualClear"></div>
             </div>
             <div class="visualClear"></div>
-            <?php $this->outputFooter() ?>
+            <?php $this->renderFooter() ?>
 		</div>
 		<?php
 		$this->printTrail();
@@ -126,59 +98,6 @@ class PixelionTemplate extends BaseTemplate {
 
 	/*************************************************************************************************/
 
-    protected function popFooterLink( $name, $wrapper = "span" )
-    {
-        $key = array_search( $name, $this->remainingFooterLinks );
-        if ( $key !== false ) {
-            echo "<$wrapper id='$name'>";
-            $this->html( $name );
-            echo "</$wrapper>";
-            unset( $this->remainingFooterLinks[$key] );
-        }
-        // name can be: lastmod,viewcount,copyright,privacy,about,disclaimer
-    }
-
-    protected function outputFooter()
-    {
-        $validFooterIcons = $this->getFooterIcons( "icononly" );
-        $validFooterLinks = $this->remainingFooterLinks;  // Additional footer links
-
-        if ( !$validFooterIcons && !$validFooterLinks ) {
-            return;
-        }
-
-        ?>
-        <div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
-        <?php
-
-            foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-                ?>
-                <div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico">
-                    <?php foreach ( $footerIcons as $icon ) { ?>
-                        <?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
-                    <?php } ?>
-                </div>
-            <?php
-            }
-
-            if ( count( $validFooterLinks ) > 0 ) {
-                // todo: these should be separated depending on name,
-                // maybe have a method that can be called to output a specific one if it exists a la the portlets
-                // because eg i wanna have last update time within the main content and copyright/other shit outside of it
-                ?>
-                <ul id="f-list">
-                    <?php foreach ( $validFooterLinks as $aLink ) { ?>
-                        <? $this->popFooterLink( $aLink, "li" ) ?>
-                    <?php } ?>
-                </ul>
-            <?php
-            }
-
-        ?>
-            <div>Theme by <a href="http://lion.li">LION STUDIO</a>©
-        </div>
-        <?php
-    }
 
     protected function portletPersonal()
     {
@@ -417,4 +336,66 @@ class PixelionTemplate extends BaseTemplate {
 		</div>
 	<?php
 	}
-} // end of class
+
+    // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
+
+    // *****************************************************************************************************************
+    //  FOOTER START
+    // *****************************************************************************************************************
+
+    protected $remainingFooterLinks = array();
+
+    /**
+     * Output a footer link and remove it so it won't be output with the rest
+     *
+     * @param string $name e.g. lastmod, viewcount, copyright, privacy, about, disclaimer
+     * @param string $wrapper HTML tag to wrap the link in
+     */
+    protected function popFooterLink( $name, $wrapper = "span" )
+    {
+        $key = array_search( $name, $this->remainingFooterLinks );
+
+        if ( $key !== false ) {
+            echo "<$wrapper id='$name'>";
+            $this->html( $name );
+            echo "</$wrapper>";
+            unset( $this->remainingFooterLinks[$key] );
+        }
+    }
+
+    /**
+     * Output the actual footer
+     */
+    protected function renderFooter()
+    {
+        $footerIcons = $this->getFooterIcons( "icononly" );
+        $footerLinks = $this->remainingFooterLinks; // Any footer links that were not already output using popFooterLink
+
+        ?>
+        <div id="footer" role="contentinfo" <?php $this->html( 'userlangattributes' ) ?>>
+
+            <? foreach( (array)$footerIcons as $iconSetName => $iconSet ) { ?>
+                <ul id="f-<?= $iconSetName ?>ico">
+                    <? foreach( $iconSet as $icon ) { ?>
+                        <li>
+                            <?= $this->getSkin()->makeFooterIcon( $icon ); ?>
+                        </li>
+                    <? } ?>
+                </ul>
+            <? } ?>
+
+            <? if ( $footerLinks ) { ?>
+                <ul id="f-list">
+                    <? foreach( $footerLinks as $linkName ) { ?>
+                        <? $this->popFooterLink( $linkName, "li" )?>
+                    <? } ?>
+                </ul>
+            <? } ?>
+
+            <div id="self-aggrandisement">Theme by <a href="http://lion.li">LION STUDIO</a>©</div>
+
+        </div>
+    <?
+    }
+
+}

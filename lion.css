@@ -258,16 +258,20 @@ button, input[type=submit] {
 }
 
 .portlet#p-search {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  margin-top: -10px;
+  float: right;
+  margin-top: 35px;
+  margin-bottom: 10px;
 }
 .portlet#p-search h3 {
   display: none;
 }
+.portlet#p-search input {
+  /*height:30px;
+  font-size:20px;*/
+}
 
 .portlet#p-logo {
+  float: left;
   font-family: "Jockey One";
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   font-size: 70px;
@@ -318,6 +322,7 @@ button, input[type=submit] {
 }
 */
 .portlet#p-cactions {
+  clear: both;
   font-family: "Archivo Narrow";
   font-size: 20px;
   line-height: 30px;
