@@ -335,7 +335,14 @@ class PixelionTemplate extends BaseTemplate
 
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
 
+    // <editor-fold desc="Portlets">
 
+    // *****************************************************************************************************************
+    //  PORTLETS
+    // *****************************************************************************************************************
+
+
+    // </editor-fold>
 
     // <editor-fold desc="Footer">
 
@@ -410,10 +417,9 @@ class PixelionTemplate extends BaseTemplate
      * Get a value or subvalue from the data array if set
      *
      * @param string $keys,... Array keys and subkeys
-     *
      * @return mixed The value if found, NULL if not
      */
-    private function data( $keys )
+    protected function data( $keys )
     {
         $arg_list = func_get_args();
         $val = $this->data;
@@ -427,6 +433,28 @@ class PixelionTemplate extends BaseTemplate
         }
 
         return $val;
+    }
+
+    /**
+     * Echo a value from the data array if set
+     *
+     * @param string $key
+     * @return string|void
+     */
+    public function html( $key )
+    {
+        echo $this->data( $key );
+    }
+
+    /**
+     * Echo an escaped value from the data array if set
+     *
+     * @param string $key
+     * @return string|void
+     */
+    public function text( $key )
+    {
+        echo htmlspecialchars( $this->data( $key ) );
     }
 
     // </editor-fold>
