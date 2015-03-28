@@ -51,25 +51,25 @@ class LionBookTemplate extends BaseTemplate {
 		?>
 		<link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Black|Archivo+Narrow:400,900italic,900,700,700italic,500italic,500,400italic,300italic,300,100italic,100|Skranji:400,700|Bowlby+One|Sarina|Emblema+One|Ranga:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <div id="globalWrapper">
-            <a id="toolbox" href="#" title="Toolbox">T</a>
-            <ul id="tools">
-                <?php
-                foreach ( $this->getToolbox() as $key => $tbitem ) {
-                    ?>
-                    <?php echo $this->makeListItem( $key, $tbitem ); ?>
-
-                <?php
-                }
-                // haha i have no idea if these will still work
-                wfRunHooks( 'LionBookTemplateToolboxEnd', array( &$this ) );
-                wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
-                ?>
-            </ul>
             <?php $this->portletPersonal() ?>
             <?php $this->portletLogo() ?>
             <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
             <?php $this->cactions(); ?>
             <div id="column-content">
+                <a id="toolbox" href="#" title="Toolbox">T</a>
+                <ul id="tools">
+                    <?php
+                    foreach ( $this->getToolbox() as $key => $tbitem ) {
+                        ?>
+                        <?php echo $this->makeListItem( $key, $tbitem ); ?>
+
+                    <?php
+                    }
+                    // haha i have no idea if these will still work
+                    wfRunHooks( 'LionBookTemplateToolboxEnd', array( &$this ) );
+                    wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+                    ?>
+                </ul>
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
                     <?php if ( $this->data['sitenotice'] ) { ?>

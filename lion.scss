@@ -114,6 +114,13 @@ h4 {
     xxxmargin:20px 0 5px 0;
 }
 
+button, input[type=submit] {
+    background-color:rgba(0,0,0,0.8);
+    color:white;
+    border:none;
+    font-family:$titlefont;
+}
+
 .mw-editsection {
     font-family:$regularfont;
     a {
@@ -243,7 +250,7 @@ $pageactionheight: $pageactionfontsize + 10px;
         color:rgba(255,255,255,1);
         font-weight:700;
     }
-    #ca-nstab-main, #ca-talk, #ca-nstab-special {
+    [id^=ca-nstab], #ca-talk {
         a {
             background-color:rgba(221,221,221,0.9);
             padding: 0px 6px;

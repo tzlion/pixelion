@@ -106,6 +106,13 @@ h4 {
   xxxmargin: 20px 0 5px 0;
 }
 
+button, input[type=submit] {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  font-family: "Jockey One";
+}
+
 .mw-editsection {
   font-family: "Archivo Narrow";
 }
@@ -251,20 +258,20 @@ h4 {
   color: white;
   font-weight: 700;
 }
-.portlet#p-cactions #ca-nstab-main a, .portlet#p-cactions #ca-talk a, .portlet#p-cactions #ca-nstab-special a {
+.portlet#p-cactions [id^=ca-nstab] a, .portlet#p-cactions #ca-talk a {
   background-color: rgba(221, 221, 221, 0.9);
   padding: 0px 6px;
   color: rgba(0, 0, 0, 0.8);
 }
-.portlet#p-cactions #ca-nstab-main a:hover, .portlet#p-cactions #ca-talk a:hover, .portlet#p-cactions #ca-nstab-special a:hover {
+.portlet#p-cactions [id^=ca-nstab] a:hover, .portlet#p-cactions #ca-talk a:hover {
   background-color: rgba(238, 238, 238, 0.9);
   color: rgba(0, 0, 0, 0.9);
 }
-.portlet#p-cactions #ca-nstab-main.selected a, .portlet#p-cactions #ca-talk.selected a, .portlet#p-cactions #ca-nstab-special.selected a {
+.portlet#p-cactions [id^=ca-nstab].selected a, .portlet#p-cactions #ca-talk.selected a {
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
 }
-.portlet#p-cactions #ca-nstab-main.selected a:hover, .portlet#p-cactions #ca-talk.selected a:hover, .portlet#p-cactions #ca-nstab-special.selected a:hover {
+.portlet#p-cactions [id^=ca-nstab].selected a:hover, .portlet#p-cactions #ca-talk.selected a:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
