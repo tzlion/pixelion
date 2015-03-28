@@ -1,6 +1,7 @@
 $titlefont: "Jockey One";
 //$titlefont: "Archivo Black";
 $regularfont: "Archivo Narrow";
+$bodytextsize: 16px;
 $mainbgcolour: rgba(255,255,255,0.95);
 $linecolour: rgba(1,1,1,0.05);
 $segmentbg: rgba(1,1,1,0.02);
@@ -18,6 +19,7 @@ body {
     background-size:100% auto;
     background-attachment: fixed;
     background-position:center;
+    font-size: $bodytextsize;
 	margin:20px;
 	font-family:$regularfont;
     height:100%;
@@ -346,6 +348,34 @@ $pageactionheight: $pageactionfontsize + 10px;
         text-decoration:none;
     }
 }
+.portlet#p-lang {
+    float:left;
+    padding-top:10px;
+    padding-bottom:10px;
+	h3,li,ul,div {
+        display:inline;padding:0;margin:0;list-style:none;
+
+    }
+    h3 {
+        font-family:$regularfont;
+        font-size:$bodytextsize;
+        display:none;
+    }
+    li {
+        padding-right:5px;
+    }
+}
+
+#lastmod {
+    float:right;
+    font-size:13px;
+    color:#aaa;
+    font-style:italic;
+    text-shadow:none;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+
 
 #footer {
 	@include pagewidth();
@@ -368,14 +398,4 @@ $pageactionheight: $pageactionfontsize + 10px;
     img,#viewcount {
       display:none;
     }
-}
-
-#lastmod {
-    float:right;
-    font-size:13px;
-	color:#aaa;
-    font-style:italic;
-    text-shadow:none;
-    padding-bottom:10px;
-    padding-top:10px;
 }

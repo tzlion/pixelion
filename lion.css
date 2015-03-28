@@ -4,6 +4,7 @@ body {
   background-size: 100% auto;
   background-attachment: fixed;
   background-position: center;
+  font-size: 16px;
   margin: 20px;
   font-family: "Archivo Narrow";
   height: 100%;
@@ -358,6 +359,36 @@ button, input[type=submit] {
   text-decoration: none;
 }
 
+.portlet#p-lang {
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.portlet#p-lang h3, .portlet#p-lang li, .portlet#p-lang ul, .portlet#p-lang div {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.portlet#p-lang h3 {
+  font-family: "Archivo Narrow";
+  font-size: 16px;
+  display: none;
+}
+.portlet#p-lang li {
+  padding-right: 5px;
+}
+
+#lastmod {
+  float: right;
+  font-size: 13px;
+  color: #aaa;
+  font-style: italic;
+  text-shadow: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
 #footer {
   max-width: 1000px;
   margin-left: auto;
@@ -385,14 +416,4 @@ button, input[type=submit] {
 }
 #footer img, #footer #viewcount {
   display: none;
-}
-
-#lastmod {
-  float: right;
-  font-size: 13px;
-  color: #aaa;
-  font-style: italic;
-  text-shadow: none;
-  padding-bottom: 10px;
-  padding-top: 10px;
 }

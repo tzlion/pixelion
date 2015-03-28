@@ -57,7 +57,6 @@ class LionBookTemplate extends BaseTemplate {
                     <?php $this->portletPersonal() ?>
                     <?php $this->renderCustomPortals(); ?>
                 </div>
-                <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); // todo: deal ?>
                 <?php $this->portletLogo() ?>
                 <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
                 <?php $this->cactions(); ?>
@@ -123,6 +122,7 @@ class LionBookTemplate extends BaseTemplate {
 
                     </div>
                 </div>
+                <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); // todo: deal ?>
                 <? $this->popFooterLink( "lastmod" ) ?>
                 <div class="visualClear"></div>
             </div>
@@ -353,14 +353,15 @@ class LionBookTemplate extends BaseTemplate {
 
 	/*************************************************************************************************/
 	function languageBox() {
-		if ( $this->data['language_urls'] !== false ) {
+        $langurls = $this->data['language_urls'];
+		if ( $langurls !== false ) {
 			?>
 			<div id="p-lang" class="portlet" role="navigation">
 				<h3<?php $this->html( 'userlangattributes' ) ?>><?php $this->msg( 'otherlanguages' ) ?></h3>
 
 				<div class="pBody">
 					<ul>
-						<?php foreach ( $this->data['language_urls'] as $key => $langlink ) { ?>
+						<?php foreach ( $langurls as $key => $langlink ) { ?>
 							<?php echo $this->makeListItem( $key, $langlink ); ?>
 
 						<?php
