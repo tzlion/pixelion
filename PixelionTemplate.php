@@ -99,28 +99,26 @@ class PixelionTemplate extends BaseTemplate
 
     protected function portletPersonal()
     {
+        ob_start();
         ?>
-        <div class="portlet" id="p-personal" role="navigation">
-            <h3><?php $this->msg( 'personaltools' ) ?></h3>
 
-            <div class="pBody">
-                <ul<?php $this->html( 'userlangattributes' ) ?>>
-                    <?php foreach ( $this->getPersonalTools() as $key => $item ) { ?>
-                        <?php echo $this->makeListItem( $key, $item ); ?>
+            <ul<?php $this->html( 'userlangattributes' ) ?>>
+                <?php foreach ( $this->getPersonalTools() as $key => $item ) { ?>
+                    <?php echo $this->makeListItem( $key, $item ); ?>
 
-                    <?php
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
+                <?php
+                }
+                ?>
+            </ul>
+
     <?php
+        $this->renderPortlet( "p-personal", "navigation", $this->getMsg("personaltools")->escaped(), ob_get_clean() );
     }
 
     protected function portletLogo()
     {
+        ob_start();
         ?>
-        <div class="portlet" id="p-logo" role="banner">
             <?php
             echo Html::openElement( 'a', array(
                     'href' => $this->data( 'nav_urls', 'mainpage', 'href' ),
@@ -132,8 +130,8 @@ class PixelionTemplate extends BaseTemplate
                 <?=$this->data('sitename')?>
             <? endif ?>
             <? echo Html::closeElement( 'a' ) ?>
-        </div>
     <?
+        $this->renderPortlet( "p-logo", "banner", null, [ "content" => ob_get_clean(), "no-tags" => true ] );
     }
 
 	/**
@@ -174,11 +172,9 @@ class PixelionTemplate extends BaseTemplate
 
 
 	function searchBox() {
+        ob_start();
 		?>
-		<div id="p-search" class="portlet" role="search">
-			<h3><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h3>
 
-			<div id="searchBody" class="pBody">
 				<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
 					<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
 					<?php echo $this->makeSearchInput( array( "id" => "searchInput" ) ); ?>
@@ -206,9 +202,10 @@ class PixelionTemplate extends BaseTemplate
 				</form>
 
 				<?php $this->renderAfterPortlet( 'search' ); ?>
-			</div>
-		</div>
+
 	<?php
+        $header = '<label for="searchInput">' . $this->getMsg("personaltools")->escaped() . '</label>';
+        $this->renderPortlet( "p-search", "search", $header, [ "attrs" => "id='searchBody'", "content" => ob_get_clean() ] );
 	}
 
 	/**
@@ -216,11 +213,8 @@ class PixelionTemplate extends BaseTemplate
 	 * Shared between Pixelion and Modern
 	 */
 	function cactions() {
+        ob_start();
 		?>
-		<div id="p-cactions" class="portlet" role="navigation">
-			<h3><?php $this->msg( 'views' ) ?></h3>
-
-			<div class="pBody">
 				<ul><?php
 					foreach ( $this->data('content_actions') as $key => $tab ) {
 						echo '
@@ -229,19 +223,16 @@ class PixelionTemplate extends BaseTemplate
 
 				</ul>
 				<?php $this->renderAfterPortlet( 'cactions' ); ?>
-			</div>
-		</div>
+
 	<?php
+        $header = $this->getMsg( "views" )->escaped();
+        $this->renderPortlet( "p-cactions", "navigation", $header, ob_get_clean() );
 	}
 
 	/*************************************************************************************************/
 	function toolbox() {
-
+        ob_start();
 		?>
-		<div class="portlet" id="p-tb" role="navigation">
-			<h3><?php $this->msg( 'toolbox' ) ?></h3>
-
-			<div class="pBody">
                 <a id="toolboxbutton" href="#" title="Toolbox">T</a>
 				<ul id="tools">
 					<?php
@@ -255,20 +246,20 @@ class PixelionTemplate extends BaseTemplate
 					?>
 				</ul>
 				<?php $this->renderAfterPortlet( 'tb' ); ?>
-			</div>
-		</div>
 	<?php
+        $header = $this->getMsg( "toolbox" )->escaped();
+        $this->renderPortlet( "p-tb", "navigation", $header, ob_get_clean() );
 	}
 
 	/*************************************************************************************************/
 	function languageBox() {
+
+        ob_start();
+
         $langurls = $this->data('language_urls');
 		if ( $langurls !== false ) {
 			?>
-			<div id="p-lang" class="portlet" role="navigation">
-				<h3<?php $this->html( 'userlangattributes' ) ?>><?php $this->msg( 'otherlanguages' ) ?></h3>
 
-				<div class="pBody">
 					<ul>
 						<?php foreach ( $langurls as $key => $langlink ) { ?>
 							<?php echo $this->makeListItem( $key, $langlink ); ?>
@@ -279,11 +270,14 @@ class PixelionTemplate extends BaseTemplate
 					</ul>
 
 					<?php $this->renderAfterPortlet( 'lang' ); ?>
-				</div>
-			</div>
+
 		<?php
 		}
-	}
+
+        $header = [ "content" => $this->getMsg("otherlanguages")->escaped(), "attrs" => $this->data( 'userlangattributes' ) ];
+        $this->renderPortlet( "p-lang", "navigation", $header, ob_get_clean() );
+
+    }
 
 	/*************************************************************************************************/
 	/**
@@ -291,46 +285,43 @@ class PixelionTemplate extends BaseTemplate
 	 * @param array|string $cont
 	 */
 	function customBox( $bar, $cont ) {
-		$portletAttribs = array(
-			'class' => 'generated-sidebar portlet',
-			'id' => Sanitizer::escapeId( "p-$bar" ),
-			'role' => 'navigation'
-		);
 
 		$tooltip = Linker::titleAttrib( "p-$bar" );
 		if ( $tooltip !== false ) {
-			$portletAttribs['title'] = $tooltip;
-		}
-		echo '	' . Html::openElement( 'div', $portletAttribs );
+			$titleattr = $tooltip;
+		} else {
+            $titleattr=null;
+        }
+
 		$msgObj = wfMessage( $bar );
-		?>
 
-		<h3><?php echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $bar ); ?></h3>
-		<div class='pBody'>
-			<?php
-			if ( is_array( $cont ) ) {
-				?>
-				<ul>
-					<?php
-					foreach ( $cont as $key => $val ) {
-						?>
-						<?php echo $this->makeListItem( $key, $val ); ?>
+        $header = htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $bar );
+        ob_start();
+        ?>
+        <?php
+            if ( is_array( $cont ) ) {
+                ?>
+                <ul>
+                    <?php
+                    foreach ( $cont as $key => $val ) {
+                        ?>
+                        <?php echo $this->makeListItem( $key, $val ); ?>
 
-					<?php
-					}
-					?>
-				</ul>
-			<?php
-			} else {
-				# allow raw HTML block to be defined by extensions
-				print $cont;
-			}
+                    <?php
+                    }
+                    ?>
+                </ul>
+            <?php
+            } else {
+                # allow raw HTML block to be defined by extensions
+                print $cont;
+            }
 
-			$this->renderAfterPortlet( $bar );
-			?>
-		</div>
-		</div>
-	<?php
+            $this->renderAfterPortlet( $bar );
+        ?>
+        <?
+        $body = ob_get_clean();
+        $this->renderPortlet( Sanitizer::escapeId( "p-$bar" ), "navigation", $header, $body, "generated-sidebar", $titleattr );
 	}
 
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
@@ -341,6 +332,47 @@ class PixelionTemplate extends BaseTemplate
     //  PORTLETS
     // *****************************************************************************************************************
 
+    protected function renderPortlet( $id, $role, $header, $body, $additionalClasses = null, $tooltip = null )
+    {
+        if ( is_array( $body ) ) {
+            $bodyContent = $body['content'];
+            $showBodyTags = ( !isset( $body['no-tags'] ) || !$body['no-tags'] );
+            $bodyAttrs = isset( $body['attrs'] ) ? $body['attrs'] : "";
+        } else {
+            $bodyContent = $body;
+            $showBodyTags = true;
+            $bodyAttrs = "";
+        }
+
+        if ( is_array( $header ) ) {
+            $headerContent = $header['content'];
+            $headerAttrs = isset( $header['attrs'] ) ? $header['attrs'] : "";
+        } else {
+            $headerContent = $header;
+            $headerAttrs = "";
+        }
+
+        if ( $tooltip ) {
+            $extraAttrs = "title = '$tooltip'";
+        } else {
+            $extraAttrs = "";
+        }
+
+        ?>
+        <div class="portlet <?=$additionalClasses?>" id="<?=$id?>" role="<?=$role?>" <?=$extraAttrs?>>
+            <? if ( $headerContent ) { ?>
+                <h3 <?=$headerAttrs?>><?= $headerContent ?></h3>
+            <? } ?>
+            <? if ( $showBodyTags ) { ?>
+                <div class="pBody" <?=$bodyAttrs?>>
+                    <?=$bodyContent?>
+                </div>
+            <? } else { ?>
+                <?=$bodyContent?>
+            <? } ?>
+        </div>
+        <?
+    }
 
     // </editor-fold>
 
