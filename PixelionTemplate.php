@@ -3,23 +3,23 @@
 class PixelionTemplate extends BaseTemplate
 {
 
-	/**
-	 * Template filter callback for Pixelion skin.
-	 * Takes an associative array of data set from a SkinTemplate-based
-	 * class, and a wrapper for MediaWiki's localization database, and
-	 * outputs a formatted page.
-	 *
-	 * @access private
-	 */
-	function execute() {
+    /**
+     * Template filter callback for Pixelion skin.
+     * Takes an associative array of data set from a SkinTemplate-based
+     * class, and a wrapper for MediaWiki's localization database, and
+     * outputs a formatted page.
+     *
+     * @access private
+     */
+    function execute() {
 
         $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
 
         $this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 
-		$this->html( 'headelement' );
-		?>
-		<link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Black|Archivo+Narrow:400,900italic,900,700,700italic,500italic,500,400italic,300italic,300,100italic,100|Skranji:400,700|Bowlby+One|Sarina|Emblema+One|Ranga:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        $this->html( 'headelement' );
+        ?>
+        <link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Black|Archivo+Narrow:400,900italic,900,700,700italic,500italic,500,400italic,300italic,300,100italic,100|Skranji:400,700|Bowlby+One|Sarina|Emblema+One|Ranga:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <div id="globalWrapper">
             <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
                 <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
@@ -86,58 +86,58 @@ class PixelionTemplate extends BaseTemplate
             </div>
             <div class="sigh"></div>
             <?php $this->renderFooter() ?>
-		</div>
-		<?php
-		$this->printTrail();
-		echo Html::closeElement( 'body' );
-		echo Html::closeElement( 'html' );
+        </div>
+        <?php
+        $this->printTrail();
+        echo Html::closeElement( 'body' );
+        echo Html::closeElement( 'html' );
 
-	} // end of execute() method
+    } // end of execute() method
 
-	/*************************************************************************************************/
+    /*************************************************************************************************/
 
 
-	function searchBox() {
+    function searchBox() {
 
         if ( $this->data( 'sidebar', "SEARCH" ) === false ) {
             return;
         }
 
         ob_start();
-		?>
+        ?>
 
-				<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-					<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-					<?php echo $this->makeSearchInput( array( "id" => "searchInput" ) ); ?>
+                <form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
+                    <input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
+                    <?php echo $this->makeSearchInput( array( "id" => "searchInput" ) ); ?>
 
-					<?php
-					echo $this->makeSearchButton(
-						"go",
-						array( "id" => "searchGoButton", "class" => "searchButton" )
-					);
+                    <?php
+                    echo $this->makeSearchButton(
+                        "go",
+                        array( "id" => "searchGoButton", "class" => "searchButton" )
+                    );
 
-					if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
-						?>&#160;
-						<?php echo $this->makeSearchButton(
-							"fulltext",
-							array( "id" => "mw-searchButton", "class" => "searchButton" )
-						);
-					} else {
-						?>
+                    if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
+                        ?>&#160;
+                        <?php echo $this->makeSearchButton(
+                            "fulltext",
+                            array( "id" => "mw-searchButton", "class" => "searchButton" )
+                        );
+                    } else {
+                        ?>
 
-						<div><a href="<?php
-						$this->text( 'searchaction' )
-						?>" rel="search"><?php $this->msg( 'powersearch-legend' ) ?></a></div><?php
-					} ?>
+                        <div><a href="<?php
+                        $this->text( 'searchaction' )
+                        ?>" rel="search"><?php $this->msg( 'powersearch-legend' ) ?></a></div><?php
+                    } ?>
 
-				</form>
+                </form>
 
-				<?php $this->renderAfterPortlet( 'search' ); ?>
+                <?php $this->renderAfterPortlet( 'search' ); ?>
 
-	<?php
+    <?php
         $header = '<label for="searchInput">' . $this->getMsg("personaltools")->escaped() . '</label>';
         $this->renderPortlet( "p-search", "search", $header, [ "attrs" => "id='searchBody'", "content" => ob_get_clean() ] );
-	}
+    }
 
 
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
