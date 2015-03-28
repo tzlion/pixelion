@@ -60,25 +60,10 @@ class PixelionTemplate extends BaseTemplate {
                 <?php $this->portletLogo() ?>
                 <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
                 <?php $this->cactions(); ?>
-                <?php// $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
             </div><!-- end of the left (by default at least) column -->
 
             <div id="column-content">
-                <div class="toolstuff">
-                    <a id="toolbox" href="#" title="Toolbox">T</a>
-                    <ul id="tools">
-                        <?php
-                        foreach ( $this->getToolbox() as $key => $tbitem ) {
-                            ?>
-                            <?php echo $this->makeListItem( $key, $tbitem ); ?>
-
-                        <?php
-                        }
-                        // haha i have no idea if these will still work
-                        wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
-                        ?>
-                    </ul>
-                </div>
+                <? $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
                     <?php if ( $this->data['sitenotice'] ) { ?>
@@ -334,12 +319,14 @@ class PixelionTemplate extends BaseTemplate {
 
 	/*************************************************************************************************/
 	function toolbox() {
+
 		?>
 		<div class="portlet" id="p-tb" role="navigation">
 			<h3><?php $this->msg( 'toolbox' ) ?></h3>
 
 			<div class="pBody">
-				<ul>
+                <a id="toolboxbutton" href="#" title="Toolbox">T</a>
+				<ul id="tools">
 					<?php
 					foreach ( $this->getToolbox() as $key => $tbitem ) {
 						?>

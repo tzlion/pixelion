@@ -121,14 +121,16 @@ button, input[type=submit] {
   text-decoration: none;
 }
 
-.toolstuff {
+.portlet#p-tb {
   position: relative;
   float: right;
   top: -10px;
   right: -10px;
 }
-
-#toolbox {
+.portlet#p-tb h3 {
+  display: none;
+}
+.portlet#p-tb #toolboxbutton {
   /*position:absolute;
   top:32px;
   right:2px;*/
@@ -146,9 +148,10 @@ button, input[type=submit] {
   background-color: #28a0ff;
   color: white;
   z-index: 420;
+  margin: 0;
+  padding: 0;
 }
-
-#tools {
+.portlet#p-tb #tools {
   right: 0;
   top: 0;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
@@ -165,12 +168,12 @@ button, input[type=submit] {
    right:2px;
    top:32px;*/
 }
-#tools ul, #tools li {
+.portlet#p-tb #tools ul, .portlet#p-tb #tools li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-#tools a {
+.portlet#p-tb #tools a {
   font-size: 14px;
   color: white;
   display: block;
@@ -178,11 +181,10 @@ button, input[type=submit] {
   line-height: 30px;
   text-decoration: none;
 }
-#tools a:hover {
+.portlet#p-tb #tools a:hover {
   background-color: rgba(40, 160, 255, 0.5);
 }
-
-#toolbox:hover ~ #tools, #tools:hover {
+.portlet#p-tb #toolboxbutton:hover ~ #tools, .portlet#p-tb #tools:hover {
   display: block;
 }
 
@@ -358,32 +360,6 @@ button, input[type=submit] {
 }
 .portlet#p-search h3 {
   display: none;
-}
-
-.portlet#p-tb {
-  position: absolute;
-  bottom: 28px;
-  right: 20px;
-  text-align: right;
-  font-size: 14px;
-}
-.portlet#p-tb h3 {
-  display: none;
-}
-.portlet#p-tb ul, .portlet#p-tb li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: inline;
-}
-.portlet#p-tb li:after {
-  content: " - ";
-}
-.portlet#p-tb li:last-child:after {
-  content: "";
-}
-.portlet#p-tb a {
-  text-decoration: none;
 }
 
 .portlet#p-lang {
