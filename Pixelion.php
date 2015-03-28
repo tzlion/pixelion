@@ -2,25 +2,25 @@
 
 $wgExtensionCredits['skin'][] = array (
     'path' 		=> __FILE__,
-    'name' 		=> 'LionBook',
-    'namemsg' 	=> 'skinname-lionbook',
-    'descriptionmsg' => 'lionbook-desc',
+    'name' 		=> 'Pixelion',
+    'namemsg' 	=> 'skinname-pixelion',
+    'descriptionmsg' => 'pixelion-desc',
     'url' 		=> 'http://lion.li',
     'author' 	=> array( 'a lion' ),
     // 'license_name' => 'idk yet'
 );
 
-$wgAutoloadClasses['SkinLionBook'] 		= __DIR__ . '/SkinLionBook.php';
-$wgAutoloadClasses['LionBookTemplate'] 	= __DIR__ . '/LionBookTemplate.php';
-$wgMessagesDirs['LionBook'] 			= __DIR__ . 'i18n';
+$wgAutoloadClasses['SkinPixelion'] 		= __DIR__ . '/SkinPixelion.php';
+$wgAutoloadClasses['PixelionTemplate'] 	= __DIR__ . '/PixelionTemplate.php';
+$wgMessagesDirs['Pixelion'] 			= __DIR__ . 'i18n';
 
-$wgValidSkinNames['lionbook'] = 'LionBook';
+$wgValidSkinNames['pixelion'] = 'Pixelion';
 
-$wgResourceModules['skins.lionbook.harrystyles'] = array(
+$wgResourceModules['skins.pixelion.harrystyles'] = array(
     'styles' => array(
         'lion.css' => array( 'media' => 'screen' ),
         // 'printlion.css' => array( 'media' => 'print' ), // maybe later
     ),
-    'remoteSkinPath' 	=> 'LionBook',
+    'remoteSkinPath' 	=> 'Pixelion',
     'localBasePath' 	=> __DIR__,
 );

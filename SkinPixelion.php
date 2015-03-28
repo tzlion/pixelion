@@ -1,6 +1,6 @@
 <?php
 /**
- * LionBook nouveau.
+ * Pixelion nouveau.
  *
  * Translated from gwicke's previous TAL template version to remove
  * dependency on PHPTAL.
@@ -28,11 +28,11 @@
  * Inherit main code from SkinTemplate, set the CSS and template filter.
  * @ingroup Skins
  */
-class SkinLionBook extends SkinTemplate {
-	/** Using LionBook. */
-	public $skinname = 'lionbook';
-	public $stylename = 'LionBook';
-	public $template = 'LionBookTemplate';
+class SkinPixelion extends SkinTemplate {
+	/** Using Pixelion. */
+	public $skinname = 'pixelion';
+	public $stylename = 'Pixelion';
+	public $template = 'PixelionTemplate';
 
 	/**
 	 * @param OutputPage $out
@@ -43,8 +43,8 @@ class SkinLionBook extends SkinTemplate {
 		$out->addModuleStyles( array(
 		//	'mediawiki.skinning.interface',
 		//	'mediawiki.skinning.content.externallinks',
-		//	'skins.lionbook.styles',
-			'skins.lionbook.harrystyles',
+		//	'skins.pixelion.styles',
+			'skins.pixelion.harrystyles',
 		) );
 
 		// TODO: Migrate all of these

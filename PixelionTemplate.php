@@ -1,6 +1,6 @@
 <?php
 /**
- * LionBook nouveau.
+ * Pixelion nouveau.
  *
  * Translated from gwicke's previous TAL template version to remove
  * dependency on PHPTAL.
@@ -27,12 +27,12 @@
 /**
  * @ingroup Skins
  */
-class LionBookTemplate extends BaseTemplate {
+class PixelionTemplate extends BaseTemplate {
 
     protected $remainingFooterLinks = array();
 
 	/**
-	 * Template filter callback for LionBook skin.
+	 * Template filter callback for Pixelion skin.
 	 * Takes an associative array of data set from a SkinTemplate-based
 	 * class, and a wrapper for MediaWiki's localization database, and
 	 * outputs a formatted page.
@@ -74,7 +74,7 @@ class LionBookTemplate extends BaseTemplate {
                     <?php
                     }
                     // haha i have no idea if these will still work
-                    wfRunHooks( 'LionBookTemplateToolboxEnd', array( &$this ) );
+                    wfRunHooks( 'PixelionTemplateToolboxEnd', array( &$this ) );
                     wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
                     ?>
                 </ul>
@@ -305,7 +305,7 @@ class LionBookTemplate extends BaseTemplate {
 
 	/**
 	 * Prints the cactions bar.
-	 * Shared between LionBook and Modern
+	 * Shared between Pixelion and Modern
 	 */
 	function cactions() {
 		?>
@@ -341,7 +341,7 @@ class LionBookTemplate extends BaseTemplate {
 
 					<?php
 					}
-					wfRunHooks( 'LionBookTemplateToolboxEnd', array( &$this ) );
+					wfRunHooks( 'PixelionTemplateToolboxEnd', array( &$this ) );
 					wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
 					?>
 				</ul>
