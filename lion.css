@@ -138,10 +138,6 @@ button, input[type=submit] {
 }
 
 #tools {
-  display: none;
-  position: absolute;
-  right: 2px;
-  top: 32px;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
@@ -150,6 +146,10 @@ button, input[type=submit] {
   padding: 0;
   margin: 0;
   list-style: none;
+  display: none;
+  position: absolute;
+  right: 2px;
+  top: 32px;
 }
 #tools ul, #tools li {
   padding: 0;
@@ -172,7 +172,7 @@ button, input[type=submit] {
   display: block;
 }
 
-.portlet#p-personal {
+#topbar {
   font-family: "Jockey One";
   font-size: 16px;
   line-height: 26px;
@@ -182,6 +182,63 @@ button, input[type=submit] {
   right: -20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+}
+
+.generated-sidebar {
+  display: inline;
+  float: left;
+}
+.generated-sidebar h3 {
+  font-size: 16px;
+  line-height: 26px;
+  padding: 0 5px;
+  font-weight: normal;
+  margin: 0;
+}
+.generated-sidebar h3:hover {
+  background-color: rgba(40, 160, 255, 0.8);
+  color: white;
+}
+.generated-sidebar .pBody:hover ~ h3 {
+  background-color: rgba(40, 160, 255, 0.8);
+  color: white;
+}
+.generated-sidebar .pBody {
+  border-right: 30px solid rgba(40, 160, 255, 0.5);
+  white-space: nowrap;
+  background-color: rgba(40, 160, 255, 0.8);
+  text-align: right;
+  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Archivo Narrow";
+  position: absolute;
+  display: none;
+  z-index: 420;
+}
+.generated-sidebar .pBody ul, .generated-sidebar .pBody li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.generated-sidebar .pBody a {
+  font-size: 14px;
+  color: white;
+  display: block;
+  padding: 0px 10px 0px 30px;
+  line-height: 30px;
+  text-decoration: none;
+}
+.generated-sidebar .pBody a:hover {
+  background-color: rgba(40, 160, 255, 0.5);
+}
+.generated-sidebar h3:hover ~ .pBody, .generated-sidebar .pBody:hover {
+  display: block;
+}
+
+.portlet#p-personal {
+  float: right;
   text-align: right;
 }
 .portlet#p-personal ul, .portlet#p-personal li, .portlet#p-personal div {
@@ -199,31 +256,21 @@ button, input[type=submit] {
   padding: 2px 5px 2px 0;
 }
 
+/*
+// Maybe reapply these old styles IF theres only one topbar item
 .portlet#p-navigation {
-  font-family: "Jockey One";
-  font-size: 16px;
-  line-height: 26px;
-  position: absolute;
-  top: -50px;
-  left: -20px;
-  background-color: transparent;
-  color: white;
-}
-.portlet#p-navigation ul, .portlet#p-navigation li, .portlet#p-navigation div {
-  display: inline;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.portlet#p-navigation h3 {
-  display: none;
-}
-.portlet#p-navigation a {
-  color: white;
-  text-decoration: none;
-  padding: 2px 0 2px 5px;
-}
 
+    ul,li,div {
+        display:inline;padding:0;margin:0;list-style:none;
+    }
+    h3 {
+        display:none;
+    }
+    a {
+        color:white;text-decoration:none;padding:2px 0 2px 5px;
+    }
+}
+*/
 .portlet#p-cactions {
   font-family: "Archivo Narrow";
   font-size: 20px;

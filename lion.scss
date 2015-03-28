@@ -128,27 +128,8 @@ button, input[type=submit] {
     }
 }
 
-#toolbox {
-    position:absolute;
-    top:32px;
-    right:2px;
-    display:block;
-    width:30px;height:30px;
-    text-align:center;
-    line-height:30px;
-    font-size:20px;
-    font-weight:bold;
-    text-decoration:none;
-    background-color:rgb( 40,160,255);
-    color:white;
-    z-index:420;
-}
-
-#tools {
-    display:none;
-    position:absolute;
-    right:2px;
-    top:32px;
+@mixin toolstylin()
+{
     border-right:30px solid rgba(40,160,255,0.5);
     white-space:nowrap;
     background-color:rgba(40,160,255,0.8);
@@ -171,22 +152,90 @@ button, input[type=submit] {
     }
 }
 
+
+#toolbox {
+    position:absolute;
+    top:32px;
+    right:2px;
+    display:block;
+    width:30px;height:30px;
+    text-align:center;
+    line-height:30px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    background-color:rgb( 40,160,255);
+    color:white;
+    z-index:420;
+}
+
+#tools {
+    @include toolstylin();
+    display:none;
+    position:absolute;
+    right:2px;
+    top:32px;
+}
+
 #toolbox:hover~#tools,#tools:hover{
     display: block;
 }
+
 
 $topmenufont: $titlefont;
 $topmenufontsize:16px;
 $topmenuheight: $topmenufontsize + 10px;
 
-.portlet#p-personal {
+#topbar {
     font-family:$topmenufont;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
-	position:absolute;
-	top:-50px;left:-20px;right:-20px;
-	background-color:rgba(0,0,0,0.8);
-	color:white;
+    position:absolute;
+    top:-50px;left:-20px;right:-20px;
+    background-color:rgba(0,0,0,0.8);
+    color:white;
+}
+
+
+
+// aah
+// fuckin
+// aint no sidebar anymore son
+// STEALING SOME TOOLBOX STYLES YOU CAN HAVE EM BACK LATER
+.generated-sidebar {
+    display:inline;
+    float:left;
+    h3 {
+        font-size:$topmenufontsize;
+        line-height:$topmenuheight;
+        padding: 0 5px;
+        font-weight:normal;
+        &:hover {
+            background-color:rgba(40,160,255,0.8);
+            color:white;
+        }
+        margin:0;
+    }
+    // Need to be able to select PRECEDING elements to make this work ;_;
+    // ~ only selects following ones
+    .pBody:hover~h3{
+        background-color:rgba(40,160,255,0.8);
+        color:white;
+    }
+    .pBody {
+        @include toolstylin();
+        font-family:$regularfont;
+        position:absolute;
+        display:none;
+        z-index:420;
+    }
+    h3:hover~.pBody,.pBody:hover{
+        display: block;
+    }
+}
+
+.portlet#p-personal {
+    float:right;
 	text-align:right;
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
@@ -198,15 +247,10 @@ $topmenuheight: $topmenufontsize + 10px;
         color:white;text-decoration:none;padding:2px 5px 2px 0;
     }
 }
-
+/*
+// Maybe reapply these old styles IF theres only one topbar item
 .portlet#p-navigation {
-    font-family:$topmenufont;
-    font-size:$topmenufontsize;
-    line-height:$topmenuheight;
-    position:absolute;
-	top:-50px;left:-20px;
-	background-color:transparent;
-	color:white;
+
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
     }
@@ -217,6 +261,7 @@ $topmenuheight: $topmenufontsize + 10px;
         color:white;text-decoration:none;padding:2px 0 2px 5px;
     }
 }
+*/
 
 $pageactionfont: $regularfont;
 $pageactionfontsize: 20px;

@@ -51,10 +51,19 @@ class LionBookTemplate extends BaseTemplate {
 		?>
 		<link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Black|Archivo+Narrow:400,900italic,900,700,700italic,500italic,500,400italic,300italic,300,100italic,100|Skranji:400,700|Bowlby+One|Sarina|Emblema+One|Ranga:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <div id="globalWrapper">
-            <?php $this->portletPersonal() ?>
-            <?php $this->portletLogo() ?>
-            <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
-            <?php $this->cactions(); ?>
+            <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
+                <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
+                <div id="topbar">
+                    <?php $this->portletPersonal() ?>
+                    <?php $this->renderCustomPortals(); ?>
+                </div>
+                <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); // todo: deal ?>
+                <?php $this->portletLogo() ?>
+                <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
+                <?php $this->cactions(); ?>
+                <?php// $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
+            </div><!-- end of the left (by default at least) column -->
+
             <div id="column-content">
                 <a id="toolbox" href="#" title="Toolbox">T</a>
                 <ul id="tools">
@@ -117,12 +126,6 @@ class LionBookTemplate extends BaseTemplate {
                 <? $this->popFooterLink( "lastmod" ) ?>
                 <div class="visualClear"></div>
             </div>
-            <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
-                <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-                <?php// $this->conditionalRenderSidebarPart( "TOOLBOX" ); ?>
-                <?php $this->conditionalRenderSidebarPart( "LANGUAGES" ); ?>
-                <?php $this->renderCustomPortals(); ?>
-            </div><!-- end of the left (by default at least) column -->
             <div class="visualClear"></div>
             <?php $this->outputFooter() ?>
 		</div>
