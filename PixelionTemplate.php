@@ -64,19 +64,21 @@ class PixelionTemplate extends BaseTemplate {
             </div><!-- end of the left (by default at least) column -->
 
             <div id="column-content">
-                <a id="toolbox" href="#" title="Toolbox">T</a>
-                <ul id="tools">
-                    <?php
-                    foreach ( $this->getToolbox() as $key => $tbitem ) {
-                        ?>
-                        <?php echo $this->makeListItem( $key, $tbitem ); ?>
+                <div class="toolstuff">
+                    <a id="toolbox" href="#" title="Toolbox">T</a>
+                    <ul id="tools">
+                        <?php
+                        foreach ( $this->getToolbox() as $key => $tbitem ) {
+                            ?>
+                            <?php echo $this->makeListItem( $key, $tbitem ); ?>
 
-                    <?php
-                    }
-                    // haha i have no idea if these will still work
-                    wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
-                    ?>
-                </ul>
+                        <?php
+                        }
+                        // haha i have no idea if these will still work
+                        wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+                        ?>
+                    </ul>
+                </div>
                 <div id="content" class="mw-body" role="main">
                     <a id="top"></a>
                     <?php if ( $this->data['sitenotice'] ) { ?>

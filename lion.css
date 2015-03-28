@@ -121,10 +121,20 @@ button, input[type=submit] {
   text-decoration: none;
 }
 
+.toolstuff {
+  position: relative;
+  float: right;
+  top: -10px;
+  right: -10px;
+}
+
 #toolbox {
+  /*position:absolute;
+  top:32px;
+  right:2px;*/
   position: absolute;
-  top: 32px;
-  right: 2px;
+  right: 0;
+  top: 0;
   display: block;
   width: 30px;
   height: 30px;
@@ -139,6 +149,8 @@ button, input[type=submit] {
 }
 
 #tools {
+  right: 0;
+  top: 0;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
@@ -149,8 +161,9 @@ button, input[type=submit] {
   list-style: none;
   display: none;
   position: absolute;
-  right: 2px;
-  top: 32px;
+  /* position:absolute;
+   right:2px;
+   top:32px;*/
 }
 #tools ul, #tools li {
   padding: 0;
@@ -341,9 +354,7 @@ button, input[type=submit] {
 
 .portlet#p-search {
   float: right;
-  position: absolute;
-  right: 20px;
-  top: -10px;
+  margin-top: -50px;
 }
 .portlet#p-search h3 {
   display: none;
