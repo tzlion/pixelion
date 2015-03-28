@@ -18,11 +18,8 @@ body {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  margin-top: 80px;
   position: relative;
-  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  margin-top: 50px;
 }
 
 #column-one h2 {
@@ -30,7 +27,13 @@ body {
 }
 
 #column-content {
-  margin-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+}
+
+#content {
+  padding-bottom: 30px;
 }
 
 a {
@@ -112,7 +115,7 @@ h4 {
 
 #toolbox {
   position: absolute;
-  top: 2px;
+  top: 32px;
   right: 2px;
   display: block;
   width: 30px;
@@ -131,7 +134,7 @@ h4 {
   display: none;
   position: absolute;
   right: 2px;
-  top: 2px;
+  top: 32px;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
@@ -167,7 +170,7 @@ h4 {
   font-size: 16px;
   line-height: 26px;
   position: absolute;
-  top: -80px;
+  top: -50px;
   left: -20px;
   right: -20px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -194,7 +197,7 @@ h4 {
   font-size: 16px;
   line-height: 26px;
   position: absolute;
-  top: -80px;
+  top: -50px;
   left: -20px;
   background-color: transparent;
   color: white;
@@ -218,9 +221,10 @@ h4 {
   font-family: "Archivo Narrow";
   font-size: 20px;
   line-height: 30px;
-  position: absolute;
-  top: -30px;
-  left: 4px;
+  position: relative;
+  /*zzzposition:absolute;
+  top:-$pageactionheight;left:4px;*/
+  padding-left: 4px;
   white-space: nowrap;
 }
 .portlet#p-cactions ul, .portlet#p-cactions li, .portlet#p-cactions div {
@@ -265,9 +269,10 @@ h4 {
 }
 
 .portlet#p-search {
+  float: right;
   position: absolute;
   right: 20px;
-  top: -40px;
+  top: -10px;
 }
 .portlet#p-search h3 {
   display: none;
@@ -300,14 +305,14 @@ h4 {
 }
 
 #footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -80px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 0 10px 0;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
-#footer * {
+#footer li, #footer ul {
   display: inline;
   font-size: 13px;
   padding: 0;
@@ -329,10 +334,11 @@ h4 {
 }
 
 #lastmod {
-  position: absolute;
-  right: 20px;
-  top: -85px;
+  float: right;
+  font-size: 13px;
   color: #aaa;
   font-style: italic;
   text-shadow: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

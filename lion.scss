@@ -5,6 +5,12 @@ $mainbgcolour: rgba(255,255,255,0.95);
 $linecolour: rgba(1,1,1,0.05);
 $segmentbg: rgba(1,1,1,0.02);
 
+@mixin pagewidth() {
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 body {
 	background-color:#ff4080;
     //background-image:url("http://image.shutterstock.com/display_pic_with_logo/255379/255379,1298395185,2/stock-photo-abstract-background-of-magic-burst-with-rays-of-light-71727616.jpg");
@@ -22,14 +28,9 @@ body {
     }
 }
 #globalWrapper {
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-	background-color: $mainbgcolour;
-	padding:20px;
-	margin-top:80px;
+    @include pagewidth();
 	position:relative;
-    box-shadow:0px 1px 3px -1px rgba(0,0,0,0.4);
+    margin-top:50px;
 }
 
 #column-one h2{ 
@@ -37,8 +38,16 @@ body {
 }
 
 #column-content {
-	margin-bottom:50px;
+    background-color: $mainbgcolour;
+    padding:20px;
+    box-shadow:0px 1px 3px -1px rgba(0,0,0,0.4);
+
 }
+
+#content {
+    padding-bottom:30px;
+}
+
 a{
     text-decoration:none;
     &:hover{
@@ -114,7 +123,7 @@ h4 {
 
 #toolbox {
     position:absolute;
-    top:2px;
+    top:32px;
     right:2px;
     display:block;
     width:30px;height:30px;
@@ -132,7 +141,7 @@ h4 {
     display:none;
     position:absolute;
     right:2px;
-    top:2px;
+    top:32px;
     border-right:30px solid rgba(40,160,255,0.5);
     white-space:nowrap;
     background-color:rgba(40,160,255,0.8);
@@ -168,7 +177,7 @@ $topmenuheight: $topmenufontsize + 10px;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
 	position:absolute;
-	top:-80px;left:-20px;right:-20px;
+	top:-50px;left:-20px;right:-20px;
 	background-color:rgba(0,0,0,0.8);
 	color:white;
 	text-align:right;
@@ -188,7 +197,7 @@ $topmenuheight: $topmenufontsize + 10px;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
     position:absolute;
-	top:-80px;left:-20px;
+	top:-50px;left:-20px;
 	background-color:transparent;
 	color:white;
     ul,li,div {
@@ -209,8 +218,10 @@ $pageactionheight: $pageactionfontsize + 10px;
     font-family:$pageactionfont;
     font-size:$pageactionfontsize;
     line-height:$pageactionheight;
-	position:absolute;
-	top:-$pageactionheight;left:4px;
+    position:relative;
+	/*zzzposition:absolute;
+	top:-$pageactionheight;left:4px;*/
+    padding-left:4px;
 	white-space:nowrap;
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
@@ -254,7 +265,8 @@ $pageactionheight: $pageactionfontsize + 10px;
 }
 
 .portlet#p-search {
-    position:absolute;right:20px;top:-40px;
+    float:right;
+    position:absolute;right:20px;top:-10px;
     h3{
         display:none;
     }
@@ -284,11 +296,11 @@ $pageactionheight: $pageactionfontsize + 10px;
 }
 
 #footer {
-	position:absolute; left:0;right:0; bottom:-80px;
-    //text-shadow:1px 1px 1px rgba(0,0,0,0.4);
+	@include pagewidth();
+    padding: 30px 0 10px 0;
     color:rgba(255,255,255,0.7);
     text-align:center;
-    * {
+    li,ul {
         display:inline;font-size:13px;padding:0;margin:0;list-style:none;
     }
     li#copyright {
@@ -307,9 +319,11 @@ $pageactionheight: $pageactionfontsize + 10px;
 }
 
 #lastmod {
-	position:absolute;
-	right:20px; top:-85px;;
+    float:right;
+    font-size:13px;
 	color:#aaa;
     font-style:italic;
     text-shadow:none;
+    padding-bottom:10px;
+    padding-top:10px;
 }

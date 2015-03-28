@@ -111,10 +111,11 @@ class LionBookTemplate extends BaseTemplate {
                             $this->html( 'dataAfterContent' );
                         }
                         ?>
-                        <? // $this->popFooterLink( "lastmod" ) ?>
-                        <div class="visualClear"></div>
+
                     </div>
                 </div>
+                <? $this->popFooterLink( "lastmod" ) ?>
+                <div class="visualClear"></div>
             </div>
             <div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
                 <h2><?php $this->msg( 'navigation-heading' ) ?></h2>
@@ -183,6 +184,7 @@ class LionBookTemplate extends BaseTemplate {
             }
 
         ?>
+            <div>Theme by <a href="http://lion.li">LION STUDIO</a>©
         </div>
         <?php
     }
@@ -225,6 +227,10 @@ class LionBookTemplate extends BaseTemplate {
 	 * @param array $sidebar
 	 */
 	protected function renderCustomPortals() {
+
+        //var_dump($this->data['sidebar']);
+
+        // Currently the only custom one seems to be "navigation"
 
 		foreach ( $this->data['sidebar'] as $boxName => $content ) {
 
