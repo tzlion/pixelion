@@ -216,11 +216,16 @@ class PixelionTemplate extends BaseTemplate {
         ?>
         <div class="portlet" id="p-logo" role="banner">
             <?php
-            echo Html::element( 'a', array(
+            echo Html::openElement( 'a', array(
                     'href' => $this->data['nav_urls']['mainpage']['href'],
-                    'style' => "background-image: url({$this->data['logopath']});" )
+                     )
                 + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ); ?>
-
+            <? if ( $this->data['logopath'] ): ?>
+                <img src="<?=$this->data['logopath']?>" alt="<?=$this->data['sitename']?>">
+            <? else: ?>
+                <?=$this->data['sitename']?>
+            <? endif ?>
+            <? echo Html::closeElement( 'a' ) ?>
         </div>
     <?
     }

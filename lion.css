@@ -238,6 +238,22 @@ button, input[type=submit] {
   display: block;
 }
 
+.portlet#p-logo {
+  font-family: "Jockey One";
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 70px;
+}
+.portlet#p-logo a {
+  color: white;
+}
+.portlet#p-logo a:hover {
+  text-decoration: none;
+}
+.portlet#p-logo img {
+  max-width: 100%;
+  max-height: 100px;
+}
+
 .portlet#p-personal {
   float: right;
   text-align: right;
