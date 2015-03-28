@@ -31,7 +31,7 @@ class PixelionTemplate extends BaseTemplate
                     <?php $this->portletLogo() ?>
                     <?php $this->conditionalRenderSidebarPart( "SEARCH" );  ?>
                 </div>
-                <?php $this->cactions(); ?>
+                <?php $this->portletContentActions(); ?>
             </div><!-- end of the left (by default at least) column -->
 
             <div id="column-content">
@@ -96,30 +96,7 @@ class PixelionTemplate extends BaseTemplate
 
 	/*************************************************************************************************/
 
-    protected function portletPersonal()
-    {
-        $content = $this->makeGenericList( $this->getPersonalTools(), $this->data( "userlangattributes" ) );
-        $this->renderPortlet( "p-personal", "navigation", $this->getMsg("personaltools")->escaped(), $content );
-    }
 
-    protected function portletLogo()
-    {
-        ob_start();
-        ?>
-            <?php
-            echo Html::openElement( 'a', array(
-                    'href' => $this->data( 'nav_urls', 'mainpage', 'href' ),
-                     )
-                + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ); ?>
-            <? if ( $this->data('logopath') ): ?>
-                <img src="<?=$this->data('logopath')?>" alt="<?=$this->data('sitename')?>">
-            <? else: ?>
-                <?=$this->data('sitename')?>
-            <? endif ?>
-            <? echo Html::closeElement( 'a' ) ?>
-    <?
-        $this->renderPortlet( "p-logo", "banner", null, [ "content" => ob_get_clean(), "no-tags" => true ] );
-    }
 
 	/**
 	 * @param array $sidebar
@@ -195,20 +172,8 @@ class PixelionTemplate extends BaseTemplate
         $this->renderPortlet( "p-search", "search", $header, [ "attrs" => "id='searchBody'", "content" => ob_get_clean() ] );
 	}
 
-	/**
-	 * Prints the cactions bar.
-	 * Shared between Pixelion and Modern
-	 */
-	function cactions() {
-        ob_start();
-        echo $this->makeGenericList( $this->data('content_actions') );
-		?>
-				<?php $this->renderAfterPortlet( 'cactions' ); ?>
 
-	<?php
-        $header = $this->getMsg( "views" )->escaped();
-        $this->renderPortlet( "p-cactions", "navigation", $header, ob_get_clean() );
-	}
+
 
 	/*************************************************************************************************/
 	function toolbox() {
@@ -294,6 +259,34 @@ class PixelionTemplate extends BaseTemplate
     //  PORTLETS
     // *****************************************************************************************************************
 
+    protected function portletLogo()
+    {
+        $linkAttrs = Linker::tooltipAndAccesskeyAttribs( 'p-logo' );
+        $linkAttrs["href"] = $this->data( 'nav_urls', 'mainpage', 'href' );
+        $content = Html::openElement( "a", $linkAttrs );
+        if ( $this->data( "logopath" ) ) {
+            $content .= '<img src="' . $this->data('logopath') . '" alt="' . $this->data('sitename') . '">';
+        } else {
+            $content .= $this->data('sitename');
+        }
+        $content .= Html::closeElement( "a" );
+        $this->renderPortlet( "p-logo", "banner", null, [ "content" => $content, "no-tags" => true ] );
+    }
+
+    protected function portletPersonal()
+    {
+        $content = $this->makeGenericList( $this->getPersonalTools(), $this->data( "userlangattributes" ) );
+        $this->renderPortlet( "p-personal", "navigation", $this->getMsg( "personaltools" )->escaped(), $content );
+    }
+
+    protected function portletContentActions()
+    {
+        $content = $this->makeGenericList( $this->data('content_actions') );
+        $content .= $this->getPostPortletStuff( "cactions" );
+        $header = $this->getMsg( "views" )->escaped();
+        $this->renderPortlet( "p-cactions", "navigation", $header, $content );
+    }
+
     protected function renderPortlet( $id, $role, $header, $body, $additionalClasses = null, $tooltip = null )
     {
         if ( is_array( $body ) ) {
@@ -334,6 +327,13 @@ class PixelionTemplate extends BaseTemplate
             <? } ?>
         </div>
         <?
+    }
+
+    protected function getPostPortletStuff( $name )
+    {
+        ob_start();
+        $this->renderAfterPortlet( $name );
+        return ob_get_clean();
     }
 
     // </editor-fold>
