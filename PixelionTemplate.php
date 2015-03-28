@@ -3,19 +3,11 @@
 class PixelionTemplate extends BaseTemplate
 {
 
-    /**
-     * Template filter callback for Pixelion skin.
-     * Takes an associative array of data set from a SkinTemplate-based
-     * class, and a wrapper for MediaWiki's localization database, and
-     * outputs a formatted page.
-     *
-     * @access private
-     */
-    function execute() {
+    function oldExecute() {
 
         $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
 
-        $this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
+        $pageLanguage = htmlspecialchars ( $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode() );
 
         $this->html( 'headelement' );
         ?>
@@ -44,7 +36,7 @@ class PixelionTemplate extends BaseTemplate
                         </div>
                     <?php } ?>
 
-                    <h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>">
+                    <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
                         <span dir="auto"><?php $this->html( 'title' ) ?></span>
                     </h1>
 
@@ -80,7 +72,7 @@ class PixelionTemplate extends BaseTemplate
 
                     </div>
                 </div>
-                <?php $this->portletLanguages(); // todo: deal ?>
+                <?php $this->portletLanguages(); ?>
                 <? $this->popFooterLink( "lastmod" ) ?>
                 <div class="sigh"></div>
             </div>
@@ -98,6 +90,20 @@ class PixelionTemplate extends BaseTemplate
 
 
     // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
+
+
+    // <editor-fold desc="Main">
+
+    // *****************************************************************************************************************
+    //  MAIN EXECUTE METHOD
+    // *****************************************************************************************************************
+
+    public function execute()
+    {
+        $this->oldExecute();
+    }
+
+    // </editor-fold>
 
     // <editor-fold desc="Portlets">
 
@@ -436,7 +442,9 @@ class PixelionTemplate extends BaseTemplate
      */
     public function html( $key )
     {
-        echo $this->data( $key );
+        if ( $this->data( $key ) !== null ) {
+            parent::html( $key );
+        }
     }
 
     /**
@@ -447,7 +455,9 @@ class PixelionTemplate extends BaseTemplate
      */
     public function text( $key )
     {
-        echo htmlspecialchars( $this->data( $key ) );
+        if ( $this->data( $key ) !== null ) {
+            parent::text( $key );
+        }
     }
 
     // </editor-fold>
