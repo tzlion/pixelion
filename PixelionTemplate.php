@@ -2,56 +2,6 @@
 
 class PixelionTemplate extends BaseTemplate
 {
-    protected function renderMainContent()
-    {
-        // is there a reason this is only applied to the first H1?
-        $pageLanguage = htmlspecialchars ( $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode() );
-        ?>
-        <div id="content" class="mw-body" role="main">
-            <a id="top"></a>
-            <?php if ( $this->data('sitenotice') ) { ?>
-                <div id="siteNotice">
-                    <?php $this->html( 'sitenotice' ) ?>
-                </div>
-            <?php } ?>
-
-            <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
-                <span dir="auto"><?php $this->html( 'title' ) ?></span>
-            </h1>
-
-            <div id="bodyContent" class="mw-body-content">
-                <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-                <div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
-                    <?php $this->html( 'subtitle' )?>
-                </div>
-                <?php if ( $this->data('undelete') ) { ?>
-                    <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-                <?php } ?>
-                <?php if ( $this->data('newtalk') ) { ?>
-                    <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-                <?php } ?>
-                <div id="jump-to-nav" class="mw-jump">
-                    <?php $this->msg( 'jumpto' )?>
-                    <a href="#column-one"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' )?><a href="#searchInput"><?php $this->msg( 'jumptosearch' ) ?></a>
-                </div>
-
-                <?php $this->html( 'bodytext' ); ?>
-                <?php $this->html( 'catlinks' ); // meow ?>
-
-                <?php $this->html( 'dataAfterContent' ); ?>
-
-            </div>
-        </div>
-        <?
-    }
-
-
-    /*************************************************************************************************/
-
-
-    // ************ EVERYTHING AFTER THIS POINT SHOULD BE LICENSING SAFE ****************
-
-
     // <editor-fold desc="Main">
 
     // *****************************************************************************************************************
@@ -113,6 +63,59 @@ class PixelionTemplate extends BaseTemplate
             <? $this->renderPostContentStuff(); ?>
         </div>
     <?php
+    }
+
+    protected function renderMainContent()
+    {
+        // is there a reason this is only applied to the first H1?
+        $pageLanguage = htmlspecialchars ( $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode() );
+
+        ?>
+        <div id="content" class="mw-body" role="main">
+
+            <a id="top"></a>
+
+            <? if ( $this->data( "sitenotice" ) ) { ?>
+                <div id="siteNotice">
+                    <?php $this->html( 'sitenotice' ) ?>
+                </div>
+            <? } ?>
+
+            <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
+                <span dir="auto"><? $this->html( 'title' ) ?></span>
+            </h1>
+
+            <div id="bodyContent" class="mw-body-content">
+
+                <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+                <div id="contentSub" <?php $this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' ) ?></div>
+                <?php if ( $this->data('undelete') ) { ?>
+                    <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
+                <? } ?>
+                <?php if ( $this->data('newtalk') ) { ?>
+                    <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
+                <? } ?>
+
+                <div id="jump-to-nav" class="mw-jump">
+                    <?php $this->msg( "jumpto" ) ?>
+                    <a href="#column-one">
+                        <?php $this->msg( 'jumptonavigation' ) ?>
+                    </a>
+                    <?php $this->msg( 'comma-separator' )?>
+                    <a href="#searchInput">
+                        <?php $this->msg( 'jumptosearch' ) ?>
+                    </a>
+                </div>
+
+                <?php $this->html( 'bodytext' ); ?>
+                <?php $this->html( 'catlinks' ); // meow ?>
+
+                <?php $this->html( 'dataAfterContent' ); ?>
+
+            </div>
+
+        </div>
+    <?
     }
 
     protected function renderPostContentStuff()
