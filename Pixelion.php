@@ -18,7 +18,9 @@ $wgValidSkinNames['pixelion'] = 'Pixelion';
 
 $wgResourceModules['skins.pixelion.harrystyles'] = array(
     'styles' => array(
-        'lion.css' => array( 'media' => 'screen' ),
+        'lion.css' => array( /* 'media' => 'screen'*/ ),
+        // ^ specifying media in here seems to break nested media queries in IE
+        // big fat sighs @ both IE and mediawiki for this one
         // 'printlion.css' => array( 'media' => 'print' ), // maybe later
     ),
     'remoteSkinPath' 	=> 'Pixelion',
