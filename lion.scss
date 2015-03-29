@@ -76,6 +76,7 @@ a{
         font-family:$regularfont;
         margin:0;border:0;font-size:18px;
         padding-right:60px; // to account for the hide link
+        line-height:normal;
     }
     ul {
         margin-left:25px;
@@ -96,6 +97,11 @@ a{
         &:before, &:after {
             content: " - ";
         }
+    }
+
+    #siteSub {
+        position:relative;
+        top:-20px;
     }
 
     // not really convinced about this one either
@@ -126,19 +132,22 @@ h1,h2,h3,h4 {
 h1 {
     //border-bottom: 1px solid $linecolour;
 	font-size:50px;
+    line-height:50px;
     text-align:center;
 }
 h2 {
     border-bottom: 1px solid $linecolour;
+    padding-bottom:6px;
 	font-size:30px;
+    line-height:30px;
 }
 h3 {
 	font-size:25px;
-    xxxmargin:20px 0 5px 0;
+    line-height:25px;
 }
 h4 {
 	font-size:20px;
-    xxxmargin:20px 0 5px 0;
+    line-height:20px;
 }
 
 button, input[type=submit] {
