@@ -397,6 +397,7 @@ $topmenuheight: $topmenufontsize + 10px;
 }
 
 .portlet#p-logo {
+    max-width:100%;
     float:left;
     font-family: $titlefont;
     //text-align:center;

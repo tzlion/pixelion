@@ -384,6 +384,7 @@ ul#preftoc li.selected {
 }
 
 .portlet#p-logo {
+  max-width: 100%;
   float: left;
   font-family: "Jockey One";
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
