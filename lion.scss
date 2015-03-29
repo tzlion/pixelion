@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 $titlefont: "Jockey One";
 //$titlefont: "Archivo Black";
 $regularfont: "Archivo Narrow";
@@ -48,6 +50,9 @@ body {
 
 #content {
     padding-bottom:30px;
+    button, input[type=submit] {
+        margin: 10px 0;
+    }
 }
 
 a{
@@ -80,6 +85,7 @@ a{
     }
     ul {
         margin-left:25px;
+       // list-style:none;
     }
 }
 
@@ -94,14 +100,15 @@ a{
         font-style:italic;
         margin-bottom: 10px;
         text-align:center;
-        &:before, &:after {
-            content: " - ";
-        }
     }
 
     #siteSub {
+        color:rgba(0,0,0,0.5);
         position:relative;
         top:-20px;
+        &:before, &:after {
+            content: " - ";
+        }
     }
 
     // not really convinced about this one either
@@ -150,6 +157,16 @@ h4 {
     line-height:20px;
 }
 
+textarea#wpTextbox1 {
+    width:100%;
+    box-sizing:border-box;
+}
+
+input,select,button {
+    font-family:$regularfont;
+    font-size:16px;
+}
+
 button, input[type=submit] {
     background-color:rgba(0,0,0,0.8);
     color:white;
@@ -157,10 +174,62 @@ button, input[type=submit] {
     font-family:$titlefont;
 }
 
+fieldset {
+    border: 1px solid rgba(1,1,1,0.05);
+    padding: 10px 20px;
+    margin-top:10px;
+    margin-bottom:20px;
+    legend {
+        font-weight:bold;
+        font-size:110%;
+    }
+}
+
+hr {
+    border:0;
+    border-bottom:  1px solid rgba(1,1,1,0.05);
+    margin: 40px 0;
+    /*&:after{
+        color: rgba(1,1,1,0.1);
+        content:"★ ★ ★";
+        text-align:center;
+        display:block;
+    }*/
+}
+
 .mw-editsection {
     font-family:$regularfont;
     a {
         text-decoration:none;
+    }
+}
+
+.mw-warning-with-logexcerpt { // sigh
+    border:1px solid pink!important;
+    background-color: #ffe6ea !important;
+    padding: 5px!important;
+    ul {
+        margin-bottom:10px!important;
+    }
+    margin-bottom:10px!important;
+}
+
+ul#pagehistory {
+    li {
+        padding:2px 4px;
+        margin: 5px 0px;
+    }
+    margin: 20px 0; padding: 0; list-style:none;
+}
+
+ul#preftoc {
+    margin:0;padding:0;
+    li {
+        display:inline-block;
+        margin:0 20px 0 0; padding:0;
+        &.selected {
+            font-weight:bold;
+        }
     }
 }
 

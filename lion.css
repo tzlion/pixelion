@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #ff4080;
   background-image: url("li-sqr2bv.png");
@@ -35,6 +36,9 @@ body {
 
 #content {
   padding-bottom: 30px;
+}
+#content button, #content input[type=submit] {
+  margin: 10px 0;
 }
 
 a {
@@ -81,12 +85,13 @@ a:hover {
   margin-bottom: 10px;
   text-align: center;
 }
-#bodyContent #siteSub:before, #bodyContent #siteSub:after, #bodyContent #contentSub:before, #bodyContent #contentSub:after, #bodyContent #contentSub2:before, #bodyContent #contentSub2:after {
-  content: " - ";
-}
 #bodyContent #siteSub {
+  color: rgba(0, 0, 0, 0.5);
   position: relative;
   top: -20px;
+}
+#bodyContent #siteSub:before, #bodyContent #siteSub:after {
+  content: " - ";
 }
 #bodyContent .usermessage {
   margin-top: 20px;
@@ -133,6 +138,16 @@ h4 {
   line-height: 20px;
 }
 
+textarea#wpTextbox1 {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input, select, button {
+  font-family: "Archivo Narrow";
+  font-size: 16px;
+}
+
 button, input[type=submit] {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
@@ -140,11 +155,67 @@ button, input[type=submit] {
   font-family: "Jockey One";
 }
 
+fieldset {
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+fieldset legend {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.05);
+  margin: 40px 0;
+  /*&:after{
+      color: rgba(1,1,1,0.1);
+      content:"★ ★ ★";
+      text-align:center;
+      display:block;
+  }*/
+}
+
 .mw-editsection {
   font-family: "Archivo Narrow";
 }
 .mw-editsection a {
   text-decoration: none;
+}
+
+.mw-warning-with-logexcerpt {
+  border: 1px solid pink !important;
+  background-color: #ffe6ea !important;
+  padding: 5px !important;
+  margin-bottom: 10px !important;
+}
+.mw-warning-with-logexcerpt ul {
+  margin-bottom: 10px !important;
+}
+
+ul#pagehistory {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+ul#pagehistory li {
+  padding: 2px 4px;
+  margin: 5px 0px;
+}
+
+ul#preftoc {
+  margin: 0;
+  padding: 0;
+}
+ul#preftoc li {
+  display: inline-block;
+  margin: 0 20px 0 0;
+  padding: 0;
+}
+ul#preftoc li.selected {
+  font-weight: bold;
 }
 
 .portlet#p-tb {
