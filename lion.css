@@ -74,6 +74,24 @@ a:hover {
 #bodyContent {
   margin-bottom: 20px;
 }
+#bodyContent #siteSub, #bodyContent #contentSub, #bodyContent #contentSub2 {
+  font-size: 90%;
+  font-style: italic;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#bodyContent #siteSub:before, #bodyContent #siteSub:after, #bodyContent #contentSub:before, #bodyContent #contentSub:after, #bodyContent #contentSub2:before, #bodyContent #contentSub2:after {
+  content: " - ";
+}
+#bodyContent .usermessage {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  display: block;
+  clear: both;
+  background-color: #ffd080;
+  border: 1px solid #ffb133;
+}
 
 #catlinks {
   padding: 10px;
@@ -255,6 +273,16 @@ button, input[type=submit] {
 
 #headbar {
   position: relative;
+}
+
+#siteNotice {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  display: block;
+  clear: both;
+  background-color: #FFC0CB;
+  border: 1px solid #ffa5ac;
 }
 
 .portlet#p-search {

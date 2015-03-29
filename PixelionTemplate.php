@@ -49,6 +49,11 @@ class PixelionTemplate extends BaseTemplate
                 <?php $this->portletLogo(); ?>
                 <?php $this->portletSearch(); ?>
             </div>
+            <? if ( $this->data( "sitenotice" ) ) { ?>
+                <div id="siteNotice">
+                    <?php $this->html( 'sitenotice' ) ?>
+                </div>
+            <? } ?>
             <?php $this->portletContentActions(); ?>
         </div>
     <?
@@ -75,20 +80,18 @@ class PixelionTemplate extends BaseTemplate
 
             <a id="top"></a>
 
-            <? if ( $this->data( "sitenotice" ) ) { ?>
-                <div id="siteNotice">
-                    <?php $this->html( 'sitenotice' ) ?>
-                </div>
-            <? } ?>
-
             <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
                 <span dir="auto"><? $this->html( 'title' ) ?></span>
             </h1>
 
             <div id="bodyContent" class="mw-body-content">
 
-                <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-                <div id="contentSub" <?php $this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' ) ?></div>
+                <?php if ( $this->getMsg( "tagline" )->exists() ) { ?>
+                    <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+                <? } ?>
+                <?php if ( $this->data( "subtitle" ) ) { ?>
+                    <div id="contentSub" <?php $this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' ) ?></div>
+                <? } ?>
                 <?php if ( $this->data('undelete') ) { ?>
                     <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
                 <? } ?>

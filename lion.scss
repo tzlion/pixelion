@@ -84,8 +84,33 @@ a{
 
 
 #bodyContent {
+
     margin-bottom:20px;
+
+    // this.. yeah idk
+    #siteSub,#contentSub,#contentSub2 {
+        font-size:90%;
+        font-style:italic;
+        margin-bottom: 10px;
+        text-align:center;
+        &:before, &:after {
+            content: " - ";
+        }
+    }
+
+    // not really convinced about this one either
+    .usermessage {
+        margin-top:20px;
+        margin-bottom:10px;
+        padding:5px 10px;
+        display:block;
+        clear:both;
+        background-color: #ffd080;
+        border: 1px solid #ffb133;
+    }
+
 }
+
 
 #catlinks { //meow
     padding:10px;
@@ -255,6 +280,17 @@ $topmenuheight: $topmenufontsize + 10px;
 
 #headbar{
     position:relative;
+}
+
+// hopefully this won't get used very often bc i didnt spend much time on it
+#siteNotice {
+    margin-top:-20px;
+    margin-bottom:20px;
+    padding:5px 10px;
+    display:block;
+    clear:both;
+    background-color:#FFC0CB;
+    border: 1px solid #ffa5ac;
 }
 
 .portlet#p-search {
