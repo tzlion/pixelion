@@ -8,8 +8,6 @@ class SkinPixelion extends SkinTemplate
 
     public function setupSkinUserCss( OutputPage $output )
     {
-        parent::setupSkinUserCss( $output );
-
         $output->addModuleStyles(
             array (
                 // Default MW stuff, maybe bring some of it back
@@ -18,5 +16,7 @@ class SkinPixelion extends SkinTemplate
                 "skins.pixelion.harrystyles",
             )
         );
+
+        parent::setupSkinUserCss( $output );
     }
 }
