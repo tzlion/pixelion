@@ -62,33 +62,6 @@ a{
     }
 }
 
-#toc {
-    border:1px solid $linecolour;
-    background-color:$segmentbg;
-    display:table;
-    padding:10px;
-    position:relative;
-    margin-top:20px;
-    .toctoggle {
-        position:absolute;
-        top:11px;
-        right:8px;
-        a {
-            text-decoration:none;
-        }
-    }
-    h2 {
-        font-family:$regularfont;
-        margin:0;border:0;font-size:18px;
-        padding-right:60px; // to account for the hide link
-        line-height:normal;
-    }
-    ul {
-        margin-left:25px;
-       // list-style:none;
-    }
-}
-
 
 #bodyContent {
 
@@ -122,7 +95,57 @@ a{
         border: 1px solid #ffb133;
     }
 
+    ol, ul {
+        margin:5px 0 5px 30px!important; // sigh
+        padding:0 0 0 0px!important; // SIGH
+        li {
+            margin-top:5px;
+            margin-bottom:5px;
+        }
+    }
+
 }
+
+
+#toc {
+    border:1px solid $linecolour;
+    background-color:$segmentbg;
+    display:table;
+    padding:10px;
+    position:relative;
+    margin-top:20px;
+    .toctoggle {
+        position:absolute;
+        top:11px;
+        right:8px;
+        a {
+            text-decoration:none;
+        }
+    }
+    h2 {
+        font-family:$regularfont;
+        margin:0;border:0;font-size:18px;
+        padding-right:60px; // to account for the hide link
+        line-height:normal;
+    }
+    ul {
+        // margin-left:25px;
+        margin:0!important;
+        list-style:none;
+        padding-left:10px!important;
+    }
+    ul ul {
+        margin:0!important;
+        margin-bottom:5px!important;
+    }
+    ul ul ul {
+        margin-bottom:0px!important;
+    }
+    .tocnumber:after{
+        content:".";
+    }
+}
+
 
 
 #catlinks { //meow

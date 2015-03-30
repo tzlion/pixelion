@@ -48,34 +48,6 @@ a:hover {
   text-decoration: underline;
 }
 
-#toc {
-  border: 1px solid rgba(1, 1, 1, 0.05);
-  background-color: rgba(1, 1, 1, 0.02);
-  display: table;
-  padding: 10px;
-  position: relative;
-  margin-top: 20px;
-}
-#toc .toctoggle {
-  position: absolute;
-  top: 11px;
-  right: 8px;
-}
-#toc .toctoggle a {
-  text-decoration: none;
-}
-#toc h2 {
-  font-family: "Archivo Narrow";
-  margin: 0;
-  border: 0;
-  font-size: 18px;
-  padding-right: 60px;
-  line-height: normal;
-}
-#toc ul {
-  margin-left: 25px;
-}
-
 #bodyContent {
   margin-bottom: 20px;
 }
@@ -101,6 +73,54 @@ a:hover {
   clear: both;
   background-color: #ffd080;
   border: 1px solid #ffb133;
+}
+#bodyContent ol, #bodyContent ul {
+  margin: 5px 0 5px 30px !important;
+  padding: 0 0 0 0px !important;
+}
+#bodyContent ol li, #bodyContent ul li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#toc {
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  background-color: rgba(1, 1, 1, 0.02);
+  display: table;
+  padding: 10px;
+  position: relative;
+  margin-top: 20px;
+}
+#toc .toctoggle {
+  position: absolute;
+  top: 11px;
+  right: 8px;
+}
+#toc .toctoggle a {
+  text-decoration: none;
+}
+#toc h2 {
+  font-family: "Archivo Narrow";
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  padding-right: 60px;
+  line-height: normal;
+}
+#toc ul {
+  margin: 0 !important;
+  list-style: none;
+  padding-left: 10px !important;
+}
+#toc ul ul {
+  margin: 0 !important;
+  margin-bottom: 5px !important;
+}
+#toc ul ul ul {
+  margin-bottom: 0px !important;
+}
+#toc .tocnumber:after {
+  content: ".";
 }
 
 #catlinks {
