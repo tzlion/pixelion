@@ -431,6 +431,13 @@ ul#preftoc li.selected {
   /*height:30px;
   font-size:20px;*/
 }
+.portlet#p-search #power-search-densetsu {
+  color: black;
+  display: block;
+  font-size: 12px;
+  text-align: right;
+  padding-top: 2px;
+}
 
 .portlet#p-logo {
   max-width: 100%;
