@@ -370,8 +370,11 @@ $topmenuheight: $topmenufontsize + 10px;
     font-family:$topmenufont;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
-    position:absolute;
-    top:-50px;left:-20px;right:-20px;
+    height: $topmenuheight;
+   // position:absolute;
+   // top:-50px;left:-20px;right:-20px;
+    margin: -50px -20px 24px -20px;
+    //width:100%;
     background-color:rgba(0,0,0,0.8);
     color:white;
 }
