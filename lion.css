@@ -129,6 +129,9 @@ a:hover {
   border: 1px solid rgba(1, 1, 1, 0.05);
   background-color: rgba(1, 1, 1, 0.02);
 }
+#catlinks ul {
+  margin: 0;
+}
 
 h1, h2, h3, h4 {
   font-family: "Jockey One";
