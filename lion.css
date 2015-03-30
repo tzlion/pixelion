@@ -124,13 +124,33 @@ a:hover {
 }
 
 #catlinks {
-  padding: 10px;
+  padding: 10px 10px 10px 80px;
   margin-top: 30px;
   border: 1px solid rgba(1, 1, 1, 0.05);
   background-color: rgba(1, 1, 1, 0.02);
 }
+#catlinks > div > a {
+  display: inline-block;
+  margin-left: -70px;
+}
 #catlinks ul {
   margin: 0;
+}
+#catlinks li {
+  border: 0;
+  padding: 0 3px;
+  margin: 0 !important;
+  line-height: 22px;
+  display: inline-block;
+}
+#catlinks li:after {
+  padding-left: 6px;
+  content: "★";
+  color: rgba(0, 0, 0, 0.25);
+}
+#catlinks li:last-child:after {
+  padding: 0;
+  content: "";
 }
 
 h1, h2, h3, h4 {
@@ -149,16 +169,22 @@ h2 {
   padding-bottom: 6px;
   font-size: 30px;
   line-height: 30px;
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 h3 {
   font-size: 25px;
   line-height: 25px;
+  margin-top: 25px;
+  margin-bottom: 18px;
 }
 
 h4 {
   font-size: 20px;
   line-height: 20px;
+  margin-top: 25px;
+  margin-bottom: 18px;
 }
 
 textarea#wpTextbox1 {
