@@ -42,8 +42,8 @@ class PixelionTemplate extends BaseTemplate
         <div id="column-one" <?php $this->html( 'userlangattributes' ); ?>>
             <h2><?php $this->msg( 'navigation-heading' ); ?></h2>
             <div id="topbar">
-                <?php $this->portletPersonal(); ?>
                 <?php $this->portletsCustomSidebar(); ?>
+                <?php $this->portletPersonal(); ?>
             </div>
             <div id="headbar">
                 <?php $this->portletLogo(); ?>
@@ -157,7 +157,7 @@ class PixelionTemplate extends BaseTemplate
         if ( $this->data( "logopath" ) ) {
             $content .= '<img src="' . $this->data('logopath') . '" alt="' . $this->data('sitename') . '">';
         } else {
-            $content .= $this->data('sitename');
+            $content .= "<span id='textonly-wiki-name'>" . $this->data('sitename') . "</span>";
         }
         $content .= Html::closeElement( "a" );
 

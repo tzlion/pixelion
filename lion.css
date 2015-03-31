@@ -344,10 +344,15 @@ ul#preftoc li.selected {
   font-family: "Jockey One";
   font-size: 16px;
   line-height: 26px;
-  height: 26px;
+  min-height: 26px;
   margin: -50px -20px 24px -20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+}
+#topbar:after {
+  display: block;
+  clear: both;
+  content: "";
 }
 
 .generated-sidebar {
@@ -441,8 +446,10 @@ ul#preftoc li.selected {
   max-width: 100%;
   float: left;
   font-family: "Jockey One";
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.portlet#p-logo #textonly-wiki-name {
   font-size: 70px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .portlet#p-logo a {
   color: white;
@@ -495,6 +502,7 @@ ul#preftoc li.selected {
   font-size: 20px;
   line-height: 30px;
   position: relative;
+  padding-top: 17px;
   /*zzzposition:absolute;
   top:-$pageactionheight;left:4px;*/
   padding-left: 4px;

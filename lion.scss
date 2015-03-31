@@ -370,13 +370,16 @@ $topmenuheight: $topmenufontsize + 10px;
     font-family:$topmenufont;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
-    height: $topmenuheight;
+    min-height: $topmenuheight;
    // position:absolute;
    // top:-50px;left:-20px;right:-20px;
     margin: -50px -20px 24px -20px;
     //width:100%;
     background-color:rgba(0,0,0,0.8);
     color:white;
+    &:after{
+        display:block;clear:both;content:"";
+    }
 }
 
 
@@ -460,14 +463,19 @@ $topmenuheight: $topmenufontsize + 10px;
     float:left;
     font-family: $titlefont;
     //text-align:center;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-    font-size: 70px;
+
+    #textonly-wiki-name {
+        font-size: 70px;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    }
+
     a{
         color:white;
         &:hover {
             text-decoration:none;
         }
     }
+
     img {
         max-width:100%;
         max-height:100px;
@@ -512,6 +520,7 @@ $pageactionheight: $pageactionfontsize + 10px;
     font-size:$pageactionfontsize;
     line-height:$pageactionheight;
     position:relative;
+    padding-top:17px;
 	/*zzzposition:absolute;
 	top:-$pageactionheight;left:4px;*/
     padding-left:4px;
