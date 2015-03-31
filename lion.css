@@ -1,5 +1,6 @@
 @charset "UTF-8";
 body {
+  min-width: 245px;
   background-color: #ff4080;
   background-image: url("li-sqr2bv.png");
   background-size: 100% auto;
@@ -470,6 +471,9 @@ ul#preftoc li.selected {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+.portlet#p-personal li {
+  display: inline-block;
 }
 .portlet#p-personal h3 {
   display: none;

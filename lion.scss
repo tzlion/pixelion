@@ -15,6 +15,7 @@ $segmentbg: rgba(1,1,1,0.02);
 }
 
 body {
+    min-width:245px;
 	background-color:#ff4080;
     //background-image:url("http://image.shutterstock.com/display_pic_with_logo/255379/255379,1298395185,2/stock-photo-abstract-background-of-magic-burst-with-rays-of-light-71727616.jpg");
     background-image:url("li-sqr2bv.png");
@@ -489,6 +490,9 @@ $topmenuheight: $topmenufontsize + 10px;
 	text-align:right;
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
+    }
+    li {
+        display:inline-block;
     }
     h3 {
         display:none;
