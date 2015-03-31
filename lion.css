@@ -29,6 +29,7 @@ body {
 }
 
 #column-content {
+  clear: both;
   background-color: rgba(255, 255, 255, 0.95);
   padding: 20px;
   box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
@@ -423,9 +424,8 @@ ul#preftoc li.selected {
 }
 
 .portlet#p-search {
+  margin-top: 17px;
   float: right;
-  margin-top: 35px;
-  margin-bottom: 10px;
 }
 .portlet#p-search h3 {
   display: none;
@@ -444,7 +444,6 @@ ul#preftoc li.selected {
 
 .portlet#p-logo {
   max-width: 100%;
-  float: left;
   font-family: "Jockey One";
 }
 .portlet#p-logo #textonly-wiki-name {
@@ -497,7 +496,7 @@ ul#preftoc li.selected {
 }
 */
 .portlet#p-cactions {
-  clear: both;
+  float: left;
   font-family: "Archivo Narrow";
   font-size: 20px;
   line-height: 30px;
@@ -507,6 +506,9 @@ ul#preftoc li.selected {
   top:-$pageactionheight;left:4px;*/
   padding-left: 4px;
   white-space: nowrap;
+  overflow-x: auto;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .portlet#p-cactions ul, .portlet#p-cactions li, .portlet#p-cactions div {
   display: inline;

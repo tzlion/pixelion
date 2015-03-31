@@ -37,11 +37,12 @@ body {
     margin-top:50px;
 }
 
-#column-one h2{ 
+#column-one h2{
 	display:none;
 }
 
 #column-content {
+    clear:both;
     background-color: $mainbgcolour;
     padding:20px;
     box-shadow:0px 1px 3px -1px rgba(0,0,0,0.4);
@@ -436,9 +437,10 @@ $topmenuheight: $topmenufontsize + 10px;
 }
 
 .portlet#p-search {
+    margin-top:17px;
     float:right;
-    margin-top:35px;
-    margin-bottom:10px;
+//    margin-top:35px;
+//    margin-bottom:10px;
    // margin-top:50%;
    // position:relative;
    // top:50%;
@@ -460,9 +462,9 @@ $topmenuheight: $topmenufontsize + 10px;
 
 .portlet#p-logo {
     max-width:100%;
-    float:left;
+   // float:left;
     font-family: $titlefont;
-    //text-align:center;
+   // text-align:center;
 
     #textonly-wiki-name {
         font-size: 70px;
@@ -515,7 +517,8 @@ $pageactionfont: $regularfont;
 $pageactionfontsize: 20px;
 $pageactionheight: $pageactionfontsize + 10px;
 .portlet#p-cactions{
-    clear:both;
+   // clear:both;
+    float:left;
     font-family:$pageactionfont;
     font-size:$pageactionfontsize;
     line-height:$pageactionheight;
@@ -524,7 +527,11 @@ $pageactionheight: $pageactionfontsize + 10px;
 	/*zzzposition:absolute;
 	top:-$pageactionheight;left:4px;*/
     padding-left:4px;
+
 	white-space:nowrap;
+    overflow-x:auto;
+    box-sizing: border-box;
+    max-width:100%;
     ul,li,div {
         display:inline;padding:0;margin:0;list-style:none;
     }
