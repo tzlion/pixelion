@@ -43,8 +43,9 @@ class PixelionTemplate extends BaseTemplate
         <div id="column-one" <?php $this->html( 'userlangattributes' ); ?>>
             <h2><?php $this->msg( 'navigation-heading' ); ?></h2>
             <div id="topbar">
-                <?php $this->portletsCustomSidebar(); ?>
                 <?php $this->portletPersonal(); ?>
+                <?php $this->portletsCustomSidebar(); ?>
+
             </div>
             <div id="headbar">
                 <?php $this->portletLogo(); ?>
@@ -281,6 +282,7 @@ class PixelionTemplate extends BaseTemplate
      */
     protected function portletsCustomSidebar()
     {
+        echo "<span id='custom-sidebars'>";
         foreach ( $this->data('sidebar') as $boxName => $content ) {
 
             // search, toolbox, languages = presets, being output elsewhere
@@ -299,6 +301,7 @@ class PixelionTemplate extends BaseTemplate
             $this->renderPortlet( Sanitizer::escapeId( "p-$boxName" ), "navigation", $header, $content, "generated-sidebar", Linker::titleAttrib( "p-$boxName" ) );
 
         }
+        echo "</span>";
     }
 
     /**

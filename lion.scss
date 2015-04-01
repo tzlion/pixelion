@@ -440,6 +440,15 @@ $topmenuheight: $topmenufontsize + 10px;
     a {color:white}
 }
 
+#custom-sidebars {
+  //  border:2px solid red;
+   // display:inline-block;
+     //float:left;
+   //display:block;
+   // float:left;
+   // overflow-x:scroll;
+}
+
 .generated-sidebar {
     float:left;
     .pBody {
@@ -449,6 +458,9 @@ $topmenuheight: $topmenufontsize + 10px;
 
 
 .portlet#p-personal {
+    background-color:rgba(255,255,255,0.15);
+    //background-color:rgba(40,160,255,0.8);
+    //border-left:2px solid green;
     float:right;
     .pBody {
         right:-20px;

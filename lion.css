@@ -437,6 +437,7 @@ ul#preftoc li.selected {
 }
 
 .portlet#p-personal {
+  background-color: rgba(255, 255, 255, 0.15);
   float: right;
   /*  float:right;
   text-align:right;
