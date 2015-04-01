@@ -423,6 +423,9 @@ $topmenuheight: $topmenufontsize + 10px;
         }
         margin:0 0 0 0;
     }
+    .single-item-header {
+        display:none;
+    }
     // Need to be able to select PRECEDING elements to make this work ;_;
     // ~ only selects following ones
     .pBody:hover~h3,.pBody:hover~.pseudo-header{
@@ -466,9 +469,6 @@ $topmenuheight: $topmenufontsize + 10px;
     float:right;
     .pBody {
         right:-20px;
-    }
-    h3 {
-        display:none;
     }
     .pseudo-header #pt-userpage {
         &:before {

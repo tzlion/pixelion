@@ -173,8 +173,6 @@ class PixelionTemplate extends BaseTemplate
     {
         $tools = $this->getPersonalTools();
 
-        $title = "<h3>" .  $this->getMsg( "personaltools" )->escaped() . "</h3>";
-
         if ( isset( $tools['userpage'] ) ) {
             $pseudoTitle = $this->makeListItem( 'userpage', $tools['userpage'], [ "tag" => "span" ] );
             unset( $tools['userpage'] );
@@ -187,7 +185,10 @@ class PixelionTemplate extends BaseTemplate
         }
 
         if ( isset( $pseudoTitle ) ) {
+            $title = "<h3 class='single-item-header'>" .  $this->getMsg( "personaltools" )->escaped() . "</h3>";
             $title .= "<span class='pseudo-header'>$pseudoTitle</span>";
+        } else {
+            $title = "<h3>" .  $this->getMsg( "personaltools" )->escaped() . "</h3>";
         }
 
         $title = [
@@ -293,13 +294,30 @@ class PixelionTemplate extends BaseTemplate
                 continue;
             }
 
-            if ( is_array( $content ) ) {
-                $content = $this->makeGenericList( $content );
-            }
-            $content .= $this->getPostPortletStuff( $boxName );
-
             $nameMessage = wfMessage( $boxName );
             $header = htmlspecialchars( $nameMessage->exists() ? $nameMessage->text() : $boxName );
+
+            if ( is_array( $content ) ) {
+
+                if ( count( $content ) == 1 ) {
+                    $title = "<h3 class='single-item-header'>" .  $header . "</h3>";
+                    $pseudoTitle = $this->makeListItem( 'userpage', array_pop( $content ), [ "tag" => "span" ] );
+                    $title .= "<span class='pseudo-header'>$pseudoTitle</span>";
+                } else {
+                    $title = "<h3>" .  $header . "</h3>";
+                }
+
+                $header = [
+                    "content" => $title,
+                    "no-tags" => true,
+                ];
+
+                $content = $this->makeGenericList( $content );
+
+            }
+
+            $content .= $this->getPostPortletStuff( $boxName );
+
 
             $this->renderPortlet( Sanitizer::escapeId( "p-$boxName" ), "navigation", $header, $content, "generated-sidebar", Linker::titleAttrib( "p-$boxName" ) );
 
