@@ -170,9 +170,30 @@ class PixelionTemplate extends BaseTemplate
      */
     protected function portletPersonal()
     {
-        $content = $this->makeGenericList( $this->getPersonalTools(), $this->data( "userlangattributes" ) );
+        $tools = $this->getPersonalTools();
 
-        $this->renderPortlet( "p-personal", "navigation", $this->getMsg( "personaltools" )->escaped(), $content );
+        $title = "<h3>" .  $this->getMsg( "personaltools" )->escaped() . "</h3>";
+
+        if ( isset( $tools['login'] ) ) {
+            $pseudoTitle = $this->makeListItem( "login", $tools['login'], [ "tag" => "span" ] );
+            unset( $tools['login'] );
+        } else if ( isset( $tools['userpage'] ) ) {
+            $pseudoTitle = $this->makeListItem( 'userpage', $tools['userpage'], [ "tag" => "span" ] );
+            unset( $tools['userpage'] );
+        }
+
+        if ( isset( $pseudoTitle ) ) {
+            $title .= "<span class='pseudo-header'>$pseudoTitle</span>";
+        }
+
+        $title = [
+            "content" => $title,
+            "no-tags" => true,
+        ];
+
+        $content = $this->makeGenericList( $tools, $this->data( "userlangattributes" ) );
+
+        $this->renderPortlet( "p-personal", "navigation", $title, $content );
     }
 
     /**
@@ -308,9 +329,11 @@ class PixelionTemplate extends BaseTemplate
         if ( is_array( $header ) ) {
             $headerContent = $header['content'];
             $headerAttrs = isset( $header['attrs'] ) ? $header['attrs'] : "";
+            $showHeaderTags = ( !isset( $header['no-tags'] ) || !$header['no-tags'] );
         } else {
             $headerContent = $header;
             $headerAttrs = "";
+            $showHeaderTags = true;
         }
 
         if ( $tooltip ) {
@@ -322,7 +345,11 @@ class PixelionTemplate extends BaseTemplate
         ?>
         <div class="portlet <?=$additionalClasses?>" id="<?=$id?>" role="<?=$role?>" <?=$extraAttrs?>>
             <? if ( $headerContent ) { ?>
-                <h3 <?=$headerAttrs?>><?= $headerContent ?></h3>
+                <? if ( $showHeaderTags ) { ?>
+                    <h3 <?=$headerAttrs?>><?= $headerContent ?></h3>
+                <? } else { ?>
+                    <?= $headerContent ?>
+                <? } ?>
             <? } ?>
             <? if ( $showBodyTags ) { ?>
                 <div class="pBody" <?=$bodyAttrs?>>

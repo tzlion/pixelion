@@ -394,6 +394,8 @@ $topmenuheight: $topmenufontsize + 10px;
     &:after{
         display:block;clear:both;content:"";
     }
+    /*white-space:nowrap;
+    overflow-x:auto;*/
 }
 
 
@@ -402,10 +404,13 @@ $topmenuheight: $topmenufontsize + 10px;
 // fuckin
 // aint no sidebar anymore son
 // STEALING SOME TOOLBOX STYLES YOU CAN HAVE EM BACK LATER
-.generated-sidebar {
+
+.generated-sidebar, .portlet#p-personal {
     display:inline;
-    float:left;
-    h3 {
+    .pseudo-header {
+        display:block;
+    }
+    h3,.pseudo-header {
         font-size:$topmenufontsize;
         line-height:$topmenuheight;
         padding: 0 5px;
@@ -418,7 +423,7 @@ $topmenuheight: $topmenufontsize + 10px;
     }
     // Need to be able to select PRECEDING elements to make this work ;_;
     // ~ only selects following ones
-    .pBody:hover~h3{
+    .pBody:hover~h3,.pBody:hover~.pseudo-header{
         background-color:rgba(40,160,255,0.8);
         color:white;
     }
@@ -429,10 +434,67 @@ $topmenuheight: $topmenufontsize + 10px;
         display:none;
         z-index:420;
     }
-    h3:hover~.pBody,.pBody:hover{
+    .pseudo-header:hover~.pBody,h3:hover~.pBody,.pBody:hover{
         display: block;
     }
+    a {color:white}
 }
+
+.generated-sidebar {
+    float:left;
+    .pBody {
+        text-align:left;
+    }
+}
+
+
+.portlet#p-personal {
+    float:right;
+    .pBody {
+        right:-20px;
+    }
+    h3 {
+        display:none;
+    }
+    .pseudo-header #pt-userpage {
+        &:before {
+            content:"★ ";// placeholder for icon.. Maybe
+        }
+    }
+    // Below is old CSS from when all the personal items were displayed in a row..
+    // Can be re-enabled if we do that again
+    // (also the above CSS for .portlet#p-personal and .generated-sidebar should not be applied to #p-personal)
+    // Maybe with a media query if the page is wide enough
+   /*  float:right;
+   text-align:right;
+    ul,li,div {
+        display:inline;padding:0;margin:0;list-style:none;
+    }
+    li {
+        display:inline-block;
+    }
+    h3 {
+        display:none;
+    }
+    a {
+        color:white;text-decoration:none;padding:2px 5px 2px 0;
+    }*/
+}
+/*
+// Maybe reapply these old styles IF theres only one topbar item
+.portlet#p-navigation {
+
+    ul,li,div {
+        display:inline;padding:0;margin:0;list-style:none;
+    }
+    h3 {
+        display:none;
+    }
+    a {
+        color:white;text-decoration:none;padding:2px 0 2px 5px;
+    }
+}
+*/
 
 #headbar{
     position:relative;
@@ -497,37 +559,6 @@ $topmenuheight: $topmenufontsize + 10px;
     }
 }
 
-.portlet#p-personal {
-    float:right;
-	text-align:right;
-    ul,li,div {
-        display:inline;padding:0;margin:0;list-style:none;
-    }
-    li {
-        display:inline-block;
-    }
-    h3 {
-        display:none;
-    }
-    a {
-        color:white;text-decoration:none;padding:2px 5px 2px 0;
-    }
-}
-/*
-// Maybe reapply these old styles IF theres only one topbar item
-.portlet#p-navigation {
-
-    ul,li,div {
-        display:inline;padding:0;margin:0;list-style:none;
-    }
-    h3 {
-        display:none;
-    }
-    a {
-        color:white;text-decoration:none;padding:2px 0 2px 5px;
-    }
-}
-*/
 
 $pageactionfont: $regularfont;
 $pageactionfontsize: 20px;

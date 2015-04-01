@@ -362,6 +362,8 @@ ul#preftoc li.selected {
   margin: -50px -20px 24px -20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  /*white-space:nowrap;
+  overflow-x:auto;*/
 }
 #topbar:after {
   display: block;
@@ -369,26 +371,28 @@ ul#preftoc li.selected {
   content: "";
 }
 
-.generated-sidebar {
+.generated-sidebar, .portlet#p-personal {
   display: inline;
-  float: left;
 }
-.generated-sidebar h3 {
+.generated-sidebar .pseudo-header, .portlet#p-personal .pseudo-header {
+  display: block;
+}
+.generated-sidebar h3, .generated-sidebar .pseudo-header, .portlet#p-personal h3, .portlet#p-personal .pseudo-header {
   font-size: 16px;
   line-height: 26px;
   padding: 0 5px;
   font-weight: normal;
   margin: 0;
 }
-.generated-sidebar h3:hover {
+.generated-sidebar h3:hover, .generated-sidebar .pseudo-header:hover, .portlet#p-personal h3:hover, .portlet#p-personal .pseudo-header:hover {
   background-color: rgba(40, 160, 255, 0.8);
   color: white;
 }
-.generated-sidebar .pBody:hover ~ h3 {
+.generated-sidebar .pBody:hover ~ h3, .generated-sidebar .pBody:hover ~ .pseudo-header, .portlet#p-personal .pBody:hover ~ h3, .portlet#p-personal .pBody:hover ~ .pseudo-header {
   background-color: rgba(40, 160, 255, 0.8);
   color: white;
 }
-.generated-sidebar .pBody {
+.generated-sidebar .pBody, .portlet#p-personal .pBody {
   border-right: 30px solid rgba(40, 160, 255, 0.5);
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
@@ -402,12 +406,12 @@ ul#preftoc li.selected {
   display: none;
   z-index: 420;
 }
-.generated-sidebar .pBody ul, .generated-sidebar .pBody li {
+.generated-sidebar .pBody ul, .generated-sidebar .pBody li, .portlet#p-personal .pBody ul, .portlet#p-personal .pBody li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.generated-sidebar .pBody a {
+.generated-sidebar .pBody a, .portlet#p-personal .pBody a {
   font-size: 14px;
   color: white;
   display: block;
@@ -415,13 +419,65 @@ ul#preftoc li.selected {
   line-height: 30px;
   text-decoration: none;
 }
-.generated-sidebar .pBody a:hover {
+.generated-sidebar .pBody a:hover, .portlet#p-personal .pBody a:hover {
   background-color: rgba(40, 160, 255, 0.5);
 }
-.generated-sidebar h3:hover ~ .pBody, .generated-sidebar .pBody:hover {
+.generated-sidebar .pseudo-header:hover ~ .pBody, .generated-sidebar h3:hover ~ .pBody, .generated-sidebar .pBody:hover, .portlet#p-personal .pseudo-header:hover ~ .pBody, .portlet#p-personal h3:hover ~ .pBody, .portlet#p-personal .pBody:hover {
   display: block;
 }
+.generated-sidebar a, .portlet#p-personal a {
+  color: white;
+}
 
+.generated-sidebar {
+  float: left;
+}
+.generated-sidebar .pBody {
+  text-align: left;
+}
+
+.portlet#p-personal {
+  float: right;
+  /*  float:right;
+  text-align:right;
+   ul,li,div {
+       display:inline;padding:0;margin:0;list-style:none;
+   }
+   li {
+       display:inline-block;
+   }
+   h3 {
+       display:none;
+   }
+   a {
+       color:white;text-decoration:none;padding:2px 5px 2px 0;
+   }*/
+}
+.portlet#p-personal .pBody {
+  right: -20px;
+}
+.portlet#p-personal h3 {
+  display: none;
+}
+.portlet#p-personal .pseudo-header #pt-userpage:before {
+  content: "★ ";
+}
+
+/*
+// Maybe reapply these old styles IF theres only one topbar item
+.portlet#p-navigation {
+
+    ul,li,div {
+        display:inline;padding:0;margin:0;list-style:none;
+    }
+    h3 {
+        display:none;
+    }
+    a {
+        color:white;text-decoration:none;padding:2px 0 2px 5px;
+    }
+}
+*/
 #headbar {
   position: relative;
 }
@@ -474,43 +530,6 @@ ul#preftoc li.selected {
   max-height: 100px;
 }
 
-.portlet#p-personal {
-  float: right;
-  text-align: right;
-}
-.portlet#p-personal ul, .portlet#p-personal li, .portlet#p-personal div {
-  display: inline;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.portlet#p-personal li {
-  display: inline-block;
-}
-.portlet#p-personal h3 {
-  display: none;
-}
-.portlet#p-personal a {
-  color: white;
-  text-decoration: none;
-  padding: 2px 5px 2px 0;
-}
-
-/*
-// Maybe reapply these old styles IF theres only one topbar item
-.portlet#p-navigation {
-
-    ul,li,div {
-        display:inline;padding:0;margin:0;list-style:none;
-    }
-    h3 {
-        display:none;
-    }
-    a {
-        color:white;text-decoration:none;padding:2px 0 2px 5px;
-    }
-}
-*/
 .portlet#p-cactions {
   float: left;
   font-family: "Archivo Narrow";
