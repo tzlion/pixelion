@@ -175,12 +175,15 @@ class PixelionTemplate extends BaseTemplate
 
         $title = "<h3>" .  $this->getMsg( "personaltools" )->escaped() . "</h3>";
 
-        if ( isset( $tools['login'] ) ) {
-            $pseudoTitle = $this->makeListItem( "login", $tools['login'], [ "tag" => "span" ] );
-            unset( $tools['login'] );
-        } else if ( isset( $tools['userpage'] ) ) {
+        if ( isset( $tools['userpage'] ) ) {
             $pseudoTitle = $this->makeListItem( 'userpage', $tools['userpage'], [ "tag" => "span" ] );
             unset( $tools['userpage'] );
+        } else if ( isset( $tools['anonuserpage'] ) ) {
+            $pseudoTitle = $this->makeListItem( 'anonuserpage', $tools['anonuserpage'], [ "tag" => "span" ] );
+            unset( $tools['anonuserpage'] );
+        } else if ( isset( $tools['login'] ) ) {
+            $pseudoTitle = $this->makeListItem( "login", $tools['login'], [ "tag" => "span" ] );
+            unset( $tools['login'] );
         }
 
         if ( isset( $pseudoTitle ) ) {
