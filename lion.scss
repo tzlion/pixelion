@@ -384,7 +384,7 @@ $topmenuheight: $topmenufontsize + 10px;
     font-family:$topmenufont;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
-    min-height: $topmenuheight;
+   // min-height: $topmenuheight;
    // position:absolute;
    // top:-50px;left:-20px;right:-20px;
     margin: -50px -20px 24px -20px;
@@ -396,6 +396,7 @@ $topmenuheight: $topmenufontsize + 10px;
     }
     /*white-space:nowrap;
     overflow-x:auto;*/
+    padding-top:5px;
 }
 
 
@@ -407,19 +408,20 @@ $topmenuheight: $topmenufontsize + 10px;
 
 .generated-sidebar, .portlet#p-personal {
     display:inline;
+    margin-top:-5px;
     .pseudo-header {
         display:block;
     }
     h3,.pseudo-header {
         font-size:$topmenufontsize;
         line-height:$topmenuheight;
-        padding: 0 5px;
+        padding: 0 5px 1px 5px;
         font-weight:normal;
         &:hover {
             background-color:rgba(40,160,255,0.8);
             color:white;
         }
-        margin:0;
+        margin:0 0 0 0;
     }
     // Need to be able to select PRECEDING elements to make this work ;_;
     // ~ only selects following ones
@@ -471,6 +473,11 @@ $topmenuheight: $topmenufontsize + 10px;
     .pseudo-header #pt-userpage {
         &:before {
             content:"★ ";// placeholder for icon.. Maybe
+        }
+    }
+    .pseudo-header #pt-anonuserpage {
+        &:before {
+            content:"☆ ";// placeholder for icon.. Maybe
         }
     }
     // Below is old CSS from when all the personal items were displayed in a row..

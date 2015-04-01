@@ -358,12 +358,12 @@ ul#preftoc li.selected {
   font-family: "Jockey One";
   font-size: 16px;
   line-height: 26px;
-  min-height: 26px;
   margin: -50px -20px 24px -20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   /*white-space:nowrap;
   overflow-x:auto;*/
+  padding-top: 5px;
 }
 #topbar:after {
   display: block;
@@ -373,6 +373,7 @@ ul#preftoc li.selected {
 
 .generated-sidebar, .portlet#p-personal {
   display: inline;
+  margin-top: -5px;
 }
 .generated-sidebar .pseudo-header, .portlet#p-personal .pseudo-header {
   display: block;
@@ -380,9 +381,9 @@ ul#preftoc li.selected {
 .generated-sidebar h3, .generated-sidebar .pseudo-header, .portlet#p-personal h3, .portlet#p-personal .pseudo-header {
   font-size: 16px;
   line-height: 26px;
-  padding: 0 5px;
+  padding: 0 5px 1px 5px;
   font-weight: normal;
-  margin: 0;
+  margin: 0 0 0 0;
 }
 .generated-sidebar h3:hover, .generated-sidebar .pseudo-header:hover, .portlet#p-personal h3:hover, .portlet#p-personal .pseudo-header:hover {
   background-color: rgba(40, 160, 255, 0.8);
@@ -462,6 +463,9 @@ ul#preftoc li.selected {
 }
 .portlet#p-personal .pseudo-header #pt-userpage:before {
   content: "★ ";
+}
+.portlet#p-personal .pseudo-header #pt-anonuserpage:before {
+  content: "☆ ";
 }
 
 /*
