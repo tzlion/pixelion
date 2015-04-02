@@ -156,9 +156,9 @@ a{
 #catlinks { //meow
     > div > a {
         display:inline-block;
-        margin-left:-70px;
+        margin-left:-20px;
     }
-    padding:10px 10px 10px 80px;
+    padding:10px 10px 10px 30px;
     margin-top:30px;
     border:1px solid $linecolour;
     background-color:$segmentbg;
@@ -170,7 +170,7 @@ a{
         padding:0 3px;
         margin:0!important;
         line-height:22px;
-        display:inline-block;
+        display:inline;
         &:after {
             padding-left: 6px;
             content: "★";
