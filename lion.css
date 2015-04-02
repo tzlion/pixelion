@@ -42,6 +42,9 @@ body {
 #content button, #content input[type=submit] {
   margin: 10px 0;
 }
+#content * {
+  max-width: 100%;
+}
 
 a {
   text-decoration: none;

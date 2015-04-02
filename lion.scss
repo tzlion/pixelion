@@ -55,6 +55,9 @@ body {
     button, input[type=submit] {
         margin: 10px 0;
     }
+    * {
+        max-width:100%;
+    }
 }
 
 a{
