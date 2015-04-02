@@ -498,6 +498,7 @@ ul#preftoc li.selected {
 .portlet#p-search {
   margin-top: 17px;
   float: right;
+  position: relative;
 }
 .portlet#p-search h3 {
   display: none;
@@ -507,6 +508,9 @@ ul#preftoc li.selected {
   font-size:20px;*/
 }
 .portlet#p-search #power-search-densetsu {
+  right: 0;
+  top: -16px;
+  position: absolute;
   color: black;
   display: block;
   font-size: 12px;

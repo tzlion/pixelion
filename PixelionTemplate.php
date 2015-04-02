@@ -230,7 +230,7 @@ class PixelionTemplate extends BaseTemplate
             <?= $this->makeSearchButton( "go", array( "id" => "searchGoButton", "class" => "searchButton" ) ) ?>
             <? if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) { ?>
                 <?= $this->makeSearchButton( "fulltext", array( "id" => "mw-searchButton", "class" => "searchButton" ) ) ?>
-            <? } else { ?>
+            <? } else { // honestly this is almost redundant now, maybe remove ?>
                 <a id="power-search-densetsu" href="<? $this->text( 'searchaction' ) ?>" rel="search"><? $this->msg( 'powersearch-legend' ) // The Legend of Power Search(tm) Coming Summer 1989 ?></a>
             <? } ?>
         </form>
