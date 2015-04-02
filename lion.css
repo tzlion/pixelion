@@ -363,7 +363,6 @@ ul#preftoc li.selected {
   color: white;
   /*white-space:nowrap;
   overflow-x:auto;*/
-  padding-top: 5px;
 }
 #topbar:after {
   display: block;
@@ -373,7 +372,6 @@ ul#preftoc li.selected {
 
 .generated-sidebar, .portlet#p-personal {
   display: inline;
-  margin-top: -5px;
 }
 .generated-sidebar .pseudo-header, .portlet#p-personal .pseudo-header {
   display: block;

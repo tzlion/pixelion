@@ -396,7 +396,7 @@ $topmenuheight: $topmenufontsize + 10px;
     }
     /*white-space:nowrap;
     overflow-x:auto;*/
-    padding-top:5px;
+  //  padding-top:5px;
 }
 
 
@@ -408,7 +408,7 @@ $topmenuheight: $topmenufontsize + 10px;
 
 .generated-sidebar, .portlet#p-personal {
     display:inline;
-    margin-top:-5px;
+   // margin-top:-5px;
     .pseudo-header {
         display:block;
     }
