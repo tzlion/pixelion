@@ -422,6 +422,9 @@ ul#preftoc {
         /* position:absolute;
          right:2px;
          top:32px;*/
+        .feedlink {
+            background-position: 10px center;
+        }
     }
 
     #toolboxbutton:hover~#tools,#tools:hover{

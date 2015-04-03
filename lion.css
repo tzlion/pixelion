@@ -384,6 +384,9 @@ ul#preftoc li.selected {
 .portlet#p-tb #tools a {
   padding: 0px 10px 0px 30px;
 }
+.portlet#p-tb #tools .feedlink {
+  background-position: 10px center;
+}
 .portlet#p-tb #toolboxbutton:hover ~ #tools, .portlet#p-tb #tools:hover {
   display: block;
 }
