@@ -129,6 +129,7 @@ class PixelionTemplate extends BaseTemplate
         <div id="post-body-stuff">
             <?php $this->portletLanguages(); ?>
             <? $this->popFooterLink( "lastmod" ) ?>
+            <? $this->popFooterLink( "viewcount" ) ?>
         </div>
     <?
     }

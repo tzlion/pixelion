@@ -681,8 +681,9 @@ ul#preftoc li.selected {
   padding-right: 5px;
 }
 
-#lastmod {
+#lastmod, #viewcount {
   float: right;
+  clear: right;
   font-size: 13px;
   color: #aaa;
   font-style: italic;

@@ -716,8 +716,9 @@ $pageactionheight: $pageactionfontsize + 10px;
     }
 }
 
-#lastmod {
+#lastmod,#viewcount {
     float:right;
+    clear:right;
     font-size:13px;
     color:#aaa;
     font-style:italic;
