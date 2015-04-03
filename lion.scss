@@ -742,9 +742,9 @@ $pageactionheight: $pageactionfontsize + 10px;
     color:rgba(255,255,255,0.7);
     text-align:center;
     li,ul {
-        display:inline;font-size:13px;padding:0;margin:0;list-style:none;
+        display:inline-block;font-size:13px;padding:0;margin:0;list-style:none;
     }
-    li#copyright {
+    li#copyright,li#self-aggrandisement {
         display:block;
     }
     a {

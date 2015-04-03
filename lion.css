@@ -710,13 +710,13 @@ ul#preftoc li.selected {
   text-align: center;
 }
 #footer li, #footer ul {
-  display: inline;
+  display: inline-block;
   font-size: 13px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-#footer li#copyright {
+#footer li#copyright, #footer li#self-aggrandisement {
   display: block;
 }
 #footer a {
