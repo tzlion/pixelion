@@ -10,7 +10,8 @@ class PixelionTemplate extends BaseTemplate
 
     public function execute()
     {
-        $this->remainingFooterLinks = $this->getFooterLinks( "flat" );
+        // have to @ this here because if there are no footer links it spits out a warning sigh
+        $this->remainingFooterLinks = @$this->getFooterLinks( "flat" );
 
         $this->renderStart();
             echo Html::openElement( "div", [ "id" => "globalWrapper" ] );
@@ -419,7 +420,7 @@ class PixelionTemplate extends BaseTemplate
      */
     protected function popFooterLink( $name, $wrapper = "span" )
     {
-        $key = array_search( $name, $this->remainingFooterLinks );
+        $key = array_search( $name, $this->remainingFooterLinks ?: array() );
 
         if ( $key !== false ) {
             echo "<$wrapper id='$name'>";
