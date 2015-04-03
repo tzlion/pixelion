@@ -37,6 +37,7 @@ body {
 }
 
 #content {
+  overflow-x: auto;
   padding-bottom: 30px;
 }
 #content button, #content input[type=submit] {
@@ -44,6 +45,9 @@ body {
 }
 #content * {
   max-width: 100%;
+}
+#content img {
+  height: auto;
 }
 
 a {
@@ -86,6 +90,29 @@ a:hover {
 #bodyContent ol li, #bodyContent ul li {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+table.wikitable {
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  background-color: rgba(1, 1, 1, 0.02);
+}
+table.wikitable th, table.wikitable td {
+  border: 1px solid rgba(1, 1, 1, 0.05) !important;
+}
+table.wikitable th {
+  background-color: rgba(0, 0, 0, 0.042) !important;
+}
+
+#filetoc {
+  margin: 0 0 10px 0 !important;
+  padding: 2px 5px;
+  border: 1px solid rgba(1, 1, 1, 0.05) !important;
+  background-color: rgba(1, 1, 1, 0.02) !important;
+}
+#filetoc li {
+  display: inline-block;
+  margin: 5px 15px;
+  padding: 0;
 }
 
 #toc {
@@ -323,7 +350,6 @@ ul#preftoc li.selected {
 .portlet#p-tb #tools {
   right: 0;
   top: 0;
-  border-right: 30px solid rgba(40, 160, 255, 0.5);
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
   text-align: right;
@@ -331,8 +357,11 @@ ul#preftoc li.selected {
   padding: 0;
   margin: 0;
   list-style: none;
-  display: none;
+  font-family: "Archivo Narrow";
   position: absolute;
+  display: none;
+  border-right: 30px solid rgba(40, 160, 255, 0.5);
+  text-align: right;
   /* position:absolute;
    right:2px;
    top:32px;*/
@@ -346,12 +375,14 @@ ul#preftoc li.selected {
   font-size: 14px;
   color: white;
   display: block;
-  padding: 0px 10px 0px 30px;
   line-height: 30px;
   text-decoration: none;
 }
 .portlet#p-tb #tools a:hover {
   background-color: rgba(40, 160, 255, 0.5);
+}
+.portlet#p-tb #tools a {
+  padding: 0px 10px 0px 30px;
 }
 .portlet#p-tb #toolboxbutton:hover ~ #tools, .portlet#p-tb #tools:hover {
   display: block;
@@ -398,34 +429,7 @@ ul#preftoc li.selected {
   color: white;
 }
 .generated-sidebar .pBody, .portlet#p-personal .pBody {
-  border-right: 30px solid rgba(40, 160, 255, 0.5);
-  white-space: nowrap;
-  background-color: rgba(40, 160, 255, 0.8);
-  text-align: right;
-  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  font-family: "Archivo Narrow";
-  position: absolute;
-  display: none;
   z-index: 420;
-}
-.generated-sidebar .pBody ul, .generated-sidebar .pBody li, .portlet#p-personal .pBody ul, .portlet#p-personal .pBody li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.generated-sidebar .pBody a, .portlet#p-personal .pBody a {
-  font-size: 14px;
-  color: white;
-  display: block;
-  padding: 0px 10px 0px 30px;
-  line-height: 30px;
-  text-decoration: none;
-}
-.generated-sidebar .pBody a:hover, .portlet#p-personal .pBody a:hover {
-  background-color: rgba(40, 160, 255, 0.5);
 }
 .generated-sidebar .pseudo-header:hover ~ .pBody, .generated-sidebar h3:hover ~ .pBody, .generated-sidebar .pBody:hover, .portlet#p-personal .pseudo-header:hover ~ .pBody, .portlet#p-personal h3:hover ~ .pBody, .portlet#p-personal .pBody:hover {
   display: block;
@@ -438,7 +442,36 @@ ul#preftoc li.selected {
   float: left;
 }
 .generated-sidebar .pBody {
+  white-space: nowrap;
+  background-color: rgba(40, 160, 255, 0.8);
+  text-align: right;
+  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Archivo Narrow";
+  position: absolute;
+  display: none;
+  border-left: 30px solid rgba(40, 160, 255, 0.5);
   text-align: left;
+}
+.generated-sidebar .pBody ul, .generated-sidebar .pBody li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.generated-sidebar .pBody a {
+  font-size: 14px;
+  color: white;
+  display: block;
+  line-height: 30px;
+  text-decoration: none;
+}
+.generated-sidebar .pBody a:hover {
+  background-color: rgba(40, 160, 255, 0.5);
+}
+.generated-sidebar .pBody a {
+  padding: 0px 30px 0px 10px;
 }
 
 .portlet#p-personal {
@@ -460,7 +493,37 @@ ul#preftoc li.selected {
    }*/
 }
 .portlet#p-personal .pBody {
+  white-space: nowrap;
+  background-color: rgba(40, 160, 255, 0.8);
+  text-align: right;
+  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Archivo Narrow";
+  position: absolute;
+  display: none;
+  border-right: 30px solid rgba(40, 160, 255, 0.5);
+  text-align: right;
   right: -20px;
+}
+.portlet#p-personal .pBody ul, .portlet#p-personal .pBody li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.portlet#p-personal .pBody a {
+  font-size: 14px;
+  color: white;
+  display: block;
+  line-height: 30px;
+  text-decoration: none;
+}
+.portlet#p-personal .pBody a:hover {
+  background-color: rgba(40, 160, 255, 0.5);
+}
+.portlet#p-personal .pBody a {
+  padding: 0px 10px 0px 30px;
 }
 .portlet#p-personal .pseudo-header #pt-userpage:before {
   content: "★ ";
@@ -661,7 +724,4 @@ ul#preftoc li.selected {
 }
 #footer a:hover {
   color: white;
-}
-#footer img, #footer #viewcount {
-  display: none;
 }

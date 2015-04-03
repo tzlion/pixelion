@@ -439,15 +439,17 @@ class PixelionTemplate extends BaseTemplate
         ?>
         <div id="footer" role="contentinfo" <?php $this->html( 'userlangattributes' ) ?>>
 
-            <? foreach( (array)$footerIcons as $iconSetName => $iconSet ) { ?>
-                <ul id="f-<?= $iconSetName ?>ico">
-                    <? foreach( $iconSet as $icon ) { ?>
-                        <li>
-                            <?= $this->getSkin()->makeFooterIcon( $icon ); ?>
-                        </li>
-                    <? } ?>
-                </ul>
-            <? } ?>
+			<div id="footer-icons">
+				<? foreach( (array)$footerIcons as $iconSetName => $iconSet ) { ?>
+					<ul id="f-<?= $iconSetName ?>ico">
+						<? foreach( $iconSet as $icon ) { ?>
+							<li>
+								<?= $this->getSkin()->makeFooterIcon( $icon ); ?>
+							</li>
+						<? } ?>
+					</ul>
+				<? } ?>
+			</div>
 
             <? if ( $footerLinks ) { ?>
                 <ul id="f-list">

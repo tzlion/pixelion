@@ -51,13 +51,24 @@ body {
 }
 
 #content {
+    overflow-x:auto;
     padding-bottom:30px;
     button, input[type=submit] {
         margin: 10px 0;
     }
     * {
         max-width:100%;
+		// overflow-x: auto;
+		// http://stackoverflow.com/questions/6421966/css-overflow-x-visible-and-overflow-y-hidden-causing-scrollbar-issue
+		// "If you are using visible for either overflow-x or overflow-y and something other than visible for the other. The visible value is interpreted as auto."
+		// for fuck's sake!
     }
+	table {
+		//overflow-x:auto;
+	}
+	img {
+		height:auto;
+	}
 }
 
 a{
@@ -111,6 +122,29 @@ a{
 
 }
 
+table.wikitable {
+	border:1px solid $linecolour;
+	background-color: $segmentbg;
+	th,td {
+		border:1px solid $linecolour!important;
+	} 
+	th {
+		background-color: rgba(0,0,0,0.0420)!important;
+	}
+}
+
+
+#filetoc { // sigh
+	margin:0 0 10px 0!important;
+	padding: 2px 5px;
+	li {
+		display:inline-block;
+		margin:5px 15px;
+		padding:0;
+	}
+	border:1px solid $linecolour!important;
+	background-color: $segmentbg!important;
+}
 
 #toc {
     border:1px solid $linecolour;
@@ -310,7 +344,6 @@ ul#preftoc {
 
 @mixin toolstylin()
 {
-    border-right:30px solid rgba(40,160,255,0.5);
     white-space:nowrap;
     background-color:rgba(40,160,255,0.8);
     text-align:right;
@@ -323,12 +356,34 @@ ul#preftoc {
         font-size:14px;
         color:white;
         display:block;
-        padding:0px 10px 0px 30px;
         line-height:30px;
         text-decoration:none;
         &:hover {
             background-color:rgba(40,160,255,0.5);
         }
+    }
+    font-family:$regularfont;
+    position:absolute;
+    display:none;
+}
+
+@mixin toolstylinright()
+{
+    @include toolstylin();
+    border-right:30px solid rgba(40,160,255,0.5);
+    text-align: right;
+    a {
+        padding:0px 10px 0px 30px;
+    }
+}
+
+@mixin toolstylinleft()
+{
+    @include toolstylin();
+    border-left:30px solid rgba(40,160,255,0.5);
+    text-align:left;
+    a {
+        padding:0px 30px 0px 10px;
     }
 }
 
@@ -362,10 +417,8 @@ ul#preftoc {
     }
 
     #tools {
-        right:0;top:0;
-        @include toolstylin();
-        display:none;
-        position:absolute;
+        right:0; top:0;
+        @include toolstylinright();
         /* position:absolute;
          right:2px;
          top:32px;*/
@@ -436,10 +489,6 @@ $topmenuheight: $topmenufontsize + 10px;
         color:white;
     }
     .pBody {
-        @include toolstylin();
-        font-family:$regularfont;
-        position:absolute;
-        display:none;
         z-index:420;
     }
     .pseudo-header:hover~.pBody,h3:hover~.pBody,.pBody:hover{
@@ -460,7 +509,7 @@ $topmenuheight: $topmenufontsize + 10px;
 .generated-sidebar {
     float:left;
     .pBody {
-        text-align:left;
+        @include toolstylinleft();
     }
 }
 
@@ -471,6 +520,7 @@ $topmenuheight: $topmenufontsize + 10px;
     //border-left:2px solid green;
     float:right;
     .pBody {
+        @include toolstylinright();
         right:-20px;
     }
     .pseudo-header #pt-userpage {
@@ -704,6 +754,6 @@ $pageactionheight: $pageactionfontsize + 10px;
         }
     }
     img,#viewcount {
-      display:none;
+     // display:none;
     }
 }
