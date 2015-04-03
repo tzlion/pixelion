@@ -201,13 +201,13 @@ table.wikitable {
     }
     li { // mraaaoow
         border: 0;
-        padding:0 3px;
+        padding:0 1px;
         margin:0!important;
         line-height:22px;
         display:inline;
         &:after {
-            padding-left: 6px;
-            content: "★";
+            padding-left: 2px;
+            content: " ★ ";
             color: rgba(0,0,0,0.25);
         }
         &:last-child:after {

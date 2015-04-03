@@ -170,14 +170,14 @@ table.wikitable th {
 }
 #catlinks li {
   border: 0;
-  padding: 0 3px;
+  padding: 0 1px;
   margin: 0 !important;
   line-height: 22px;
   display: inline;
 }
 #catlinks li:after {
-  padding-left: 6px;
-  content: "★";
+  padding-left: 2px;
+  content: " ★ ";
   color: rgba(0, 0, 0, 0.25);
 }
 #catlinks li:last-child:after {
