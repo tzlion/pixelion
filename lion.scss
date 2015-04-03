@@ -412,11 +412,12 @@ ul#preftoc {
         text-decoration:none;
         background-color:rgb( 40,160,255);
         color:white;
-        z-index:420;
+        z-index:1000;
         margin:0;padding:0;
     }
 
     #tools {
+        z-index:999;
         right:0; top:0;
         @include toolstylinright();
         /* position:absolute;

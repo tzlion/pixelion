@@ -343,11 +343,12 @@ ul#preftoc li.selected {
   text-decoration: none;
   background-color: #28a0ff;
   color: white;
-  z-index: 420;
+  z-index: 1000;
   margin: 0;
   padding: 0;
 }
 .portlet#p-tb #tools {
+  z-index: 999;
   right: 0;
   top: 0;
   white-space: nowrap;
