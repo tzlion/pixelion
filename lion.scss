@@ -494,7 +494,12 @@ $topmenuheight: $topmenufontsize + 10px;
     .pseudo-header:hover~.pBody,h3:hover~.pBody,.pBody:hover{
         display: block;
     }
-    a {color:white}
+    a {
+        color:white;
+        &:hover {
+            text-decoration :none;
+        }
+    }
 }
 
 #custom-sidebars {

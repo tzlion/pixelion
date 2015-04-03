@@ -437,6 +437,9 @@ ul#preftoc li.selected {
 .generated-sidebar a, .portlet#p-personal a {
   color: white;
 }
+.generated-sidebar a:hover, .portlet#p-personal a:hover {
+  text-decoration: none;
+}
 
 .generated-sidebar {
   float: left;
