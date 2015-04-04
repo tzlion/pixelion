@@ -392,6 +392,14 @@ ul#preftoc {
     }
 }
 
+@mixin showmenu ()
+{
+    display: block;
+    overflow:hidden;
+    animation-name: slidedown;
+    animation-duration: 0.5s;
+}
+
 .portlet#p-tb {
 
     h3 {
@@ -440,10 +448,7 @@ ul#preftoc {
     }
 
     h3:hover~.pBody #tools,.pBody #tools:hover{
-        display: block;
-        overflow:hidden;
-        animation-name: slidedown;
-        animation-duration: 0.5s;
+        @include showmenu();
     }
 
 }
@@ -503,9 +508,7 @@ $topmenuheight: $topmenufontsize + 10px;
     .single-item-header {
         display:none;
     }
-    // Need to be able to select PRECEDING elements to make this work ;_;
-    // ~ only selects following ones
-    .pBody:hover~h3,.pBody:hover~.pseudo-header{
+    &:hover h3 {
         background-color:rgba(40,160,255,0.8);
         color:white;
     }
@@ -513,10 +516,7 @@ $topmenuheight: $topmenufontsize + 10px;
         z-index:420;
     }
     .pseudo-header:hover~.pBody,h3:hover~.pBody,.pBody:hover{
-        display: block;
-        overflow:hidden;
-        animation-name: slidedown;
-        animation-duration: 0.5s;
+        @include showmenu();
     }
     a {
         color:white;
