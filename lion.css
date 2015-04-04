@@ -345,10 +345,10 @@ ul#preftoc li.selected {
   margin: 0;
   padding: 0;
   cursor: default;
-}
-.portlet#p-tb h3:after {
-  font-size: 20px;
-  content: "T";
+  background-image: url("tools.png");
+  background-position: Center center;
+  background-size: 19px auto;
+  background-repeat: no-repeat;
 }
 .portlet#p-tb #tools {
   z-index: 999;
@@ -538,11 +538,16 @@ ul#preftoc li.selected {
 .portlet#p-personal .pBody a {
   padding: 0px 10px 0px 30px;
 }
-.portlet#p-personal .pseudo-header #pt-userpage:before {
-  content: "★ ";
-}
-.portlet#p-personal .pseudo-header #pt-anonuserpage:before {
-  content: "☆ ";
+.portlet#p-personal .pseudo-header #pt-userpage:before, .portlet#p-personal .pseudo-header #pt-anonuserpage:before {
+  display: inline-block;
+  width: 20px;
+  background-image: url("user.png");
+  background-size: 15px auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "_";
+  color: rgba(255, 255, 255, 0);
+  margin-right: 3px;
 }
 
 /*

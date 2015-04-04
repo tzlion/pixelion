@@ -416,10 +416,10 @@ ul#preftoc {
         z-index:1000;
         margin:0;padding:0;
         cursor:default;
-        &:after {
-            font-size:20px;
-            content:"T";
-        }
+        background-image:url("tools.png");
+        background-position: Center center;
+        background-size: 19px auto;
+        background-repeat:no-repeat;
     }
 
     #tools {
@@ -541,16 +541,28 @@ $topmenuheight: $topmenufontsize + 10px;
         @include toolstylinright();
         right:-20px;
     }
-    .pseudo-header #pt-userpage {
-        &:before {
-            content:"★ ";// placeholder for icon.. Maybe
+    .pseudo-header {
+        #pt-userpage,#pt-anonuserpage {
+            &:before {
+                display:inline-block;
+                width:20px;
+                background-image:url("user.png");
+                background-size: 15px auto;
+                background-position:center;
+                background-repeat:no-repeat;
+                content: "_";
+                color:rgba(255,255,255,0);
+                margin-right:3px;
+                // content:"★ ";// placeholder for icon.. Maybe
+            }
+        }
+        #pt-anonuserpage {
+            &:before {
+                //content:"☆ ";// placeholder for icon.. Maybe
+            }
         }
     }
-    .pseudo-header #pt-anonuserpage {
-        &:before {
-            content:"☆ ";// placeholder for icon.. Maybe
-        }
-    }
+
     // Below is old CSS from when all the personal items were displayed in a row..
     // Can be re-enabled if we do that again
     // (also the above CSS for .portlet#p-personal and .generated-sidebar should not be applied to #p-personal)
