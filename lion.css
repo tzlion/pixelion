@@ -1,4 +1,12 @@
 @charset "UTF-8";
+@keyframes slidedown {
+  from {
+    max-height: 0px;
+  }
+  to {
+    max-height: 1000px;
+  }
+}
 body {
   min-width: 245px;
   background-color: #f9c35e;
@@ -393,6 +401,9 @@ ul#preftoc li.selected {
 }
 .portlet#p-tb h3:hover ~ .pBody #tools, .portlet#p-tb .pBody #tools:hover {
   display: block;
+  overflow: hidden;
+  animation-name: slidedown;
+  animation-duration: 0.5s;
 }
 
 #topbar {
@@ -443,6 +454,9 @@ ul#preftoc li.selected {
 }
 .generated-sidebar .pseudo-header:hover ~ .pBody, .generated-sidebar h3:hover ~ .pBody, .generated-sidebar .pBody:hover, .portlet#p-personal .pseudo-header:hover ~ .pBody, .portlet#p-personal h3:hover ~ .pBody, .portlet#p-personal .pBody:hover {
   display: block;
+  overflow: hidden;
+  animation-name: slidedown;
+  animation-duration: 0.5s;
 }
 .generated-sidebar a, .portlet#p-personal a {
   color: white;

@@ -14,6 +14,11 @@ $segmentbg: rgba(1,1,1,0.02);
     margin-right:auto;
 }
 
+@keyframes slidedown {
+    from {max-height:0px;}
+    to {max-height:1000px}
+}
+
 body {
     min-width:245px;
 	background-color:rgb(249,195,94);
@@ -436,6 +441,9 @@ ul#preftoc {
 
     h3:hover~.pBody #tools,.pBody #tools:hover{
         display: block;
+        overflow:hidden;
+        animation-name: slidedown;
+        animation-duration: 0.5s;
     }
 
 }
@@ -506,6 +514,9 @@ $topmenuheight: $topmenufontsize + 10px;
     }
     .pseudo-header:hover~.pBody,h3:hover~.pBody,.pBody:hover{
         display: block;
+        overflow:hidden;
+        animation-name: slidedown;
+        animation-duration: 0.5s;
     }
     a {
         color:white;
