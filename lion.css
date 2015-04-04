@@ -324,12 +324,10 @@ ul#preftoc li.selected {
   right: -10px;
 }
 .portlet#p-tb h3 {
-  display: none;
-}
-.portlet#p-tb #toolboxbutton {
   /*position:absolute;
   top:32px;
   right:2px;*/
+  font-family: "Archivo Narrow";
   position: absolute;
   right: 0;
   top: 0;
@@ -338,7 +336,7 @@ ul#preftoc li.selected {
   height: 30px;
   text-align: center;
   line-height: 30px;
-  font-size: 20px;
+  font-size: 0px;
   font-weight: bold;
   text-decoration: none;
   background-color: #28a0ff;
@@ -346,6 +344,11 @@ ul#preftoc li.selected {
   z-index: 1000;
   margin: 0;
   padding: 0;
+  cursor: default;
+}
+.portlet#p-tb h3:after {
+  font-size: 20px;
+  content: "T";
 }
 .portlet#p-tb #tools {
   z-index: 999;
@@ -388,7 +391,7 @@ ul#preftoc li.selected {
 .portlet#p-tb #tools .feedlink {
   background-position: 10px center;
 }
-.portlet#p-tb #toolboxbutton:hover ~ #tools, .portlet#p-tb #tools:hover {
+.portlet#p-tb h3:hover ~ .pBody #tools, .portlet#p-tb .pBody #tools:hover {
   display: block;
 }
 
@@ -413,6 +416,9 @@ ul#preftoc li.selected {
 }
 .generated-sidebar .pseudo-header, .portlet#p-personal .pseudo-header {
   display: block;
+}
+.generated-sidebar h3, .portlet#p-personal h3 {
+  cursor: default;
 }
 .generated-sidebar h3, .generated-sidebar .pseudo-header, .portlet#p-personal h3, .portlet#p-personal .pseudo-header {
   font-size: 16px;

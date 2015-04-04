@@ -390,30 +390,36 @@ ul#preftoc {
 .portlet#p-tb {
 
     h3 {
-        display:none;
+        //display:none;
     }
 
     position:relative;
     float:right;
     top:-10px;right:-10px;
 
-    #toolboxbutton {
+    h3 {
         /*position:absolute;
         top:32px;
         right:2px;*/
+        font-family:$regularfont;
         position:absolute;
         right:0;top:0;
         display:block;
         width:30px;height:30px;
         text-align:center;
         line-height:30px;
-        font-size:20px;
+        font-size:0px;
         font-weight:bold;
         text-decoration:none;
         background-color:rgb( 40,160,255);
         color:white;
         z-index:1000;
         margin:0;padding:0;
+        cursor:default;
+        &:after {
+            font-size:20px;
+            content:"T";
+        }
     }
 
     #tools {
@@ -428,7 +434,7 @@ ul#preftoc {
         }
     }
 
-    #toolboxbutton:hover~#tools,#tools:hover{
+    h3:hover~.pBody #tools,.pBody #tools:hover{
         display: block;
     }
 
@@ -471,6 +477,9 @@ $topmenuheight: $topmenufontsize + 10px;
    // margin-top:-5px;
     .pseudo-header {
         display:block;
+    }
+    h3 {
+        cursor:default;
     }
     h3,.pseudo-header {
         font-size:$topmenufontsize;

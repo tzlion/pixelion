@@ -259,8 +259,7 @@ class PixelionTemplate extends BaseTemplate
         wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
         $postHookContent = ob_get_clean();
 
-        $content = '<a id="toolboxbutton" href="#" title="Toolbox">T</a>';
-        $content .= $this->makeGenericList( $this->getToolbox(), "id='tools'", $postHookContent );
+        $content = $this->makeGenericList( $this->getToolbox(), "id='tools'", $postHookContent );
         $content .= $this->getPostPortletStuff( "tb" );
 
         $header = $this->getMsg( "toolbox" )->escaped();
