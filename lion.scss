@@ -416,7 +416,7 @@ ul#preftoc {
         z-index:1000;
         margin:0;padding:0;
         cursor:default;
-        background-image:url("tools.png");
+        background-image:url("icons/tools.png");
         background-position: Center center;
         background-size: 19px auto;
         background-repeat:no-repeat;
@@ -546,7 +546,7 @@ $topmenuheight: $topmenufontsize + 10px;
             &:before {
                 display:inline-block;
                 width:20px;
-                background-image:url("user.png");
+                background-image:url("icons/user.png");
                 background-size: 15px auto;
                 background-position:center;
                 background-repeat:no-repeat;
