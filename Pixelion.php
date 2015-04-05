@@ -12,7 +12,7 @@ $wgExtensionCredits['skin'][] = array (
 
 $wgAutoloadClasses['SkinPixelion'] 		= __DIR__ . '/SkinPixelion.php';
 $wgAutoloadClasses['PixelionTemplate'] 	= __DIR__ . '/PixelionTemplate.php';
-$wgMessagesDirs['Pixelion'] 			= __DIR__ . 'i18n';
+$wgMessagesDirs['Pixelion'] 			= __DIR__ . '/i18n';
 
 $wgValidSkinNames['pixelion'] = 'Pixelion';
 
