@@ -48,7 +48,7 @@ body {
   overflow-x: auto;
   padding-bottom: 30px;
 }
-#content button, #content input[type=submit] {
+#content button, #content input[type=submit], #content input[type=button] {
   margin: 10px 0;
 }
 #content * {
@@ -265,7 +265,7 @@ input, select, button {
   font-size: 16px;
 }
 
-button, input[type=submit] {
+button, input[type=submit], input[type=button] {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   border: none;
@@ -810,4 +810,81 @@ ul#preftoc li.selected {
 }
 .smwb-factbox .smwb-title, .smwb-ifactbox .smwb-title {
   font-family: "Jockey One";
+}
+
+.comments-body p {
+  margin: 0;
+}
+.comments-body #allcomments a#end:first-child {
+  display: block;
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  background-color: rgba(1, 1, 1, 0.02);
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.comments-body #allcomments a#end:first-child:after {
+  content: "No comments yet";
+  color: rgba(0, 0, 0, 0.5);
+}
+.comments-body #allcomments a#end:first-child:hover {
+  text-decoration: none;
+}
+.comments-body #spy {
+  float: right;
+  margin-top: 5px;
+}
+.comments-body .c-item.full {
+  width: auto;
+}
+.comments-body .c-item.reply {
+  width: auto;
+  margin-top: -5px;
+}
+.comments-body .c-item {
+  clear: both;
+  border: 1px solid rgba(1, 1, 1, 0.05);
+  background-color: rgba(1, 1, 1, 0.02);
+  padding: 10px;
+}
+.comments-body .c-item .c-avatar {
+  position: relative;
+  float: left;
+}
+.comments-body .c-item .f-message {
+  width: auto;
+}
+.comments-body .cleared {
+  clear: both;
+}
+.comments-body .c-order {
+  padding: 0;
+}
+.comments-body form {
+  max-width: 500px !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+.comments-body form .c-form-title {
+  float: left;
+}
+.comments-body form .c-form-reply-to {
+  float: right;
+}
+.comments-body form .c-form-message {
+  width: auto;
+  clear: both;
+}
+.comments-body form textarea#comment {
+  clear: both;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.comments-body form .c-form-button {
+  text-align: center;
+}
+.comments-body form p {
+  margin: 0;
 }

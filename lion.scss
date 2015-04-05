@@ -58,7 +58,7 @@ body {
 #content {
     overflow-x:auto;
     padding-bottom:30px;
-    button, input[type=submit] {
+    button, input[type=submit], input[type=button] {
         margin: 10px 0;
     }
     * {
@@ -291,7 +291,7 @@ input,select,button {
     font-size:16px;
 }
 
-button, input[type=submit] {
+button, input[type=submit], input[type=button] {
     background-color:rgba(0,0,0,0.8);
     color:white;
     border:none;
@@ -863,4 +863,92 @@ $pageactionheight: $pageactionfontsize + 10px;
         font-family: $titlefont;
     }
 
+}
+
+
+// comments ext
+.comments-body {
+    p {
+        margin:0;
+    }
+    #allcomments {
+       // padding: 0 5px;
+        a#end:first-child {
+            // hack way of determining we have no comments
+            // so it doesnt look weird and empty
+            display:block;
+            border: 1px solid $linecolour;
+            background-color: $segmentbg;
+            padding: 10px;
+            text-align:center;
+            &:after {
+                content: "No comments yet";
+                color:rgba(0,0,0,0.5);
+            }
+            &:hover{
+                text-decoration:none;
+            }
+            margin-bottom: 10px;
+        }
+    }
+    #spy {
+        float:right;
+        margin-top: 5px;
+    }
+    .c-item.full {
+        width:auto;
+    }
+    .c-item.reply {
+        width:auto;
+        margin-top: -5px;
+    }
+    .c-item {
+        clear: both;
+        border: 1px solid $linecolour;
+        background-color: $segmentbg;
+        padding: 10px;
+        .c-avatar {
+            position:relative;
+            float:left;
+        }
+        .f-message {
+            width: auto;
+        }
+    }
+    .cleared {
+        clear:both;
+    }
+    .c-order {
+        padding: 0;
+    }
+    form {
+        .c-form-title {
+            float:left;
+        }
+        .c-form-reply-to {
+            float:right;
+        }
+        .c-form-message {
+            width:auto;
+            clear:both;
+        }
+        max-width:500px!important;
+
+        margin-left:auto;
+        margin-right:auto;
+        padding: 0;
+
+        textarea#comment {
+            clear:both;
+            display:block;
+            width:100%;
+            box-sizing: border-box;
+        }
+        .c-form-button {
+            text-align:center;
+        }
+        p {
+            margin:0;
+        }
+    }
 }
