@@ -770,3 +770,28 @@ ul#preftoc li.selected {
 .wikiEditor-ui-tabs div a {
   padding: 0 0.4em !important;
 }
+
+.smwb-factbox, .smwb-ifactbox {
+  border: none !important;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-collapse: collapse;
+}
+.smwb-factbox tr, .smwb-ifactbox tr {
+  border: none !important;
+  background-color: transparent !important;
+}
+.smwb-factbox tr.smwb-propvalue, .smwb-ifactbox tr.smwb-propvalue {
+  background-color: rgba(1, 1, 1, 0.02) !important;
+}
+.smwb-factbox tr.smwb-propvalue th, .smwb-factbox tr.smwb-propvalue td, .smwb-ifactbox tr.smwb-propvalue th, .smwb-ifactbox tr.smwb-propvalue td {
+  border: 1px solid rgba(1, 1, 1, 0.05) !important;
+  padding: 5px 10px !important;
+}
+.smwb-factbox td, .smwb-factbox th, .smwb-ifactbox td, .smwb-ifactbox th {
+  background-color: transparent !important;
+  border: none !important;
+}
+.smwb-factbox .smwb-title, .smwb-ifactbox .smwb-title {
+  font-family: "Jockey One";
+}

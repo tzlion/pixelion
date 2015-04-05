@@ -811,3 +811,39 @@ $pageactionheight: $pageactionfontsize + 10px;
     padding: 0 0.4em!important; // basically a hack so it still looks ok at min supported mobile res
     // .. IF you dont enable the extra buttons
 }
+
+// Semantic MediaWiki extension's factbox
+// This uses tables for everything and the tables have no classes and it is awful. idk i tried
+.smwb-factbox, .smwb-ifactbox {
+
+    border:none!important;
+
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-collapse: collapse;
+
+    tr {
+        border:none!important;
+        background-color:transparent!important;
+    }
+    tr.smwb-center {
+        //text-align:center;
+    }
+    tr.smwb-propvalue {
+        background-color: $segmentbg!important;
+        th,td {
+            border: 1px solid $linecolour!important;
+            padding: 5px 10px!important;
+        }
+    }
+
+    td,th {
+        background-color:transparent!important;
+        border:none!important;
+    }
+
+    .smwb-title {
+        font-family: $titlefont;
+    }
+
+}
