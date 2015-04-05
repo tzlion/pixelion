@@ -125,7 +125,11 @@ class PixelionTemplate extends BaseTemplate
             $prefixOnly = $prefixSeparator = "";
         }
 
-        $theRest = trim( preg_replace( "~\"?$quotedPrefixedPageTitle\"?$~", "", $fulltitle ) );
+        if ( preg_match( "~\"?$quotedPrefixedPageTitle\"?$~", $fulltitle ) ) {
+            $theRest = trim( preg_replace( "~\"?$quotedPrefixedPageTitle\"?$~", "", $fulltitle ) );
+        } else {
+            return [ "", "", "", $fulltitle, [ $fulltitle ], "" ];
+        }
 
         return [ $theRest, $prefixOnly, $prefixSeparator, $pageTitleOnly, $chain, "/" ];
     }
