@@ -108,6 +108,10 @@ class PixelionTemplate extends BaseTemplate
         $fulltitle = $this->data['title'];
         $pageTitleOnly = $this->getSkin()->getRelevantTitle()->mTextform;
 
+        if ( $fulltitle == $pageTitleOnly ) {
+            return [ "", "", "", $fulltitle, [ $fulltitle ], "" ];
+        }
+
         $prefixedPageTitle = $this->getSkin()->getRelevantTitle()->getPrefixedText();
 
         $quotedPrefixedPageTitle = preg_quote("$prefixedPageTitle","~");
