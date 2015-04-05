@@ -138,7 +138,7 @@ class PixelionTemplate extends BaseTemplate
 
         if ( $chain ) {
             $bollocksChainSeparator = "</span><span class='main-heading-chain-separator'>$chainSeparator</span><span class='main-heading-chain-item'>";
-            $mainTitle = "<span class=''>" . implode( $bollocksChainSeparator, array_reverse( $chain ) ). "</span>";
+            $mainTitle = "<span class='main-heading-chain-item'>" . implode( $bollocksChainSeparator, array_reverse( $chain ) ). "</span>";
         } else {
             $mainTitle = $pageTitleOnly;
         }
