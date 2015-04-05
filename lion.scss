@@ -221,6 +221,23 @@ table.wikitable {
     }
 }
 
+.main-heading-action {
+    // display:block;
+    font-weight:normal;
+    font-size:80%;
+}
+.main-heading-whole-prefix {
+    // opacity: 0.7;
+    display:inline-block;
+    margin-right: 8px;
+}
+
+.main-heading-chain-separator {
+    display:inline-block;
+    margin-left:8px;
+    margin-right:8px;
+}
+
 h1,h2,h3,h4 {
     font-family:$titlefont;
     font-weight:700;

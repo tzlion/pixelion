@@ -73,6 +73,83 @@ class PixelionTemplate extends BaseTemplate
     <?php
     }
 
+    private function getParentChain( Title $title )
+    {
+        $chain = [];
+        $currTitle = $title;
+        $parentTitle = $title->getBaseTitle();
+
+        $chain[] = $currTitle->mTextform;
+        while( $currTitle->mTextform != $parentTitle->mTextform ) {
+            $currTitle = $parentTitle;
+            $parentTitle = $currTitle->getBaseTitle();
+
+            $chain[] = $currTitle->mTextform;
+        }
+
+        $bumchain = [];
+        foreach( $chain as $key => $item ) {
+            if ( isset( $chain[$key+1] ) ) {
+                $nextitem = $chain[$key+1] ;
+                $qnextitem= preg_quote( $nextitem, "~" );
+                $item = preg_replace("~^$qnextitem/~", "", $item );
+            }
+            $bumchain[] = $item;
+        }
+
+        return $bumchain;
+    }
+
+
+    private function getTitleParts()
+    {
+        $chain = $this->getParentChain( $this->getSkin()->getRelevantTitle() );
+
+        $fulltitle = $this->data['title'];
+        $pageTitleOnly = $this->getSkin()->getRelevantTitle()->mTextform;
+
+        $prefixedPageTitle = $this->getSkin()->getRelevantTitle()->getPrefixedText();
+
+        $quotedPrefixedPageTitle = preg_quote("$prefixedPageTitle","~");
+
+        if ( $pageTitleOnly != $prefixedPageTitle ) {
+            $quotedPageTitleOnly = preg_quote("$pageTitleOnly","~");
+            $prefixOnly = preg_replace( "~:$quotedPageTitleOnly$~", "", $prefixedPageTitle );
+            $quotedPrefixOnly = preg_quote("$prefixOnly","~");
+            $prefixSeparator = ":";
+        } else {
+            $prefixOnly = $prefixSeparator = "";
+        }
+
+        $theRest = trim( preg_replace( "~\"?$quotedPrefixedPageTitle\"?$~", "", $fulltitle ) );
+
+        return [ $theRest, $prefixOnly, $prefixSeparator, $pageTitleOnly, $chain, "/" ];
+    }
+
+    protected function getMainTitleHtml()
+    {
+        list( $theRest, $prefixOnly, $prefixSeparator, $pageTitleOnly, $chain, $chainSeparator ) = $this->getTitleParts();
+
+        $prefixedPart =
+            "<span class='main-heading-whole-prefix'>" .
+                "<span class='main-heading-prefix'>$prefixOnly</span>" .
+                "<span class='main-heading-separator'>$prefixSeparator</span>" .
+            "</span>";
+
+        if ( $chain ) {
+            $bollocksChainSeparator = "</span><span class='main-heading-chain-separator'>$chainSeparator</span><span class='main-heading-chain-item'>";
+            $mainTitle = "<span class=''>" . implode( $bollocksChainSeparator, array_reverse( $chain ) ). "</span>";
+        } else {
+            $mainTitle = $pageTitleOnly;
+        }
+
+        $prefixedPart .=
+            "<span class='main-heading-title'>$mainTitle</span>";
+
+        return "<span class='main-heading-action'>$theRest</span> "
+        ."<span class='main-heading-prefixed-title'>$prefixedPart</span>";
+    }
+
     protected function renderMainContent()
     {
         // is there a reason this is only applied to the first H1?
@@ -84,7 +161,7 @@ class PixelionTemplate extends BaseTemplate
             <a id="top"></a>
 
             <h1 id="firstHeading" class="firstHeading" lang="<?= $pageLanguage ?>">
-                <span dir="auto"><? $this->html( 'title' ) ?></span>
+                <span dir="auto"><?= $this->getMainTitleHtml() ?></span>
             </h1>
 
             <div id="bodyContent" class="mw-body-content">

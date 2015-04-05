@@ -193,6 +193,22 @@ table.wikitable th {
   content: "";
 }
 
+.main-heading-action {
+  font-weight: normal;
+  font-size: 80%;
+}
+
+.main-heading-whole-prefix {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.main-heading-chain-separator {
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 h1, h2, h3, h4 {
   font-family: "Jockey One";
   font-weight: 700;
