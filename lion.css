@@ -821,7 +821,7 @@ ul#preftoc li.selected {
   background-color: rgba(1, 1, 1, 0.02);
   padding: 10px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .comments-body #allcomments a#end:first-child:after {
   content: "No comments yet";
@@ -850,6 +850,12 @@ ul#preftoc li.selected {
 .comments-body .c-item .c-avatar {
   position: relative;
   float: left;
+}
+.comments-body .c-item .c-avatar img {
+  margin-right: 10px;
+}
+.comments-body .c-item .c-container {
+  margin-left: 0 !important;
 }
 .comments-body .c-item .f-message {
   width: auto;
