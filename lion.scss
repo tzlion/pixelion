@@ -799,3 +799,15 @@ $pageactionheight: $pageactionfontsize + 10px;
      // display:none;
     }
 }
+
+// for wikieditor extension
+.wikiEditor-ui, .wikiEditor-ui-controls, .wikiEditor-ui-buttons {
+    background-color:transparent!important;
+}
+.wikiEditor-ui {
+    overflow:hidden;
+}
+.wikiEditor-ui-tabs div a {
+    padding: 0 0.4em!important; // basically a hack so it still looks ok at min supported mobile res
+    // .. IF you dont enable the extra buttons
+}

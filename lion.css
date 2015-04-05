@@ -758,3 +758,15 @@ ul#preftoc li.selected {
 #footer a:hover {
   color: white;
 }
+
+.wikiEditor-ui, .wikiEditor-ui-controls, .wikiEditor-ui-buttons {
+  background-color: transparent !important;
+}
+
+.wikiEditor-ui {
+  overflow: hidden;
+}
+
+.wikiEditor-ui-tabs div a {
+  padding: 0 0.4em !important;
+}
