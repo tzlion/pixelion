@@ -840,7 +840,7 @@ ul#preftoc li.selected {
       margin-bottom: 15px;
   }*/
 }
-.comments-body #spy {
+.comments-body .c-spy {
   float: right;
   margin-top: 5px;
 }
@@ -876,6 +876,15 @@ ul#preftoc li.selected {
 }
 .comments-body .c-item .c-user p, .comments-body .c-item .c-user div {
   display: inline-block;
+}
+.comments-body .c-user a {
+  font-size: 15px;
+}
+.comments-body .c-user-level {
+  margin-right: 2px;
+}
+.comments-body .c-time, .comments-body .c-actions, .comments-body .c-spy {
+  font-size: 13px;
 }
 .comments-body .cleared {
   clear: both;

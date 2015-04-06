@@ -897,7 +897,7 @@ $pageactionheight: $pageactionfontsize + 10px;
             margin-bottom: 15px;
         }*/
     }
-    #spy {
+    .c-spy {
         float:right;
         margin-top: 5px;
     }
@@ -935,6 +935,15 @@ $pageactionheight: $pageactionfontsize + 10px;
                 display:inline-block;
             }
         }
+    }
+    .c-user a {
+        font-size: 15px;
+    }
+    .c-user-level {
+        margin-right: 2px;
+    }
+    .c-time, .c-actions, .c-spy {
+        font-size: 13px;
     }
     .cleared {
         clear:both;
