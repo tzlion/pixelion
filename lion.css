@@ -260,6 +260,12 @@ textarea#wpTextbox1 {
   box-sizing: border-box;
 }
 
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+}
+
 input, select, button {
   font-family: "Archivo Narrow";
   font-size: 16px;
@@ -815,20 +821,24 @@ ul#preftoc li.selected {
 .comments-body p {
   margin: 0;
 }
-.comments-body #allcomments a#end:first-child {
-  display: block;
-  border: 1px solid rgba(1, 1, 1, 0.05);
-  background-color: rgba(1, 1, 1, 0.02);
-  padding: 10px;
-  text-align: center;
-  margin-bottom: 15px;
-}
-.comments-body #allcomments a#end:first-child:after {
-  content: "No comments yet";
-  color: rgba(0, 0, 0, 0.5);
-}
-.comments-body #allcomments a#end:first-child:hover {
-  text-decoration: none;
+.comments-body #allcomments {
+  /*a#end:first-child {
+      // hack way of determining we have no comments
+      // so it doesnt look weird and empty
+      display:block;
+      border: 1px solid $linecolour;
+      background-color: $segmentbg;
+      padding: 10px;
+      text-align:center;
+      &:after {
+          content: "No comments yet";
+          color:rgba(0,0,0,0.5);
+      }
+      &:hover{
+          text-decoration:none;
+      }
+      margin-bottom: 15px;
+  }*/
 }
 .comments-body #spy {
   float: right;
@@ -867,7 +877,6 @@ ul#preftoc li.selected {
   padding: 0;
 }
 .comments-body form {
-  max-width: 500px !important;
   margin-left: auto;
   margin-right: auto;
   padding: 0;

@@ -286,6 +286,12 @@ textarea#wpTextbox1 {
     box-sizing:border-box;
 }
 
+textarea {
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color:rgba(255,255,255,0.8);
+    padding: 5px;
+}
+
 input,select,button {
     font-family:$regularfont;
     font-size:16px;
@@ -873,7 +879,7 @@ $pageactionheight: $pageactionfontsize + 10px;
     }
     #allcomments {
        // padding: 0 5px;
-        a#end:first-child {
+        /*a#end:first-child {
             // hack way of determining we have no comments
             // so it doesnt look weird and empty
             display:block;
@@ -889,7 +895,7 @@ $pageactionheight: $pageactionfontsize + 10px;
                 text-decoration:none;
             }
             margin-bottom: 15px;
-        }
+        }*/
     }
     #spy {
         float:right;
@@ -938,7 +944,7 @@ $pageactionheight: $pageactionfontsize + 10px;
             width:auto;
             clear:both;
         }
-        max-width:500px!important;
+       // max-width:500px!important;
 
         margin-left:auto;
         margin-right:auto;
