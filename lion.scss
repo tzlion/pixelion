@@ -531,7 +531,7 @@ $topmenuheight: $topmenufontsize + 10px;
     .single-item-header {
         display:none;
     }
-    &:hover h3 {
+    &:hover h3, &:hover .pseudo-header {
         background-color:rgba(40,160,255,0.8);
         color:white;
     }

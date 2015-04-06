@@ -467,7 +467,7 @@ ul#preftoc li.selected {
 .generated-sidebar .single-item-header, .portlet#p-personal .single-item-header {
   display: none;
 }
-.generated-sidebar:hover h3, .portlet#p-personal:hover h3 {
+.generated-sidebar:hover h3, .generated-sidebar:hover .pseudo-header, .portlet#p-personal:hover h3, .portlet#p-personal:hover .pseudo-header {
   background-color: rgba(40, 160, 255, 0.8);
   color: white;
 }
