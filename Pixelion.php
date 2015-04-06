@@ -7,6 +7,7 @@ $wgExtensionCredits['skin'][] = array (
     'descriptionmsg' => 'pixelion-desc',
     'url' 		=> 'http://lion.li',
     'author' 	=> array( 'a lion' ),
+    'version'   => '0.69'
     // 'license_name' => 'idk yet'
 );
 
