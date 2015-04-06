@@ -910,7 +910,8 @@ $pageactionheight: $pageactionfontsize + 10px;
     }
     .c-item {
         clear: both;
-        border: 1px solid $linecolour;
+        border:0;
+        border-left: 10px solid $segmentbg;
         background-color: $segmentbg;
         padding: 10px;
         .c-avatar {
@@ -923,8 +924,16 @@ $pageactionheight: $pageactionfontsize + 10px;
         .c-container {
             margin-left: 0!important;
         }
-        .f-message {
+        .f-message,.r-message {
             width: auto;
+        }
+        .c-actions {
+            margin:0;
+        }
+        .c-user {
+            p,div{
+                display:inline-block;
+            }
         }
     }
     .cleared {

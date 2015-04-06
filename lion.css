@@ -853,7 +853,8 @@ ul#preftoc li.selected {
 }
 .comments-body .c-item {
   clear: both;
-  border: 1px solid rgba(1, 1, 1, 0.05);
+  border: 0;
+  border-left: 10px solid rgba(1, 1, 1, 0.02);
   background-color: rgba(1, 1, 1, 0.02);
   padding: 10px;
 }
@@ -867,8 +868,14 @@ ul#preftoc li.selected {
 .comments-body .c-item .c-container {
   margin-left: 0 !important;
 }
-.comments-body .c-item .f-message {
+.comments-body .c-item .f-message, .comments-body .c-item .r-message {
   width: auto;
+}
+.comments-body .c-item .c-actions {
+  margin: 0;
+}
+.comments-body .c-item .c-user p, .comments-body .c-item .c-user div {
+  display: inline-block;
 }
 .comments-body .cleared {
   clear: both;
