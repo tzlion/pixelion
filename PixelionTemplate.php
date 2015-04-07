@@ -174,7 +174,7 @@ class PixelionTemplate extends BaseTemplate
 
             <div id="bodyContent" class="mw-body-content">
 
-                <?php if ( $this->getMsg( "tagline" )->exists() ) { ?>
+                <?php if ( $this->getMsg( "tagline" )->exists() && $this->getMsg( "tagline" )->text() ) { ?>
                     <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
                 <? } ?>
                 <?php if ( $this->data( "subtitle" ) ) { ?>
