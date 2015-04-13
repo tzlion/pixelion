@@ -22,7 +22,7 @@ $segmentbg: rgba(1,1,1,0.02);
 body {
     min-width:245px;
 	background-color:rgb(249,195,94);
-    //background-image:url("http://image.shutterstock.com/display_pic_with_logo/255379/255379,1298395185,2/stock-photo-abstract-background-of-magic-burst-with-rays-of-light-71727616.jpg");
+   
     background-image:url("li-sqr2bv.png");
     background-size:100% auto;
     background-attachment: fixed;
@@ -262,6 +262,7 @@ h1 {
 }
 h2 {
     border-bottom: 1px solid $linecolour;
+	overflow: hidden;
     padding-bottom:6px;
 	font-size:30px;
     line-height:30px;
