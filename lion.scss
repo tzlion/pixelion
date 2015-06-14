@@ -431,8 +431,13 @@ ul#preftoc {
 {
     display: block;
     overflow:hidden;
+}
+
+@mixin showmenuanimate()
+{
     animation-name: slidedown;
     animation-duration: 0.5s;
+	@include showmenu();
 }
 
 .portlet#p-tb {
@@ -482,7 +487,11 @@ ul#preftoc {
         }
     }
 
-    h3:hover~.pBody #tools,.pBody #tools:hover{
+    h3:hover~.pBody #tools{
+        @include showmenuanimate();
+    }
+
+    .pBody #tools:hover{
         @include showmenu();
     }
 
@@ -550,7 +559,10 @@ $topmenuheight: $topmenufontsize + 10px;
     .pBody {
         z-index:420;
     }
-    .pseudo-header:hover~.pBody,h3:hover~.pBody,.pBody:hover{
+    .pseudo-header:hover~.pBody,h3:hover~.pBody{
+        @include showmenuanimate();
+    }
+    .pBody:hover{
         @include showmenu();
     }
     a {

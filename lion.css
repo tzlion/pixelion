@@ -432,11 +432,15 @@ ul#preftoc li.selected {
 .portlet#p-tb #tools .feedlink {
   background-position: 10px center;
 }
-.portlet#p-tb h3:hover ~ .pBody #tools, .portlet#p-tb .pBody #tools:hover {
-  display: block;
-  overflow: hidden;
+.portlet#p-tb h3:hover ~ .pBody #tools {
   animation-name: slidedown;
   animation-duration: 0.5s;
+  display: block;
+  overflow: hidden;
+}
+.portlet#p-tb .pBody #tools:hover {
+  display: block;
+  overflow: hidden;
 }
 
 #topbar {
@@ -485,11 +489,15 @@ ul#preftoc li.selected {
 .generated-sidebar .pBody, .portlet#p-personal .pBody {
   z-index: 420;
 }
-.generated-sidebar .pseudo-header:hover ~ .pBody, .generated-sidebar h3:hover ~ .pBody, .generated-sidebar .pBody:hover, .portlet#p-personal .pseudo-header:hover ~ .pBody, .portlet#p-personal h3:hover ~ .pBody, .portlet#p-personal .pBody:hover {
-  display: block;
-  overflow: hidden;
+.generated-sidebar .pseudo-header:hover ~ .pBody, .generated-sidebar h3:hover ~ .pBody, .portlet#p-personal .pseudo-header:hover ~ .pBody, .portlet#p-personal h3:hover ~ .pBody {
   animation-name: slidedown;
   animation-duration: 0.5s;
+  display: block;
+  overflow: hidden;
+}
+.generated-sidebar .pBody:hover, .portlet#p-personal .pBody:hover {
+  display: block;
+  overflow: hidden;
 }
 .generated-sidebar a, .portlet#p-personal a {
   color: white;
