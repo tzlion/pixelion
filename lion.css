@@ -99,6 +99,16 @@ a:hover {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+#bodyContent .tleft, #bodyContent .floatleft {
+  float: left;
+  clear: left;
+  margin-left: 5px;
+}
+#bodyContent .tright, #bodyContent .floatright {
+  float: right;
+  clear: right;
+  margin-left: 5px;
+}
 
 table.wikitable {
   border: 1px solid rgba(1, 1, 1, 0.05);
