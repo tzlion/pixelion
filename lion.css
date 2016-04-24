@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @keyframes slidedown {
   from {
-    max-height: 0px;
+    max-height: 0;
   }
   to {
     max-height: 1000px;
@@ -9,14 +9,14 @@
 }
 body {
   min-width: 245px;
-  background-color: #f9c35e;
-  background-image: url("li-sqr2bv.png");
+  background-color: #ff5080;
+  background-image: url("bg.jpg");
   background-size: 100% auto;
   background-attachment: fixed;
   background-position: center;
   font-size: 16px;
   margin: 20px;
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   height: 100%;
 }
 
@@ -41,7 +41,7 @@ body {
   clear: both;
   background-color: rgba(255, 255, 255, 0.95);
   padding: 20px;
-  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
 }
 
 #content {
@@ -63,6 +63,9 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+a img {
+  border: none;
 }
 
 #bodyContent {
@@ -93,7 +96,7 @@ a:hover {
 }
 #bodyContent ol, #bodyContent ul {
   margin: 5px 0 5px 30px;
-  padding: 0 0 0 0px;
+  padding: 0 0 0 0;
 }
 #bodyContent ol li, #bodyContent ul li {
   margin-top: 5px;
@@ -150,7 +153,7 @@ table.wikitable th {
   text-decoration: none;
 }
 #toc h2 {
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   margin: 0;
   border: 0;
   font-size: 18px;
@@ -167,7 +170,7 @@ table.wikitable th {
   margin-bottom: 5px !important;
 }
 #toc ul ul ul {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
 #toc .tocnumber:after {
   content: ".";
@@ -220,7 +223,7 @@ table.wikitable th {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Jockey One";
+  font-family: "Jockey One", Arial, sans-serif;
   font-weight: 700;
 }
 
@@ -278,7 +281,7 @@ textarea {
 }
 
 input, select, button {
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -286,7 +289,7 @@ button, input[type=submit], input[type=button] {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   border: none;
-  font-family: "Jockey One";
+  font-family: "Jockey One", Arial, sans-serif;
 }
 
 fieldset {
@@ -304,12 +307,6 @@ hr {
   border: 0;
   border-bottom: 1px solid rgba(1, 1, 1, 0.05);
   margin: 40px 0;
-  /*&:after{
-      color: rgba(1,1,1,0.1);
-      content:"★ ★ ★";
-      text-align:center;
-      display:block;
-  }*/
 }
 
 .mw-ui-container {
@@ -319,7 +316,7 @@ hr {
 }
 
 .mw-editsection {
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
 }
 .mw-editsection a {
   text-decoration: none;
@@ -342,7 +339,7 @@ ul#pagehistory {
 }
 ul#pagehistory li {
   padding: 2px 4px;
-  margin: 5px 0px;
+  margin: 5px 0;
 }
 
 ul#preftoc {
@@ -365,10 +362,7 @@ ul#preftoc li.selected {
   right: -10px;
 }
 .portlet#p-tb h3 {
-  /*position:absolute;
-  top:32px;
-  right:2px;*/
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   position: absolute;
   right: 0;
   top: 0;
@@ -377,7 +371,7 @@ ul#preftoc li.selected {
   height: 30px;
   text-align: center;
   line-height: 30px;
-  font-size: 0px;
+  font-size: 0;
   font-weight: bold;
   text-decoration: none;
   background-color: #28a0ff;
@@ -398,18 +392,15 @@ ul#preftoc li.selected {
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
   text-align: right;
-  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   position: absolute;
   display: none;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
   text-align: right;
-  /* position:absolute;
-   right:2px;
-   top:32px;*/
 }
 .portlet#p-tb #tools ul, .portlet#p-tb #tools li {
   padding: 0;
@@ -427,7 +418,7 @@ ul#preftoc li.selected {
   background-color: rgba(40, 160, 255, 0.5);
 }
 .portlet#p-tb #tools a {
-  padding: 0px 10px 0px 30px;
+  padding: 0 10px 0 30px;
 }
 .portlet#p-tb #tools .feedlink {
   background-position: 10px center;
@@ -444,14 +435,12 @@ ul#preftoc li.selected {
 }
 
 #topbar {
-  font-family: "Jockey One";
+  font-family: "Jockey One", Arial, sans-serif;
   font-size: 16px;
   line-height: 26px;
   margin: -50px -20px 24px -20px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  /*white-space:nowrap;
-  overflow-x:auto;*/
 }
 #topbar:after {
   display: block;
@@ -513,11 +502,11 @@ ul#preftoc li.selected {
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
   text-align: right;
-  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   position: absolute;
   display: none;
   border-left: 30px solid rgba(40, 160, 255, 0.5);
@@ -539,36 +528,22 @@ ul#preftoc li.selected {
   background-color: rgba(40, 160, 255, 0.5);
 }
 .generated-sidebar .pBody a {
-  padding: 0px 30px 0px 10px;
+  padding: 0 30px 0 10px;
 }
 
 .portlet#p-personal {
   background-color: rgba(255, 255, 255, 0.15);
   float: right;
-  /*  float:right;
-  text-align:right;
-   ul,li,div {
-       display:inline;padding:0;margin:0;list-style:none;
-   }
-   li {
-       display:inline-block;
-   }
-   h3 {
-       display:none;
-   }
-   a {
-       color:white;text-decoration:none;padding:2px 5px 2px 0;
-   }*/
 }
 .portlet#p-personal .pBody {
   white-space: nowrap;
   background-color: rgba(40, 160, 255, 0.8);
   text-align: right;
-  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   position: absolute;
   display: none;
   border-right: 30px solid rgba(40, 160, 255, 0.5);
@@ -591,7 +566,7 @@ ul#preftoc li.selected {
   background-color: rgba(40, 160, 255, 0.5);
 }
 .portlet#p-personal .pBody a {
-  padding: 0px 10px 0px 30px;
+  padding: 0 10px 0 30px;
 }
 .portlet#p-personal .pseudo-header #pt-userpage:before, .portlet#p-personal .pseudo-header #pt-anonuserpage:before {
   display: inline-block;
@@ -605,21 +580,6 @@ ul#preftoc li.selected {
   margin-right: 3px;
 }
 
-/*
-// Maybe reapply these old styles IF theres only one topbar item
-.portlet#p-navigation {
-
-    ul,li,div {
-        display:inline;padding:0;margin:0;list-style:none;
-    }
-    h3 {
-        display:none;
-    }
-    a {
-        color:white;text-decoration:none;padding:2px 0 2px 5px;
-    }
-}
-*/
 #headbar {
   position: relative;
 }
@@ -642,10 +602,6 @@ ul#preftoc li.selected {
 .portlet#p-search h3 {
   display: none;
 }
-.portlet#p-search input {
-  /*height:30px;
-  font-size:20px;*/
-}
 .portlet#p-search #power-search-densetsu {
   right: 0;
   top: -16px;
@@ -659,7 +615,7 @@ ul#preftoc li.selected {
 
 .portlet#p-logo {
   max-width: 100%;
-  font-family: "Jockey One";
+  font-family: "Jockey One", Arial, sans-serif;
 }
 .portlet#p-logo #textonly-wiki-name {
   font-size: 70px;
@@ -678,13 +634,11 @@ ul#preftoc li.selected {
 
 .portlet#p-cactions {
   float: left;
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   font-size: 20px;
   line-height: 30px;
   position: relative;
   padding-top: 17px;
-  /*zzzposition:absolute;
-  top:-$pageactionheight;left:4px;*/
   padding-left: 4px;
   white-space: nowrap;
   overflow-x: auto;
@@ -709,7 +663,7 @@ ul#preftoc li.selected {
   line-height: 30px;
   display: inline-block;
   text-decoration: none;
-  padding: 0px 3px;
+  padding: 0 3px;
 }
 .portlet#p-cactions a:hover {
   color: rgba(255, 255, 255, 0.9);
@@ -720,7 +674,7 @@ ul#preftoc li.selected {
 }
 .portlet#p-cactions [id^=ca-nstab] a, .portlet#p-cactions #ca-talk a {
   background-color: rgba(221, 221, 221, 0.9);
-  padding: 0px 6px;
+  padding: 0 6px;
   color: rgba(0, 0, 0, 0.8);
 }
 .portlet#p-cactions [id^=ca-nstab] a:hover, .portlet#p-cactions #ca-talk a:hover {
@@ -746,7 +700,7 @@ ul#preftoc li.selected {
   list-style: none;
 }
 .portlet#p-lang h3 {
-  font-family: "Archivo Narrow";
+  font-family: "Archivo Narrow", Arial, sans-serif;
   font-size: 16px;
   display: none;
 }
@@ -834,30 +788,11 @@ ul#preftoc li.selected {
   border: none !important;
 }
 .smwb-factbox .smwb-title, .smwb-ifactbox .smwb-title {
-  font-family: "Jockey One";
+  font-family: "Jockey One", Arial, sans-serif;
 }
 
 .comments-body p {
   margin: 0;
-}
-.comments-body #allcomments {
-  /*a#end:first-child {
-      // hack way of determining we have no comments
-      // so it doesnt look weird and empty
-      display:block;
-      border: 1px solid $linecolour;
-      background-color: $segmentbg;
-      padding: 10px;
-      text-align:center;
-      &:after {
-          content: "No comments yet";
-          color:rgba(0,0,0,0.5);
-      }
-      &:hover{
-          text-decoration:none;
-      }
-      margin-bottom: 15px;
-  }*/
 }
 .comments-body .c-spy {
   float: right;

@@ -7,8 +7,8 @@ $wgExtensionCredits['skin'][] = array (
     'descriptionmsg' => 'pixelion-desc',
     'url' 		=> 'http://lion.li',
     'author' 	=> array( 'a lion' ),
-    'version'   => '0.69.1'
-    // 'license_name' => 'idk yet'
+    'version'   => '0.7',
+    'license-name' => 'GPLv2+',
 );
 
 $wgAutoloadClasses['SkinPixelion'] 		= __DIR__ . '/SkinPixelion.php';
@@ -21,7 +21,6 @@ $wgResourceModules['skins.pixelion.harrystyles'] = array(
     'styles' => array(
         'lion.css' => array( /* 'media' => 'screen'*/ ),
         // ^ specifying media in here seems to break nested media queries in IE
-        // big fat sighs @ both IE and mediawiki for this one
         // 'printlion.css' => array( 'media' => 'print' ), // maybe later
     ),
     'remoteSkinPath' 	=> 'Pixelion',

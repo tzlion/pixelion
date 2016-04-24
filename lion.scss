@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
-$titlefont: "Jockey One";
-//$titlefont: "Archivo Black";
-$regularfont: "Archivo Narrow";
+$titlefont: "Jockey One",Arial,sans-serif;
+$regularfont: "Archivo Narrow",Arial,sans-serif;
 $bodytextsize: 16px;
 $mainbgcolour: rgba(255,255,255,0.95);
 $linecolour: rgba(1,1,1,0.05);
@@ -15,15 +14,15 @@ $segmentbg: rgba(1,1,1,0.02);
 }
 
 @keyframes slidedown {
-    from {max-height:0px;}
+    from {max-height:0;}
     to {max-height:1000px}
 }
 
 body {
     min-width:245px;
-	background-color:rgb(249,195,94);
+	background-color:#ff5080;
    
-    background-image:url("li-sqr2bv.png");
+    background-image:url("bg.jpg");
     background-size:100% auto;
     background-attachment: fixed;
     background-position:center;
@@ -51,7 +50,7 @@ body {
     clear:both;
     background-color: $mainbgcolour;
     padding:20px;
-    box-shadow:0px 1px 3px -1px rgba(0,0,0,0.4);
+    box-shadow:0 1px 3px -1px rgba(0,0,0,0.4);
 
 }
 
@@ -63,14 +62,7 @@ body {
     }
     * {
         max-width:100%;
-		// overflow-x: auto;
-		// http://stackoverflow.com/questions/6421966/css-overflow-x-visible-and-overflow-y-hidden-causing-scrollbar-issue
-		// "If you are using visible for either overflow-x or overflow-y and something other than visible for the other. The visible value is interpreted as auto."
-		// for fuck's sake!
     }
-	table {
-		//overflow-x:auto;
-	}
 	img {
 		height:auto;
 	}
@@ -80,6 +72,9 @@ a{
     text-decoration:none;
     &:hover{
         text-decoration:underline;
+    }
+    img {
+        border:none; // For IE<=10 which apply one by default
     }
 }
 
@@ -118,7 +113,7 @@ a{
 
     ol, ul {
         margin:5px 0 5px 30px;
-        padding:0 0 0 0px;
+        padding:0 0 0 0;
         li {
             margin-top:5px;
             margin-bottom:5px;
@@ -184,7 +179,6 @@ table.wikitable {
         line-height:normal;
     }
     ul {
-        // margin-left:25px;
         margin:0!important;
         list-style:none;
         padding-left:10px!important;
@@ -194,7 +188,7 @@ table.wikitable {
         margin-bottom:5px!important;
     }
     ul ul ul {
-        margin-bottom:0px!important;
+        margin-bottom:0!important;
     }
     .tocnumber:after{
         content:".";
@@ -215,7 +209,7 @@ table.wikitable {
     ul {
         margin:0;
     }
-    li { // mraaaoow
+    li {
         border: 0;
         padding:0 1px;
         margin:0!important;
@@ -233,12 +227,10 @@ table.wikitable {
 }
 
 .main-heading-action {
-    // display:block;
     font-weight:normal;
     font-size:80%;
 }
 .main-heading-whole-prefix {
-    // opacity: 0.7;
     display:inline-block;
     margin-right: 8px;
 }
@@ -254,7 +246,6 @@ h1,h2,h3,h4 {
     font-weight:700;
 }
 h1 {
-    //border-bottom: 1px solid $linecolour;
 	font-size:50px;
     line-height:50px;
     text-align:center;
@@ -331,12 +322,6 @@ hr {
     border:0;
     border-bottom:  1px solid rgba(1,1,1,0.05);
     margin: 40px 0;
-    /*&:after{
-        color: rgba(1,1,1,0.1);
-        content:"★ ★ ★";
-        text-align:center;
-        display:block;
-    }*/
 }
 
 
@@ -366,7 +351,7 @@ hr {
 ul#pagehistory {
     li {
         padding:2px 4px;
-        margin: 5px 0px;
+        margin: 5px 0;
     }
     margin: 10px 0!important; padding: 0; list-style:none;
 }
@@ -387,7 +372,7 @@ ul#preftoc {
     white-space:nowrap;
     background-color:rgba(40,160,255,0.8);
     text-align:right;
-    box-shadow:0px 1px 3px -1px rgba(0,0,0,0.4);
+    box-shadow:0 1px 3px -1px rgba(0,0,0,0.4);
     padding:0;margin:0;list-style:none;
     ul,li {
         padding:0;margin:0;list-style:none;
@@ -413,7 +398,7 @@ ul#preftoc {
     border-right:30px solid rgba(40,160,255,0.5);
     text-align: right;
     a {
-        padding:0px 10px 0px 30px;
+        padding:0 10px 0 30px;
     }
 }
 
@@ -423,7 +408,7 @@ ul#preftoc {
     border-left:30px solid rgba(40,160,255,0.5);
     text-align:left;
     a {
-        padding:0px 30px 0px 10px;
+        padding:0 30px 0 10px;
     }
 }
 
@@ -442,18 +427,11 @@ ul#preftoc {
 
 .portlet#p-tb {
 
-    h3 {
-        //display:none;
-    }
-
     position:relative;
     float:right;
     top:-10px;right:-10px;
 
     h3 {
-        /*position:absolute;
-        top:32px;
-        right:2px;*/
         font-family:$regularfont;
         position:absolute;
         right:0;top:0;
@@ -461,7 +439,7 @@ ul#preftoc {
         width:30px;height:30px;
         text-align:center;
         line-height:30px;
-        font-size:0px;
+        font-size:0;
         font-weight:bold;
         text-decoration:none;
         background-color:rgb( 40,160,255);
@@ -479,9 +457,6 @@ ul#preftoc {
         z-index:999;
         right:0; top:0;
         @include toolstylinright();
-        /* position:absolute;
-         right:2px;
-         top:32px;*/
         .feedlink {
             background-position: 10px center;
         }
@@ -497,8 +472,6 @@ ul#preftoc {
 
 }
 
-
-
 $topmenufont: $titlefont;
 $topmenufontsize:16px;
 $topmenuheight: $topmenufontsize + 10px;
@@ -507,31 +480,17 @@ $topmenuheight: $topmenufontsize + 10px;
     font-family:$topmenufont;
     font-size:$topmenufontsize;
     line-height:$topmenuheight;
-   // min-height: $topmenuheight;
-   // position:absolute;
-   // top:-50px;left:-20px;right:-20px;
     margin: -50px -20px 24px -20px;
-    //width:100%;
     background-color:rgba(0,0,0,0.8);
     color:white;
     &:after{
         display:block;clear:both;content:"";
     }
-    /*white-space:nowrap;
-    overflow-x:auto;*/
-  //  padding-top:5px;
 }
 
-
-
-// aah
-// fuckin
 // aint no sidebar anymore son
-// STEALING SOME TOOLBOX STYLES YOU CAN HAVE EM BACK LATER
-
 .generated-sidebar, .portlet#p-personal {
     display:inline;
-   // margin-top:-5px;
     .pseudo-header {
         display:block;
     }
@@ -574,12 +533,7 @@ $topmenuheight: $topmenufontsize + 10px;
 }
 
 #custom-sidebars {
-  //  border:2px solid red;
-   // display:inline-block;
-     //float:left;
-   //display:block;
-   // float:left;
-   // overflow-x:scroll;
+
 }
 
 .generated-sidebar {
@@ -592,8 +546,6 @@ $topmenuheight: $topmenufontsize + 10px;
 
 .portlet#p-personal {
     background-color:rgba(255,255,255,0.15);
-    //background-color:rgba(40,160,255,0.8);
-    //border-left:2px solid green;
     float:right;
     .pBody {
         @include toolstylinright();
@@ -611,50 +563,10 @@ $topmenuheight: $topmenufontsize + 10px;
                 content: "_";
                 color:rgba(255,255,255,0);
                 margin-right:3px;
-                // content:"★ ";// placeholder for icon.. Maybe
-            }
-        }
-        #pt-anonuserpage {
-            &:before {
-                //content:"☆ ";// placeholder for icon.. Maybe
             }
         }
     }
-
-    // Below is old CSS from when all the personal items were displayed in a row..
-    // Can be re-enabled if we do that again
-    // (also the above CSS for .portlet#p-personal and .generated-sidebar should not be applied to #p-personal)
-    // Maybe with a media query if the page is wide enough
-   /*  float:right;
-   text-align:right;
-    ul,li,div {
-        display:inline;padding:0;margin:0;list-style:none;
-    }
-    li {
-        display:inline-block;
-    }
-    h3 {
-        display:none;
-    }
-    a {
-        color:white;text-decoration:none;padding:2px 5px 2px 0;
-    }*/
 }
-/*
-// Maybe reapply these old styles IF theres only one topbar item
-.portlet#p-navigation {
-
-    ul,li,div {
-        display:inline;padding:0;margin:0;list-style:none;
-    }
-    h3 {
-        display:none;
-    }
-    a {
-        color:white;text-decoration:none;padding:2px 0 2px 5px;
-    }
-}
-*/
 
 #headbar{
     position:relative;
@@ -675,19 +587,11 @@ $topmenuheight: $topmenufontsize + 10px;
     margin-top:17px;
     float:right;
     position:relative;
-//    margin-top:35px;
-//    margin-bottom:10px;
-   // margin-top:50%;
-   // position:relative;
-   // top:50%;
-   // margin-top:-10px;
-    //position:absolute;right:20px;top:-10px;
     h3{
         display:none;
     }
     input{
-        /*height:30px;
-        font-size:20px;*/
+
     }
     #power-search-densetsu {
         right:0;top:-16px;
@@ -700,9 +604,7 @@ $topmenuheight: $topmenufontsize + 10px;
 
 .portlet#p-logo {
     max-width:100%;
-   // float:left;
     font-family: $titlefont;
-   // text-align:center;
 
     #textonly-wiki-name {
         font-size: 70px;
@@ -722,20 +624,17 @@ $topmenuheight: $topmenufontsize + 10px;
     }
 }
 
-
 $pageactionfont: $regularfont;
 $pageactionfontsize: 20px;
 $pageactionheight: $pageactionfontsize + 10px;
+
 .portlet#p-cactions{
-   // clear:both;
     float:left;
     font-family:$pageactionfont;
     font-size:$pageactionfontsize;
     line-height:$pageactionheight;
     position:relative;
     padding-top:17px;
-	/*zzzposition:absolute;
-	top:-$pageactionheight;left:4px;*/
     padding-left:4px;
 
 	white-space:nowrap;
@@ -756,7 +655,7 @@ $pageactionheight: $pageactionfontsize + 10px;
         height:$pageactionheight;line-height:$pageactionheight;
         display:inline-block;
         text-decoration:none;
-        padding:0px 3px;
+        padding:0 3px;
         &:hover {
             color:rgba(255,255,255,0.9);
         }
@@ -768,7 +667,7 @@ $pageactionheight: $pageactionfontsize + 10px;
     [id^=ca-nstab], #ca-talk {
         a {
             background-color:rgba(221,221,221,0.9);
-            padding: 0px 6px;
+            padding: 0 6px;
             color:rgba(0,0,0,0.8);
             &:hover {
                 background-color:rgba(238,238,238,0.9);
@@ -785,7 +684,6 @@ $pageactionheight: $pageactionfontsize + 10px;
     }
 
 }
-
 
 .portlet#p-lang {
     float:left;
@@ -842,9 +740,6 @@ $pageactionheight: $pageactionfontsize + 10px;
           color:rgba(255,255,255,1);
         }
     }
-    img,#viewcount {
-     // display:none;
-    }
 }
 
 // for wikieditor extension
@@ -873,9 +768,6 @@ $pageactionheight: $pageactionfontsize + 10px;
         border:none!important;
         background-color:transparent!important;
     }
-    tr.smwb-center {
-        //text-align:center;
-    }
     tr.smwb-propvalue {
         background-color: $segmentbg!important;
         th,td {
@@ -895,31 +787,13 @@ $pageactionheight: $pageactionfontsize + 10px;
 
 }
 
-
 // comments ext
 .comments-body {
     p {
         margin:0;
     }
     #allcomments {
-       // padding: 0 5px;
-        /*a#end:first-child {
-            // hack way of determining we have no comments
-            // so it doesnt look weird and empty
-            display:block;
-            border: 1px solid $linecolour;
-            background-color: $segmentbg;
-            padding: 10px;
-            text-align:center;
-            &:after {
-                content: "No comments yet";
-                color:rgba(0,0,0,0.5);
-            }
-            &:hover{
-                text-decoration:none;
-            }
-            margin-bottom: 15px;
-        }*/
+
     }
     .c-spy {
         float:right;
@@ -986,7 +860,6 @@ $pageactionheight: $pageactionfontsize + 10px;
             width:auto;
             clear:both;
         }
-       // max-width:500px!important;
 
         margin-left:auto;
         margin-right:auto;

@@ -83,21 +83,20 @@ class PixelionTemplate extends BaseTemplate
         while( $currTitle->mTextform != $parentTitle->mTextform ) {
             $currTitle = $parentTitle;
             $parentTitle = $currTitle->getBaseTitle();
-
             $chain[] = $currTitle->mTextform;
         }
 
-        $bumchain = [];
+        $filteredChain = [];
         foreach( $chain as $key => $item ) {
             if ( isset( $chain[$key+1] ) ) {
                 $nextitem = $chain[$key+1] ;
                 $qnextitem= preg_quote( $nextitem, "~" );
                 $item = preg_replace("~^$qnextitem/~", "", $item );
             }
-            $bumchain[] = $item;
+            $filteredChain[] = $item;
         }
 
-        return $bumchain;
+        return $filteredChain;
     }
 
 
@@ -119,7 +118,6 @@ class PixelionTemplate extends BaseTemplate
         if ( $pageTitleOnly != $prefixedPageTitle ) {
             $quotedPageTitleOnly = preg_quote("$pageTitleOnly","~");
             $prefixOnly = preg_replace( "~:$quotedPageTitleOnly$~", "", $prefixedPageTitle );
-            $quotedPrefixOnly = preg_quote("$prefixOnly","~");
             $prefixSeparator = ":";
         } else {
             $prefixOnly = $prefixSeparator = "";
@@ -318,7 +316,7 @@ class PixelionTemplate extends BaseTemplate
             <? if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) { ?>
                 <?= $this->makeSearchButton( "fulltext", array( "id" => "mw-searchButton", "class" => "searchButton" ) ) ?>
             <? } else { // honestly this is almost redundant now, maybe remove ?>
-                <a id="power-search-densetsu" href="<? $this->text( 'searchaction' ) ?>" rel="search"><? $this->msg( 'powersearch-legend' ) // The Legend of Power Search(tm) Coming Summer 1989 ?></a>
+                <a id="power-search-densetsu" href="<? $this->text( 'searchaction' ) ?>" rel="search"><? $this->msg( 'powersearch-legend' ) ?></a>
             <? } ?>
         </form>
 

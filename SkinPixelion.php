@@ -10,7 +10,7 @@ class SkinPixelion extends SkinTemplate
     {
         $output->addModuleStyles(
             array (
-                // Default MW stuff, maybe bring some of it back
+                // Default MW stuff
                 // "mediawiki.skinning.interface",
                 // "mediawiki.skinning.content.externallinks",
                 "skins.pixelion.harrystyles",
