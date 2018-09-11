@@ -1,6 +1,6 @@
 # Pixelion
 Responsive theme for MediaWiki  
-v0.70 (beta)
+v0.71 (beta)
 
 A theme for MediaWiki that aims to look nice & be usable on a wide range of devices without sacrificing functionality~  
 Code loosely derived from Monobook by Gabriel Wicke
@@ -9,6 +9,12 @@ Also restyles parts of the following extensions for niceness/responsiveness:
 * Comments
 * Semantic MediaWiki
 * WikiEditor
+
+## Example screenshots
+### Desktop
+![Desktop screenshot](example-desktop.png)
+### Mobile
+![Mobile screenshot](example-mobile.png)
 
 ## How to install
 * Place the skin files in a directory called Pixelion in your skins folder
@@ -33,6 +39,7 @@ Also restyles parts of the following extensions for niceness/responsiveness:
 * Also it pretty much falls apart in IE8 or earlier
 
 ## Release history
+* v0.71 fix background aspect ratio
 * v0.70 first public release!
 * v0.69.1 various small tweaks/fixes
 * v0.69 first numbered version
