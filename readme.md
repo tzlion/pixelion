@@ -33,3 +33,5 @@ Also restyles parts of the following extensions for niceness/responsiveness:
 
 ## Release history
 * v0.70 first public release!
+* v0.69.1 various small tweaks/fixes
+* v0.69 first numbered version
