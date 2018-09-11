@@ -1,6 +1,6 @@
 # Pixelion
 Responsive theme for MediaWiki  
-v0.7 (beta)
+v0.70 (beta)
 
 A theme for MediaWiki that aims to look nice & be usable on a wide range of devices without sacrificing functionality~  
 Code loosely derived from Monobook by Gabriel Wicke
