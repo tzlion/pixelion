@@ -16,7 +16,8 @@ Also restyles parts of the following extensions for niceness/responsiveness:
 `require_once "$IP/skins/Pixelion/Pixelion.php";`
 
 ## Usage notes
-* This theme looks pretty good with a background image! A sample (derived from a public-domain photo) is provided as bg.jpg
+* This theme looks pretty good with a background image! A sample (derived from a public-domain photo) is provided as bg.jpg. \
+  Images should be 16:9 aspect ratio to work with the default CSS, otherwise you will have to adjust `max-aspect-ratio` in the media queries.
 * If you omit the background it will fall back to a solid pink colour by default
 * Most background images/colours of your choice will work, but avoid anything too close to white as it will render the page action links invisible or hard to read
 * Logos: unlike Monobook and Vector which are designed for a square-ish logo, this isn't! Try something like a 5:1 width:height ratio for good results. And make it as big as you like, it'll be scaled down for display
