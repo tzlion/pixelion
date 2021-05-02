@@ -30,9 +30,9 @@ class SkinPixelion extends SkinTemplate
     {
         $output->addModuleStyles(
             array (
-                // Default MW stuff
-                // "mediawiki.skinning.interface",
-                // "mediawiki.skinning.content.externallinks",
+                // Legacy shared MW stuff
+                "mediawiki.legacy.shared",
+                "mediawiki.legacy.commonPrint",
                 "skins.pixelion.harrystyles",
             )
         );

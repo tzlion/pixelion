@@ -116,18 +116,12 @@ a img {
 table.wikitable {
   border: 1px solid rgba(1, 1, 1, 0.05);
   background-color: rgba(1, 1, 1, 0.02);
-  margin: 1em 0;
-  border-collapse: collapse;
 }
 table.wikitable th, table.wikitable td {
   border: 1px solid rgba(1, 1, 1, 0.05) !important;
 }
 table.wikitable th {
   background-color: rgba(0, 0, 0, 0.042) !important;
-}
-table.wikitable > tr > th, table.wikitable > tr td, table.wikitable > * > tr > th, table.wikitable > * > tr td {
-  border: 1px #aaa solid;
-  padding: 0.2em;
 }
 
 #filetoc {
@@ -193,8 +187,6 @@ table.wikitable > tr > th, table.wikitable > tr td, table.wikitable > * > tr > t
   margin-left: -20px;
 }
 #catlinks ul {
-  display: inline;
-  list-style: none;
   margin: 0;
 }
 #catlinks li {
@@ -212,10 +204,6 @@ table.wikitable > tr > th, table.wikitable > tr td, table.wikitable > * > tr > t
 #catlinks li:last-child:after {
   padding: 0;
   content: "";
-}
-
-.catlinks-allhidden {
-  display: none;
 }
 
 .main-heading-action {
@@ -329,12 +317,6 @@ hr {
 
 .mw-editsection, .mw-editsection-like {
   font-family: "Archivo Narrow", Arial, sans-serif;
-  font-size: small;
-  font-weight: normal;
-  margin-left: 1em;
-  vertical-align: baseline;
-  line-height: 1em;
-  display: inline-block;
 }
 .mw-editsection a, .mw-editsection-like a {
   text-decoration: none;
@@ -745,11 +727,6 @@ ul#preftoc li.selected {
 }
 @media print {
   .mw-jump, #jump-to-nav {
-    display: none;
-  }
-}
-@media not print {
-  .printfooter {
     display: none;
   }
 }

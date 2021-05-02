@@ -142,14 +142,6 @@ table.wikitable {
 	th {
 		background-color: rgba(0,0,0,0.0420)!important;
 	}
-    margin: 1em 0;
-    border-collapse: collapse;
-    & > tr, & > * > tr {
-        & > th, td {
-            border: 1px #aaa solid;
-            padding: 0.2em;
-        }
-    }
 }
 
 #filetoc { // sigh
@@ -214,8 +206,6 @@ table.wikitable {
     border:1px solid $linecolour;
     background-color:$segmentbg;
     ul {
-        display: inline;
-        list-style: none;
         margin:0;
     }
     li {
@@ -233,9 +223,6 @@ table.wikitable {
           padding:0;content:"";
         }
     }
-}
-.catlinks-allhidden {
-    display: none;
 }
 
 .main-heading-action {
@@ -345,12 +332,6 @@ hr {
 
 .mw-editsection, .mw-editsection-like {
     font-family:$regularfont;
-    font-size: small;
-    font-weight: normal;
-    margin-left: 1em;
-    vertical-align: baseline;
-    line-height: 1em;
-    display: inline-block;
     a {
         text-decoration:none;
     }
@@ -744,11 +725,6 @@ $pageactionheight: $pageactionfontsize + 10px;
     }
 }
 
-@media not print {
-    .printfooter {
-        display: none;
-    }
-}
 
 #lastmod,#viewcount {
     float:right;
