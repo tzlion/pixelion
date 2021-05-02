@@ -187,6 +187,8 @@ table.wikitable th {
   margin-left: -20px;
 }
 #catlinks ul {
+  display: inline;
+  list-style: none;
   margin: 0;
 }
 #catlinks li {
@@ -204,6 +206,10 @@ table.wikitable th {
 #catlinks li:last-child:after {
   padding: 0;
   content: "";
+}
+
+.catlinks-allhidden {
+  display: none;
 }
 
 .main-heading-action {

@@ -207,6 +207,8 @@ table.wikitable {
     border:1px solid $linecolour;
     background-color:$segmentbg;
     ul {
+        display: inline;
+        list-style: none;
         margin:0;
     }
     li {
@@ -224,6 +226,9 @@ table.wikitable {
           padding:0;content:"";
         }
     }
+}
+.catlinks-allhidden {
+    display: none;
 }
 
 .main-heading-action {
