@@ -303,7 +303,14 @@ class PixelionTemplate extends BaseTemplate
 
         $content = $this->makeGenericList( $tools, $this->data( "userlangattributes" ) );
 
-        $this->renderPortlet( "p-personal", "navigation", $title, $content );
+        global $wgUser;
+        if ( !$wgUser || !$wgUser->isLoggedIn() ) {
+            $class = "loggedOutPersonalMenu"; // you can hide this in your custom css if you want
+        } else {
+            $class = "";
+        }
+
+        $this->renderPortlet( "p-personal", "navigation", $title, $content, $class );
     }
 
     /**
