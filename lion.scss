@@ -142,8 +142,15 @@ table.wikitable {
 	th {
 		background-color: rgba(0,0,0,0.0420)!important;
 	}
+    margin: 1em 0;
+    border-collapse: collapse;
+    & > tr, & > * > tr {
+        & > th, td {
+            border: 1px #aaa solid;
+            padding: 0.2em;
+        }
+    }
 }
-
 
 #filetoc { // sigh
 	margin:0 0 10px 0!important;
@@ -336,8 +343,14 @@ hr {
     margin-right:auto;
 }
 
-.mw-editsection {
+.mw-editsection, .mw-editsection-like {
     font-family:$regularfont;
+    font-size: small;
+    font-weight: normal;
+    margin-left: 1em;
+    vertical-align: baseline;
+    line-height: 1em;
+    display: inline-block;
     a {
         text-decoration:none;
     }

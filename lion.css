@@ -116,12 +116,18 @@ a img {
 table.wikitable {
   border: 1px solid rgba(1, 1, 1, 0.05);
   background-color: rgba(1, 1, 1, 0.02);
+  margin: 1em 0;
+  border-collapse: collapse;
 }
 table.wikitable th, table.wikitable td {
   border: 1px solid rgba(1, 1, 1, 0.05) !important;
 }
 table.wikitable th {
   background-color: rgba(0, 0, 0, 0.042) !important;
+}
+table.wikitable > tr > th, table.wikitable > tr td, table.wikitable > * > tr > th, table.wikitable > * > tr td {
+  border: 1px #aaa solid;
+  padding: 0.2em;
 }
 
 #filetoc {
@@ -321,10 +327,16 @@ hr {
   margin-right: auto;
 }
 
-.mw-editsection {
+.mw-editsection, .mw-editsection-like {
   font-family: "Archivo Narrow", Arial, sans-serif;
+  font-size: small;
+  font-weight: normal;
+  margin-left: 1em;
+  vertical-align: baseline;
+  line-height: 1em;
+  display: inline-block;
 }
-.mw-editsection a {
+.mw-editsection a, .mw-editsection-like a {
   text-decoration: none;
 }
 
