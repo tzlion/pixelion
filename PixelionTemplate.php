@@ -359,7 +359,7 @@ class PixelionTemplate extends BaseTemplate
         }
 
         ob_start();
-        wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+        Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );
         $postHookContent = ob_get_clean();
 
         $content = $this->makeGenericList( $this->getToolbox(), "id='tools'", $postHookContent );
