@@ -37,6 +37,8 @@ class SkinPixelion extends SkinTemplate
             )
         );
 
+        $output->addModules( 'jquery.mw-jump' );
+
         parent::setupSkinUserCss( $output );
     }
 }

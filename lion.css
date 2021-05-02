@@ -708,6 +708,33 @@ ul#preftoc li.selected {
   padding-right: 5px;
 }
 
+@media screen {
+  #jump-to-nav {
+    /* Negate #contentSub margin */
+    margin-top: -1.4em;
+    margin-bottom: 1.4em;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .mw-jump, #jump-to-nav {
+    overflow: hidden;
+    height: 0;
+    zoom: 1;
+  }
+}
+@media print {
+  .mw-jump, #jump-to-nav {
+    display: none;
+  }
+}
+@media not print {
+  .printfooter {
+    display: none;
+  }
+}
 #lastmod, #viewcount {
   float: right;
   clear: right;
@@ -872,10 +899,4 @@ ul#preftoc li.selected {
 }
 .comments-body form p {
   margin: 0;
-}
-
-@media not print {
-  .printfooter {
-    display: none;
-  }
 }
