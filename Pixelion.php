@@ -27,7 +27,7 @@ $wgExtensionCredits['skin'][] = array (
     'descriptionmsg' => 'pixelion-desc',
     'url' 		=> 'https://github.com/tzlion/pixelion',
     'author' 	=> array( 'a lion' ),
-    'version'   => '0.71',
+    'version'   => '0.80',
     'license-name' => 'GPLv2+',
 );
 
