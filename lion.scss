@@ -879,3 +879,9 @@ $pageactionheight: $pageactionfontsize + 10px;
         }
     }
 }
+
+@media not print {
+  .printfooter {
+    display: none;
+  }
+}

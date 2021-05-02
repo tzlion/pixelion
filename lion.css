@@ -873,3 +873,9 @@ ul#preftoc li.selected {
 .comments-body form p {
   margin: 0;
 }
+
+@media not print {
+  .printfooter {
+    display: none;
+  }
+}
