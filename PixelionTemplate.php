@@ -567,7 +567,7 @@ class PixelionTemplate extends BaseTemplate
                     <? foreach( $footerLinks as $linkName ) { ?>
                         <? $this->popFooterLink( $linkName, "li" )?>
                     <? } ?>
-                    <li id="self-aggrandisement"><a href='https://github.com/tzlion/pixelion'>Pixelion Theme</a> by <a href="http://lion.li">LION STUDIO</a></li>
+                    <li id="self-aggrandisement"><a href='https://github.com/tzlion/pixelion'>Pixelion Theme</a></li>
                 </ul>
             <? } ?>
 
