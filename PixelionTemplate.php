@@ -47,7 +47,7 @@ class PixelionTemplate extends BaseTemplate
     protected function renderStart()
     {
         $head = $this->data( "headelement" );
-        $extraHeadStuff = "<link href='http://fonts.googleapis.com/css?family=Jockey+One|Archivo+Narrow:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>";
+        $extraHeadStuff = "<link href='//fonts.googleapis.com/css?family=Jockey+One|Archivo+Narrow:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>";
         $extraHeadStuff .= '<meta name="viewport" content="initial-scale=1">';
         // awful
         // i assume theres a way to do this properly but i dunno what it is
